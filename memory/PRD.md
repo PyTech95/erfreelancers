@@ -40,6 +40,16 @@ MONGO_URL, DB_NAME, CORS_ORIGINS, JWT_SECRET, ADMIN_EMAIL, ADMIN_PASSWORD, ADMIN
 - Deps: base image already ships emergentintegrations/litellm/fastapi/etc.; installed slowapi+limits. Frontend `yarn install` OK.
 - Verified: full testing agent E2E (iteration_7) — 42 backend pass / 3 xdist-skipped, all frontend flows pass. Ready for Deploy button.
 
+## Full corpus generation + SEO/GEO hardening (2026-09-21)
+- **51,002 pages generated** (3,643 locations × 14 services), all `approved`, via `/app/scripts/generate_all_pages.py` (reuses checkpointed `store.pipeline_run`, ~8s total, batch inserts of 250).
+- **Sitemaps rewritten dynamic from MongoDB** (`backend/seo.py`): only approved/resolvable pages listed (no 404 URLs → no soft-404/crawl-budget waste). Index = sitemap-core (real SPA routes only: /, /blog, /join-as-freelancer/) + sitemap-blog (published posts) + 11 page shards × 5000. `approved_page_count` cached 5 min in-memory for crawler traffic. Total public URLs: 51,005.
+- **robots.txt** (static `public/robots.txt` + `/api/robots.txt`): correct domain, explicit AI-crawler allows (GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-User, PerplexityBot, Perplexity-User, Google-Extended). Deprecated Google sitemap-ping URL removed (retired by Google).
+- **GEO**: new `public/llms.txt` describing the platform for answer engines.
+- **Per-page SEO**: new `src/lib/seo.ts` `applySeo()` — dynamic title, meta description, canonical (live origin), OG/Twitter, robots meta (`noindex` on /admin). Wired into App.tsx + ServiceLocationDetail (hardcoded erfreelancer.com replaced with `window.location.origin`; JSON-LD now origin-relative).
+- **index.html**: robots meta (max-image-preview:large etc.), geo.region/placename/position/ICBM, theme-color, og:image/twitter:image (`public/og-image.jpg`, generated 1200×630), GSC verification placeholder comment.
+- Verified: testing agent iteration_8 — 16/16 backend, 100% frontend (dynamic title/desc/canonical/JSON-LD on deep links, admin noindex, enquiry flow regression). SEO audit 100/100 pass.
+- **To finish Google indexing after deploy**: attach custom domain → update `PRODUCTION_CANONICAL_DOMAIN` + `public/robots.txt` Sitemap line → verify ownership in Search Console (meta tag placeholder in index.html or drop `google<token>.html` into `frontend/public/`) → submit `/api/sitemap.xml` once → Google discovers/indexes in batches (51k pages index progressively, not instantly).
+
 ## Backlog
 - P1: Real email delivery for leads (Resend/SendGrid) — currently MOCKED/simulated
 - P1: Attach custom domain erfreelancer.com after deploy; Google Search Console verification

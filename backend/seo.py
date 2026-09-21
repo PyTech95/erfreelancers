@@ -34,8 +34,17 @@ def date_only(value):
     return (value or "")[:10] or None
 
 
+_count_cache = {"value": 0, "expires": 0.0}
+
+
 async def approved_page_count() -> int:
-    return await db.pages.count_documents({"lifecycleState": "approved"})
+    # Crawlers poll sitemaps repeatedly; avoid a count_documents scan on every hit.
+    now = datetime.now(timezone.utc).timestamp()
+    if now < _count_cache["expires"]:
+        return _count_cache["value"]
+    _count_cache["value"] = await db.pages.count_documents({"lifecycleState": "approved"})
+    _count_cache["expires"] = now + 300
+    return _count_cache["value"]
 
 
 def shard_count(total: int) -> int:
