@@ -33,6 +33,13 @@ MONGO_URL, DB_NAME, CORS_ORIGINS, JWT_SECRET, ADMIN_EMAIL, ADMIN_PASSWORD, ADMIN
 - [x] Full E2E via testing agent — iteration_1: 45/45 backend, all frontend flows pass; fixed inherited bug in ServiceLocationDetail brief form payload (was sending notes/budget → 422)
 - [x] Deployment readiness check: pass with query-limit warnings (limits added to leads/events/outbox/freelancers queries)
 
+## Re-import into this workspace (2026-06)
+- Uploaded zip (`erfreelancer2-main`) unpacked into `/app`; stack already React+FastAPI+MongoDB (Case A), no port needed.
+- Preserved platform `.env`; added backend keys: JWT_SECRET, ADMIN_EMAIL=admin@erfreelancer.com, ADMIN_PASSWORD=Admin@12345, ADMIN_NOTIFY_EMAIL, PRODUCTION_CANONICAL_DOMAIN, EMERGENT_LLM_KEY, SMTP_ENCRYPTION_KEY, SMTP_HOST, SMTP_PORT.
+- Fixes to boot in this env: removed stray template `src/App.js`/`App.css` (shadowed `App.tsx`) and leftover `frontend/jsconfig.json` (conflicted with `tsconfig.json`, crashed CRA).
+- Deps: base image already ships emergentintegrations/litellm/fastapi/etc.; installed slowapi+limits. Frontend `yarn install` OK.
+- Verified: full testing agent E2E (iteration_7) — 42 backend pass / 3 xdist-skipped, all frontend flows pass. Ready for Deploy button.
+
 ## Backlog
 - P1: Real email delivery for leads (Resend/SendGrid) — currently MOCKED/simulated
 - P1: Attach custom domain erfreelancer.com after deploy; Google Search Console verification

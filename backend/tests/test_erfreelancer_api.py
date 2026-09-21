@@ -5,9 +5,9 @@ import uuid
 import pytest
 import requests
 
-BASE_URL = "https://marketplace-hardened.preview.emergentagent.com".rstrip("/")
-ADMIN_EMAIL = "rajeev.pytech@gmail.com"
-ADMIN_PASSWORD = "ErFreelancer@2026Admin"
+BASE_URL = os.environ.get("REACT_APP_BACKEND_URL", "https://deploy-hub-266.preview.emergentagent.com").rstrip("/")
+ADMIN_EMAIL = os.environ.get("ADMIN_EMAIL", "admin@erfreelancer.com")
+ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "Admin@12345")
 
 
 @pytest.fixture(scope="session")
