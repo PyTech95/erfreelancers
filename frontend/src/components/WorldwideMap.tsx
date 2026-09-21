@@ -27,6 +27,8 @@ export const WorldwideMap: React.FC<Props> = ({ services, onSelectServiceLocatio
   const [rotation, setRotation] = useState<[number, number]>([-78, -21]);
   const [userGeo, setUserGeo] = useState<UserGeo | null>(null);
   const [geoStatus, setGeoStatus] = useState<'idle' | 'locating' | 'done' | 'failed'>('idle');
+  const [geoPrecise, setGeoPrecise] = useState(false);
+  const [precising, setPrecising] = useState(false);
 
   // Animation refs so the rAF loop never gets stale values.
   const rotRef = useRef<[number, number]>([-78, -21]);
@@ -51,10 +53,10 @@ export const WorldwideMap: React.FC<Props> = ({ services, onSelectServiceLocatio
       if (target) {
         const dl = target[0] - cur[0], dp = target[1] - cur[1];
         if (Math.abs(dl) < 0.4 && Math.abs(dp) < 0.4) { rotRef.current = [target[0], target[1]]; targetRef.current = null; }
-        else { rotRef.current = [cur[0] + dl * 0.09, cur[1] + dp * 0.09]; }
+        else { rotRef.current = [cur[0] + dl * 0.16, cur[1] + dp * 0.16]; }
         setRotation([rotRef.current[0], rotRef.current[1]]);
       } else if (autoRef.current && !dragRef.current) {
-        rotRef.current = [cur[0] - 0.12, cur[1]];
+        rotRef.current = [cur[0] - 0.24, cur[1]];
         setRotation([rotRef.current[0], rotRef.current[1]]);
       }
       raf = requestAnimationFrame(tick);
@@ -87,6 +89,29 @@ export const WorldwideMap: React.FC<Props> = ({ services, onSelectServiceLocatio
     if (pauseAuto) { autoRef.current = false; setTimeout(() => { autoRef.current = true; }, 6000); }
   };
 
+  // Ask the browser for exact GPS coordinates (permission prompt) for precise nearby matching.
+  const useMyPreciseLocation = () => {
+    if (!navigator.geolocation) { setGeoStatus('failed'); return; }
+    setPrecising(true);
+    navigator.geolocation.getCurrentPosition(
+      async pos => {
+        const { latitude: lat, longitude: lng } = pos.coords;
+        let label = 'your precise location';
+        try {
+          const r = await apiFetch(`/api/locations/near-me?lat=${lat}&lng=${lng}`);
+          if (r.ok) { const d = await r.json(); if (d?.location?.name) label = `${d.location.name} area`; }
+        } catch { /* keep default label */ }
+        setUserGeo({ lat, lng, country: '', label });
+        setGeoPrecise(true);
+        setGeoStatus('done');
+        setPrecising(false);
+        flyTo(lng, lat);
+      },
+      () => { setPrecising(false); if (geoStatus !== 'done') setGeoStatus('failed'); },
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+    );
+  };
+
   const hubs: Hub[] = data?.hubs || [];
   const visible = hubs.filter(h => region === 'all' || h.region === region);
   const active = visible.find(h => h.location.id === selected) || visible[0];
@@ -102,6 +127,16 @@ export const WorldwideMap: React.FC<Props> = ({ services, onSelectServiceLocatio
     }
     setSelected(best.location.id);
   }, [userGeo, data]);
+
+  // Top-5 hubs nearest to the visitor — these pins get an emphasized "nearby" highlight.
+  const nearby = useMemo(() => {
+    if (!userGeo || hubs.length === 0) return [] as { hub: Hub; km: number }[];
+    return hubs
+      .map(h => ({ hub: h, km: Math.round(geoDistance([userGeo.lng, userGeo.lat], [h.longitude, h.latitude]) * 6371) }))
+      .sort((a, b) => a.km - b.km)
+      .slice(0, 5);
+  }, [userGeo, data]);
+  const nearbyIds = useMemo(() => new Set(nearby.map(n => n.hub.location.id)), [nearby]);
 
   const projection = useMemo(
     () => geoOrthographic().rotate([rotation[0], rotation[1], 0]).scale(R0 * zoom).translate([CX, CY]).clipAngle(90),
@@ -148,7 +183,8 @@ export const WorldwideMap: React.FC<Props> = ({ services, onSelectServiceLocatio
 
       <div data-testid="map-region-filter" className="mb-5 flex flex-wrap gap-2" role="group" aria-label="Map region">
         {regions.map(([id, label]) => <button key={id} data-testid={`map-region-${id}`} aria-pressed={region === id} onClick={() => changeRegion(id)} className={`rounded-lg border px-4 py-2.5 text-xs font-semibold transition-colors ${region === id ? 'border-slate-900 bg-slate-900 text-white' : 'border-slate-200 bg-white text-slate-600 hover:border-slate-400'}`}>{label}</button>)}
-        {userGeo && <button data-testid="map-locate-me" onClick={() => flyTo(userGeo.lng, userGeo.lat)} className="ml-auto flex items-center gap-1.5 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-2.5 text-xs font-semibold text-emerald-700 hover:bg-emerald-100 transition-colors"><Navigation size={13} />Locate me</button>}
+        <button data-testid="map-use-precise" onClick={useMyPreciseLocation} disabled={precising} className="ml-auto flex items-center gap-1.5 rounded-lg border border-emerald-600 bg-emerald-600 px-4 py-2.5 text-xs font-semibold text-white hover:bg-emerald-700 transition-colors disabled:opacity-60">{precising ? <><Loader2 size={13} className="animate-spin" />Locating…</> : <><Navigation size={13} />Use my precise location</>}</button>
+        {userGeo && <button data-testid="map-locate-me" onClick={() => flyTo(userGeo.lng, userGeo.lat)} className="flex items-center gap-1.5 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-2.5 text-xs font-semibold text-emerald-700 hover:bg-emerald-100 transition-colors"><MapPin size={13} />Fly to me</button>}
       </div>
 
       {error && <p data-testid="map-error" role="alert" className="mb-4 text-sm text-rose-700">{error} <button data-testid="map-retry" onClick={load} className="underline">Retry</button></p>}
@@ -159,7 +195,7 @@ export const WorldwideMap: React.FC<Props> = ({ services, onSelectServiceLocatio
             {/* detected-location badge */}
             <div className="absolute left-3 top-3 z-10 flex items-center gap-1.5 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-[11px] font-semibold text-white backdrop-blur">
               {geoStatus === 'locating' && <><Loader2 size={12} className="animate-spin" /> Detecting your location…</>}
-              {geoStatus === 'done' && userGeo && <span data-testid="map-detected-badge"><Navigation size={11} className="mr-1 inline text-emerald-400" />Detected: {userGeo.label}</span>}
+              {geoStatus === 'done' && userGeo && <span data-testid="map-detected-badge"><Navigation size={11} className="mr-1 inline text-emerald-400" />{geoPrecise ? 'Precise' : 'Detected'}: {userGeo.label}</span>}
               {geoStatus === 'failed' && <><Globe2 size={12} /> Live interactive globe</>}
             </div>
 
@@ -204,11 +240,16 @@ export const WorldwideMap: React.FC<Props> = ({ services, onSelectServiceLocatio
               {visible.filter(h => onFront(h.longitude, h.latitude)).map(h => {
                 const p = projection([h.longitude, h.latitude]); if (!p) return null;
                 const isActive = active?.location.id === h.location.id;
+                const isNearby = nearbyIds.has(h.location.id);
+                const dotColor = isActive ? '#34d399' : isNearby ? '#fbbf24' : '#818cf8';
+                const dotR = isActive ? 7 : isNearby ? 6 : 5;
                 return <g key={h.location.id} data-testid={`map-pin-${h.location.slug}`} role="button" tabIndex={0} aria-label={`Select ${h.location.name}`} aria-pressed={isActive} onClick={() => selectHub(h)} onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectHub(h); } }} className="cursor-pointer" transform={`translate(${p[0]},${p[1]})`}>
-                  <title>{h.location.name}, {h.location.countryName}</title>
+                  <title>{h.location.name}, {h.location.countryName}{isNearby ? ' · near you' : ''}</title>
                   {isActive && <circle r={13} fill="#34d399" opacity={0.3}><animate attributeName="r" values="8;16;8" dur="1.8s" repeatCount="indefinite" /><animate attributeName="opacity" values="0.45;0;0.45" dur="1.8s" repeatCount="indefinite" /></circle>}
+                  {!isActive && isNearby && <circle r={12} fill="#fbbf24" opacity={0.3}><animate attributeName="r" values="7;15;7" dur="1.6s" repeatCount="indefinite" /><animate attributeName="opacity" values="0.5;0;0.5" dur="1.6s" repeatCount="indefinite" /></circle>}
+                  {!isActive && !isNearby && <circle r={9} fill="#818cf8" opacity={0.22}><animate attributeName="r" values="5;10;5" dur="2.6s" repeatCount="indefinite" /><animate attributeName="opacity" values="0.3;0;0.3" dur="2.6s" repeatCount="indefinite" /></circle>}
                   <circle r={20} fill="transparent" />
-                  <circle r={isActive ? 7 : 5} fill={isActive ? '#34d399' : '#818cf8'} stroke="white" strokeWidth={2} />
+                  <circle r={dotR} fill={dotColor} stroke="white" strokeWidth={2} />
                 </g>;
               })}
             </svg>
@@ -228,7 +269,13 @@ export const WorldwideMap: React.FC<Props> = ({ services, onSelectServiceLocatio
         </div>
 
         {active && <div data-testid="map-hub-detail" className="space-y-5 py-2">
-          {userGeo && <div className="rounded-xl border border-emerald-100 bg-emerald-50 px-4 py-3 text-xs text-emerald-800"><Navigation size={13} className="mr-1 inline" />Nearest hub to <strong>{userGeo.label}</strong></div>}
+          {userGeo && <div className="rounded-xl border border-emerald-100 bg-emerald-50 px-4 py-3 text-xs text-emerald-800"><Navigation size={13} className="mr-1 inline" />{geoPrecise ? 'Precise location active' : 'Approx. location'} · nearest hub to <strong>{userGeo.label}</strong></div>}
+          {nearby.length > 0 && <div data-testid="map-nearby-panel" className="rounded-xl border border-amber-200 bg-amber-50 p-4">
+            <p className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wide text-amber-800"><MapPin size={13} />Nearby hubs</p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {nearby.map(({ hub, km }) => <button key={hub.location.id} data-testid={`map-nearby-${hub.location.slug}`} onClick={() => selectHub(hub)} aria-pressed={active?.location.id === hub.location.id} className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[11px] font-semibold transition-colors ${active?.location.id === hub.location.id ? 'bg-emerald-600 text-white' : 'bg-white text-amber-900 border border-amber-200 hover:bg-amber-100'}`}>{hub.location.name}<span className="opacity-70">· {km.toLocaleString()} km</span></button>)}
+            </div>
+          </div>}
           <div><p className="text-xs font-semibold uppercase text-emerald-700">{active.location.countryName}</p><h3 data-testid="map-active-location" className="mt-2 font-display text-2xl font-bold text-slate-900">{active.location.name}</h3><p className="mt-3 flex items-center gap-2 text-sm text-slate-600"><Clock size={16} />{active.location.timezone}</p></div>
           <p data-testid="map-local-count" className="border-y border-slate-200 py-4 text-sm text-slate-600"><strong className="text-slate-900">{active.localSpecialists}</strong> approved profiles based in this location<br /><span className="mt-1 inline-block text-xs">Remote matching is available on the service page.</span></p>
           <label className="block text-sm font-semibold text-slate-700">Service<select data-testid="map-service-select" value={service?.id || ''} onChange={e => setServiceId(e.target.value)} className="mt-2 w-full rounded-lg border border-slate-200 bg-white p-3 text-sm font-normal">{services.map(s => <option key={s.id} value={s.id}>{s.title}</option>)}</select></label>
