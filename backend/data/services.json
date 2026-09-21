@@ -1,0 +1,812 @@
+[
+ {
+  "id": "S01",
+  "slug": "freelance-web-developer",
+  "title": "Website Designer & Developer",
+  "category": "Websites",
+  "primaryKeywordFamily": [
+   "freelancer website designer",
+   "freelancer website developer",
+   "freelancer website design",
+   "best freelancer",
+   "best freelancer services",
+   "freelancer near me",
+   "freelance website designer near me",
+   "hire freelance web developer"
+  ],
+  "scopeBoundary": "Bespoke business websites, responsive UI/UX design, modern front-ends (React, Next.js, HTML5), CMS integration, performance optimization, and accessibility compliance.",
+  "deliverables": [
+   "Custom UI/UX responsive design mockups and design system",
+   "High-performance front-end code with modern frameworks",
+   "Content management system (CMS) integration and editor training",
+   "Third-party API, CRM, and analytics integrations",
+   "Technical SEO baseline and Core Web Vitals optimization"
+  ],
+  "exclusions": [
+   "Unbounded post-launch content writing",
+   "Third-party hosting/domain vendor fees"
+  ],
+  "techOptions": [
+   "React / Next.js",
+   "Vue / Nuxt",
+   "TypeScript",
+   "Tailwind CSS",
+   "Headless CMS (Sanity, Strapi)"
+  ],
+  "briefQuestions": [
+   {
+    "id": "site_purpose",
+    "question": "What is the primary purpose of your website?",
+    "placeholder": "e.g., Lead generation, company portfolio, brand credibility",
+    "type": "text"
+   },
+   {
+    "id": "existing_site",
+    "question": "Do you have an existing website to replace or upgrade?",
+    "placeholder": "Provide URL if applicable",
+    "type": "text"
+   },
+   {
+    "id": "content_readiness",
+    "question": "Is your text copy and branding imagery ready?",
+    "placeholder": "Select status",
+    "type": "select",
+    "options": [
+     "Complete and ready",
+     "Drafted, needs polishing",
+     "Need guidance from scratch"
+    ]
+   },
+   {
+    "id": "target_launch",
+    "question": "What is your target launch timeframe?",
+    "placeholder": "e.g., Within 4 weeks, 2 months, flexible",
+    "type": "text"
+   }
+  ],
+  "typicalTimelineDays": "14 - 35 days",
+  "pricingFactors": [
+   "Page count & layout complexity",
+   "Custom interactive widgets & calculators",
+   "CMS integration depth",
+   "Asset readiness"
+  ],
+  "active": true
+ },
+ {
+  "id": "S02",
+  "slug": "freelance-app-developer",
+  "title": "Mobile App Development",
+  "category": "Apps & Software",
+  "primaryKeywordFamily": [
+   "freelancer app developer",
+   "freelance mobile app developer",
+   "iOS Android freelancer"
+  ],
+  "scopeBoundary": "Cross-platform (React Native, Flutter) and native iOS/Android applications, mobile UI/UX, backend API synchronization, push notifications, and app store release management.",
+  "deliverables": [
+   "Interactive mobile wireframes and high-fidelity prototypes",
+   "Production-ready iOS and Android application binaries",
+   "REST / GraphQL API backend integration and offline data sync",
+   "Authentication, push notifications, and device hardware integration",
+   "App Store and Google Play review submission packaging"
+  ],
+  "exclusions": [
+   "App Store developer account annual fees ($99/year Apple, $25 Google)",
+   "Ongoing server cloud hosting bills"
+  ],
+  "techOptions": [
+   "React Native",
+   "Flutter",
+   "iOS Swift / Android Kotlin",
+   "Node.js / Firebase backend",
+   "GraphQL"
+  ],
+  "briefQuestions": [
+   {
+    "id": "app_platform",
+    "question": "Which platforms do you need to target?",
+    "placeholder": "Select platform",
+    "type": "select",
+    "options": [
+     "Both iOS & Android (Cross-platform)",
+     "iOS only",
+     "Android only",
+     "Web app + Mobile companion"
+    ]
+   },
+   {
+    "id": "core_features",
+    "question": "What are the top 3 core capabilities of the app?",
+    "placeholder": "e.g., User booking, geo-tracking, in-app messaging",
+    "type": "text"
+   },
+   {
+    "id": "backend_status",
+    "question": "Do you have an existing backend API?",
+    "placeholder": "Select status",
+    "type": "select",
+    "options": [
+     "Yes, APIs are ready to connect",
+     "Need backend built from scratch",
+     "Not sure yet"
+    ]
+   },
+   {
+    "id": "language_rtl",
+    "question": "Does your application require right-to-left (RTL) or Arabic language support?",
+    "placeholder": "Select requirement",
+    "type": "select",
+    "options": [
+     "English only",
+     "Multi-language including Arabic/RTL",
+     "Multi-language European/Asian"
+    ]
+   }
+  ],
+  "typicalTimelineDays": "30 - 75 days",
+  "pricingFactors": [
+   "Number of unique screen templates",
+   "Third-party SDK integrations (payments, maps)",
+   "Offline sync architecture",
+   "Backend complexity"
+  ],
+  "active": true
+ },
+ {
+  "id": "S03",
+  "slug": "freelance-wordpress-developer",
+  "title": "WordPress Development & Optimization",
+  "category": "Websites",
+  "primaryKeywordFamily": [
+   "freelancer WordPress developer",
+   "WordPress freelancer",
+   "hire WordPress expert"
+  ],
+  "scopeBoundary": "Custom block/Gutenberg themes, tailored WooCommerce online stores, bespoke plugin development, site migrations, malware remediation, and speed tuning.",
+  "deliverables": [
+   "Custom lightweight Gutenberg-compatible WordPress theme",
+   "WooCommerce setup with localized payment gateways and shipping rules",
+   "Performance audit and speed optimization (sub-1.5s loading)",
+   "Security hardening and automated backup configuration",
+   "Zero-downtime database and asset migration to your production server"
+  ],
+  "exclusions": [
+   "Purchases of third-party premium plugin licenses",
+   "Manual data entry for thousands of unformatted products"
+  ],
+  "techOptions": [
+   "Custom Gutenberg Blocks",
+   "WooCommerce",
+   "PHP 8.3+",
+   "Roots Sage / Tailwind",
+   "Redis Object Cache"
+  ],
+  "briefQuestions": [
+   {
+    "id": "wp_nature",
+    "question": "Is this a new WordPress build, revamp, or bug fix?",
+    "placeholder": "Select nature",
+    "type": "select",
+    "options": [
+     "Brand new custom site",
+     "Revamp existing site",
+     "Performance & speed fix",
+     "Custom plugin / feature"
+    ]
+   },
+   {
+    "id": "ecommerce_needed",
+    "question": "Will you be selling products or digital downloads (WooCommerce)?",
+    "placeholder": "Select option",
+    "type": "select",
+    "options": [
+     "No, informational / editorial only",
+     "Yes, up to 100 products",
+     "Yes, large store (1000+ items)"
+    ]
+   },
+   {
+    "id": "current_host",
+    "question": "Where is your site hosted or planned to be hosted?",
+    "placeholder": "e.g., Kinsta, WP Engine, Cloudways, VPS",
+    "type": "text"
+   }
+  ],
+  "typicalTimelineDays": "10 - 25 days",
+  "pricingFactors": [
+   "Custom vs pre-built theme modification",
+   "WooCommerce checkout customization",
+   "Database size & legacy cleanup"
+  ],
+  "active": true
+ },
+ {
+  "id": "S04",
+  "slug": "freelance-ai-website-developer",
+  "title": "AI Website Development",
+  "category": "Websites",
+  "primaryKeywordFamily": [
+   "freelancer AI website developer",
+   "AI website freelancer",
+   "smart website development"
+  ],
+  "scopeBoundary": "Websites engineered with purposeful generative AI integrations: intelligent recommendation engines, vector search, retrieval-augmented assistants, and automated content workflows.",
+  "deliverables": [
+   "Modern web application interface with native AI interactive patterns",
+   "Server-side LLM orchestration with streaming responses and guardrails",
+   "RAG (Retrieval-Augmented Generation) pipeline over company knowledge base",
+   "Embeddings search and hybrid retrieval for catalogs or archives",
+   "Usage analytics, rate-limiting, and API cost-capping controls"
+  ],
+  "exclusions": [
+   "Raw model training from foundation scratch",
+   "Monthly API token usage costs paid to model providers"
+  ],
+  "techOptions": [
+   "Google Gemini API",
+   "OpenAI API",
+   "LangChain / Vercel AI SDK",
+   "Pinecone / pgvector",
+   "Next.js"
+  ],
+  "briefQuestions": [
+   {
+    "id": "ai_intent",
+    "question": "What specific problem should the AI feature solve on your site?",
+    "placeholder": "e.g., Intelligent product advisor, automated quote generator, custom search",
+    "type": "text"
+   },
+   {
+    "id": "knowledge_source",
+    "question": "What proprietary data will the AI access?",
+    "placeholder": "e.g., PDF catalogs, database records, FAQ documents, live API",
+    "type": "text"
+   }
+  ],
+  "typicalTimelineDays": "18 - 40 days",
+  "pricingFactors": [
+   "Vector database architecture",
+   "Context window & retrieval complexity",
+   "Evaluation & guardrail requirements"
+  ],
+  "active": true
+ },
+ {
+  "id": "S05",
+  "slug": "freelance-seo-expert",
+  "title": "Search Engine Optimization (SEO)",
+  "category": "Growth & Automation",
+  "primaryKeywordFamily": [
+   "freelancer SEO",
+   "freelance SEO specialist",
+   "hire technical SEO expert"
+  ],
+  "scopeBoundary": "Rigorous technical audits, Core Web Vitals remediation, crawl architecture, canonical hierarchy, on-page optimization, content strategy, and organic measurement.",
+  "deliverables": [
+   "Comprehensive technical audit addressing crawl bloat, 4xx/5xx errors, and redirect loops",
+   "Canonical hierarchy and XML sitemap shard architecture blueprint",
+   "Structured data (JSON-LD) implementation for verifiable entities",
+   "Page speed and Core Web Vitals field metric remediation",
+   "Targeted keyword intent mapping and content gap analysis"
+  ],
+  "exclusions": [
+   "Guaranteed #1 organic ranking promises (violates search ethics)",
+   "Paid link-buying schemes"
+  ],
+  "techOptions": [
+   "Google Search Console",
+   "Screaming Frog",
+   "Schema.org JSON-LD",
+   "Lighthouse / Web Vitals",
+   "PostHog / GA4"
+  ],
+  "briefQuestions": [
+   {
+    "id": "seo_target_url",
+    "question": "What is your current website URL?",
+    "placeholder": "https://example.com",
+    "type": "text"
+   },
+   {
+    "id": "seo_priority",
+    "question": "What is your primary SEO objective?",
+    "placeholder": "Select priority",
+    "type": "select",
+    "options": [
+     "Fix technical penalties & crawl errors",
+     "Improve Core Web Vitals speed",
+     "International / multi-region targeting",
+     "Content strategy & keyword architecture"
+    ]
+   }
+  ],
+  "typicalTimelineDays": "15 - 30 days initial sprint",
+  "pricingFactors": [
+   "Site size (page count)",
+   "Severity of legacy technical debt",
+   "International vs single-market scope"
+  ],
+  "active": true
+ },
+ {
+  "id": "S06",
+  "slug": "freelance-smo-expert",
+  "title": "Social Media Optimization (SMO)",
+  "category": "Growth & Automation",
+  "primaryKeywordFamily": [
+   "freelancer SMO",
+   "freelance social media specialist",
+   "social profile optimization"
+  ],
+  "scopeBoundary": "Channel architecture, profile conversion optimization, branded creative asset design, content scheduling systems, and audience engagement workflows.",
+  "deliverables": [
+   "Profile audit and bio/link conversion pathway optimization across LinkedIn, X, Instagram",
+   "Branded template system for social graphics and video carousels",
+   "30-day editorial content calendar and caption distribution framework",
+   "Social tracking pixels and campaign attribution setup",
+   "Direct message enquiry capture automation"
+  ],
+  "exclusions": [
+   "Ad spend budget for sponsored boost campaigns",
+   "24/7 real-time community comment moderation"
+  ],
+  "techOptions": [
+   "Figma design systems",
+   "Buffer / Typefully",
+   "Meta Business Suite",
+   "UTM tracking architectures"
+  ],
+  "briefQuestions": [
+   {
+    "id": "smo_channels",
+    "question": "Which social platforms are most critical for your business?",
+    "placeholder": "e.g., LinkedIn for B2B, Instagram & YouTube for B2C",
+    "type": "text"
+   },
+   {
+    "id": "smo_assets",
+    "question": "Do you have existing visual branding guidelines?",
+    "placeholder": "Select status",
+    "type": "select",
+    "options": [
+     "Yes, brand guidelines are ready",
+     "Need brand visual templates designed",
+     "Starting completely fresh"
+    ]
+   }
+  ],
+  "typicalTimelineDays": "10 - 20 days",
+  "pricingFactors": [
+   "Number of target platforms",
+   "Volume of custom graphical asset templates",
+   "Automation complexity"
+  ],
+  "active": true
+ },
+ {
+  "id": "S07",
+  "slug": "freelance-ecommerce-developer",
+  "title": "Ecommerce Development",
+  "category": "Websites",
+  "primaryKeywordFamily": [
+   "freelance ecommerce developer",
+   "Shopify freelancer",
+   "custom storefront developer"
+  ],
+  "scopeBoundary": "High-converting online storefronts, catalog architecture, secure multi-currency checkout, payment gateway integrations, and inventory synchronization.",
+  "deliverables": [
+   "Tailored storefront design engineered for mobile checkout conversion",
+   "Catalog data modeling with variant matrices, filters, and smart search",
+   "Stripe, PayPal, Apple Pay, and local regional gateway integration",
+   "Automated shipping calculation, tax rules, and order confirmation emails",
+   "Inventory ERP or accounting system webhooks integration"
+  ],
+  "exclusions": [
+   "Merchant payment processing fees charged by gateways",
+   "Customer service returns handling"
+  ],
+  "techOptions": [
+   "Shopify Liquid / Hydrogen",
+   "WooCommerce",
+   "Medusa.js / Next.js Commerce",
+   "Stripe API"
+  ],
+  "briefQuestions": [
+   {
+    "id": "ecom_platform",
+    "question": "Preferred ecommerce framework or platform?",
+    "placeholder": "Select preference",
+    "type": "select",
+    "options": [
+     "Shopify",
+     "WooCommerce",
+     "Custom Headless (Next.js + Stripe)",
+     "Help me choose based on budget"
+    ]
+   },
+   {
+    "id": "sku_count",
+    "question": "Approximate number of product SKUs to launch with?",
+    "placeholder": "e.g., 10 products, 150 items, 5000+ catalog",
+    "type": "text"
+   },
+   {
+    "id": "multi_currency",
+    "question": "Do you require multi-currency or international shipping?",
+    "placeholder": "Select requirement",
+    "type": "select",
+    "options": [
+     "Domestic single-currency only",
+     "Multi-currency worldwide shipping",
+     "Localized regional warehouses"
+    ]
+   }
+  ],
+  "typicalTimelineDays": "20 - 50 days",
+  "pricingFactors": [
+   "Custom checkout flow requirements",
+   "ERP / 3PL warehouse integrations",
+   "Catalog migration complexity"
+  ],
+  "active": true
+ },
+ {
+  "id": "S08",
+  "slug": "freelance-software-developer",
+  "title": "Custom Software Development",
+  "category": "Apps & Software",
+  "primaryKeywordFamily": [
+   "freelance software developer",
+   "bespoke software freelancer",
+   "custom web application developer"
+  ],
+  "scopeBoundary": "Bespoke web applications, internal operational tools, secure multi-tenant SaaS platforms, REST/GraphQL APIs, and relational database architectures.",
+  "deliverables": [
+   "System architecture document and normalized relational database schema",
+   "Secure backend API with role-based access control (RBAC)",
+   "Clean, responsive administrator and user web application portals",
+   "Automated unit and integration test coverage for business logic",
+   "Docker containerization and production deployment CI/CD pipeline"
+  ],
+  "exclusions": [
+   "24/7 dedicated tier-1 customer helpdesk",
+   "Unlimited unscoped scope changes post-signoff"
+  ],
+  "techOptions": [
+   "Node.js / Express",
+   "TypeScript",
+   "PostgreSQL / Cloud SQL",
+   "React / Next.js",
+   "Docker / Cloud Run"
+  ],
+  "briefQuestions": [
+   {
+    "id": "software_vision",
+    "question": "What core business workflow will this custom software replace or power?",
+    "placeholder": "Describe the daily operational bottleneck",
+    "type": "text"
+   },
+   {
+    "id": "user_roles",
+    "question": "What distinct user roles will interact with the system?",
+    "placeholder": "e.g., Super Admin, Client, Manager, Contractor",
+    "type": "text"
+   }
+  ],
+  "typicalTimelineDays": "30 - 90 days",
+  "pricingFactors": [
+   "Data entity relationships & permissions complexity",
+   "Third-party API synchronization requirements",
+   "Reporting & analytics exports"
+  ],
+  "active": true
+ },
+ {
+  "id": "S09",
+  "slug": "freelance-erp-developer",
+  "title": "ERP Development & Integration",
+  "category": "Apps & Software",
+  "primaryKeywordFamily": [
+   "freelance ERP developer",
+   "ERP implementation specialist",
+   "custom business ERP"
+  ],
+  "scopeBoundary": "Connected enterprise resource planning modules: inventory, procurement, invoicing, human resources, audit logging, and legacy data migration.",
+  "deliverables": [
+   "Modular operational schema (Inventory, Orders, Invoices, Team)",
+   "Fine-grained permission hierarchies with immutable audit trail",
+   "Clean data migration script transforming legacy spreadsheets or databases",
+   "Automated financial and stock turnover reporting dashboards",
+   "Staff walkthrough video guides and administrator operational manual"
+  ],
+  "exclusions": [
+   "Certified statutory tax filing liability (belongs to client CPA)",
+   "Physical hardware barcode scanner procurement"
+  ],
+  "techOptions": [
+   "PostgreSQL",
+   "Node.js / Go",
+   "Next.js Enterprise Portal",
+   "Metabase / Retool",
+   "Redis"
+  ],
+  "briefQuestions": [
+   {
+    "id": "erp_modules",
+    "question": "Which operational modules are required in Phase 1?",
+    "placeholder": "e.g., Inventory, Procurement, Client Invoicing, Time Tracking",
+    "type": "text"
+   },
+   {
+    "id": "legacy_data",
+    "question": "Where does your operational data live today?",
+    "placeholder": "e.g., Multiple Excel sheets, legacy Access DB, SAP export",
+    "type": "text"
+   }
+  ],
+  "typicalTimelineDays": "45 - 120 days (Phased rollout)",
+  "pricingFactors": [
+   "Number of discrete modules",
+   "Data cleanliness of legacy import",
+   "Custom integration with bank/logistics APIs"
+  ],
+  "active": true
+ },
+ {
+  "id": "S10",
+  "slug": "freelance-crm-developer",
+  "title": "CRM Development & Sales Pipelines",
+  "category": "Apps & Software",
+  "primaryKeywordFamily": [
+   "freelance CRM developer",
+   "custom CRM freelancer",
+   "sales pipeline automation"
+  ],
+  "scopeBoundary": "Custom lead management pipelines, customer lifecycle tracking, deal scoring, automated communication triggers, and communication history timelines.",
+  "deliverables": [
+   "Custom visual deal pipeline stages tailored to your sales process",
+   "Unified lead activity timeline (emails, calls, WhatsApp notes, proposals)",
+   "Automated lead qualification and assign-to-rep routing rules",
+   "Web-to-lead form embeds with instant notification webhooks",
+   "Sales conversion funnel analytics and quota performance reports"
+  ],
+  "exclusions": [
+   "Outbound cold calling execution",
+   "Third-party telephony carrier call charges"
+  ],
+  "techOptions": [
+   "Custom TypeScript Stack",
+   "Supabase / PostgreSQL",
+   "HubSpot / Close API integration",
+   "Twilio / SendGrid"
+  ],
+  "briefQuestions": [
+   {
+    "id": "sales_flow",
+    "question": "How do new leads enter your business today?",
+    "placeholder": "e.g., Website forms, inbound referrals, LinkedIn campaigns",
+    "type": "text"
+   },
+   {
+    "id": "team_size",
+    "question": "How many sales representatives or managers will use the CRM?",
+    "placeholder": "e.g., Solo founder, 5 sales reps, 20+ team",
+    "type": "text"
+   }
+  ],
+  "typicalTimelineDays": "15 - 45 days",
+  "pricingFactors": [
+   "Custom built system vs customized SaaS setup",
+   "Number of automated workflow rules",
+   "Legacy contact migration"
+  ],
+  "active": true
+ },
+ {
+  "id": "S11",
+  "slug": "freelance-ai-automation-developer",
+  "title": "AI Workflow Automation",
+  "category": "Growth & Automation",
+  "primaryKeywordFamily": [
+   "freelance AI automation developer",
+   "AI workflow freelancer",
+   "process automation specialist"
+  ],
+  "scopeBoundary": "End-to-end operational automation connecting webhooks, LLM analysis, document parsing, automated drafting, and asynchronous integration pipelines.",
+  "deliverables": [
+   "Document and email processing pipeline using structured LLM extraction",
+   "Autonomous enquiry classification and draft response generation",
+   "Multi-app integration flows (Make, n8n, Zapier or custom code webhooks)",
+   "Error catching, dead-letter retries, and human-in-the-loop review queues",
+   "Operational time-saved analytics report"
+  ],
+  "exclusions": [
+   "Unbounded third-party automation software subscriptions",
+   "Replacing human legal/medical signoffs"
+  ],
+  "techOptions": [
+   "n8n (Self-hosted)",
+   "Make.com",
+   "Python / Node.js cloud workers",
+   "Gemini Structured Outputs",
+   "Webhooks"
+  ],
+  "briefQuestions": [
+   {
+    "id": "repetitive_task",
+    "question": "What repetitive manual task consumes the most staff hours each week?",
+    "placeholder": "e.g., Reading invoice PDFs and typing into sheets, triaging emails",
+    "type": "text"
+   },
+   {
+    "id": "apps_to_connect",
+    "question": "Which applications need to talk to each other?",
+    "placeholder": "e.g., Gmail, Google Sheets, Slack, QuickBooks, Stripe",
+    "type": "text"
+   }
+  ],
+  "typicalTimelineDays": "10 - 30 days",
+  "pricingFactors": [
+   "Number of connected external APIs",
+   "Document structure predictability",
+   "Human-in-the-loop approval UI"
+  ],
+  "active": true
+ },
+ {
+  "id": "S12",
+  "slug": "freelance-google-ads-specialist",
+  "title": "Google Ads & PPC Campaign Management",
+  "category": "Growth & Automation",
+  "primaryKeywordFamily": [
+   "freelance Google Ads specialist",
+   "PPC freelancer",
+   "Google search ads expert"
+  ],
+  "scopeBoundary": "High-intent search campaign architecture, negative keyword structures, landing page conversion tracking, bid strategy optimization, and ROAS reporting.",
+  "deliverables": [
+   "Targeted Search and Performance Max campaign structure with exact negative keyword lists",
+   "Server-side Google Tag Manager and enhanced conversion tracking implementation",
+   "High-converting ad copy variations tailored to commercial intent",
+   "Landing page quality score and bounce rate audit",
+   "Transparent weekly performance dashboard tracking CPA and qualified leads"
+  ],
+  "exclusions": [
+   "Direct ad spend billed by Google Ads to client credit card",
+   "Unrealistic guarantees of fixed cost-per-click"
+  ],
+  "techOptions": [
+   "Google Ads",
+   "Google Tag Manager",
+   "GA4 Enhanced Conversions",
+   "Looker Studio"
+  ],
+  "briefQuestions": [
+   {
+    "id": "monthly_ad_spend",
+    "question": "What is your planned monthly ad spend budget?",
+    "placeholder": "e.g., $1,000 - $3,000/mo, $5,000+/mo",
+    "type": "text"
+   },
+   {
+    "id": "target_geography",
+    "question": "Which cities or countries are you targeting?",
+    "placeholder": "e.g., Specific metro areas, nationwide, international",
+    "type": "text"
+   }
+  ],
+  "typicalTimelineDays": "7 - 14 days campaign build + ongoing monthly optimization",
+  "pricingFactors": [
+   "Number of product/service categories",
+   "Conversion tracking audit requirements",
+   "Account restructuring needs"
+  ],
+  "active": true
+ },
+ {
+  "id": "S13",
+  "slug": "freelance-whatsapp-automation-specialist",
+  "title": "WhatsApp Business API & Automation",
+  "category": "Growth & Automation",
+  "primaryKeywordFamily": [
+   "freelance WhatsApp automation specialist",
+   "WhatsApp chatbot freelancer",
+   "WhatsApp API expert"
+  ],
+  "scopeBoundary": "Official WhatsApp Business Cloud API integration, automated enquiry triaging, opt-in appointment reminders, order notifications, and live-chat handoff.",
+  "deliverables": [
+   "Meta Business Manager WhatsApp Cloud API provisioning and verification guidance",
+   "Opt-in interactive messaging flows (buttons, lists, catalog browsing)",
+   "CRM integration recording customer conversations and contact details",
+   "Automated transactional triggers (order updates, booking confirmations)",
+   "Agent live-chat dashboard with routing rules"
+  ],
+  "exclusions": [
+   "Unsolicited spam broadcast lists (strictly prohibited by Meta policy)",
+   "Meta conversation fees billed by Meta directly"
+  ],
+  "techOptions": [
+   "WhatsApp Business Cloud API",
+   "Meta Graph API",
+   "Node.js Webhook Receivers",
+   "Twilio / Wati / MessageBird"
+  ],
+  "briefQuestions": [
+   {
+    "id": "whatsapp_goal",
+    "question": "What is the primary objective of your WhatsApp automation?",
+    "placeholder": "e.g., Instant lead qualification from ads, appointment reminders, support triage",
+    "type": "text"
+   },
+   {
+    "id": "meta_verification",
+    "question": "Do you have an approved Meta Business Manager account?",
+    "placeholder": "Select status",
+    "type": "select",
+    "options": [
+     "Yes, fully verified",
+     "Account exists but unverified",
+     "Need help setting up from scratch"
+    ]
+   }
+  ],
+  "typicalTimelineDays": "10 - 25 days",
+  "pricingFactors": [
+   "Message template approvals complexity",
+   "Integration depth with backend database or CRM",
+   "Live-agent fallback UI"
+  ],
+  "active": true
+ },
+ {
+  "id": "S14",
+  "slug": "freelance-landing-page-designer",
+  "title": "High-Converting Landing Page Design",
+  "category": "Websites",
+  "primaryKeywordFamily": [
+   "freelance landing page designer",
+   "conversion rate optimization freelancer",
+   "sales page designer"
+  ],
+  "scopeBoundary": "Single-minded campaign landing pages engineered for immediate action: persuasive copywriting hierarchy, lightning-fast load times, clear forms, and A/B test setup.",
+  "deliverables": [
+   "Persuasive section hierarchy matching visitor search intent",
+   "Custom responsive landing page build with clean semantic code",
+   "Conversion-optimized multi-step form with lead validation",
+   "Heatmap and event tracking instrumentation (scroll depth, clicks)",
+   "Speed optimization achieving 95+ Lighthouse mobile score"
+  ],
+  "exclusions": [
+   "Multi-page corporate website architecture (handled in S01)",
+   "Writing 20 distinct advertorial articles"
+  ],
+  "techOptions": [
+   "Tailwind CSS",
+   "React / Next.js",
+   "PostHog / Microsoft Clarity",
+   "Stripe / Formspree / Custom API"
+  ],
+  "briefQuestions": [
+   {
+    "id": "traffic_source",
+    "question": "Where will visitors to this landing page come from?",
+    "placeholder": "e.g., Google Ads, Meta Ads, cold email, newsletter sponsor",
+    "type": "text"
+   },
+   {
+    "id": "single_conversion",
+    "question": "What is the ONE action you want the visitor to take?",
+    "placeholder": "e.g., Book a demo call, submit enquiry, purchase single offer",
+    "type": "text"
+   }
+  ],
+  "typicalTimelineDays": "5 - 12 days",
+  "pricingFactors": [
+   "Copywriting assistance needs",
+   "Custom illustrations / 3D mockup assets",
+   "A/B split testing configuration"
+  ],
+  "active": true
+ }
+]

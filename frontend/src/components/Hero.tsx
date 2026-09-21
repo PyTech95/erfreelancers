@@ -1,0 +1,36 @@
+import React, { useEffect, useState } from 'react';
+import { ArrowRight, LocateFixed, Search, Check, MapPin } from 'lucide-react';
+import { motion, useReducedMotion } from 'framer-motion';
+import { apiFetch } from '../api';
+import { ServiceDefinition } from '../types';
+
+interface Props { onStartProject: (serviceId?: string, locationName?: string) => void; onExploreServices: () => void; onSelectServiceLocation: (serviceSlug: string, locationPath: string) => void; }
+export const Hero: React.FC<Props> = ({ onStartProject, onExploreServices, onSelectServiceLocation }) => {
+  const reduceMotion = useReducedMotion();
+  const [services, setServices] = useState<ServiceDefinition[]>([]); const [serviceId, setServiceId] = useState('S01');
+  const [location, setLocation] = useState(''); const [busy, setBusy] = useState(false); const [feedback, setFeedback] = useState('');
+  useEffect(() => { apiFetch('/api/services').then(r => r.json()).then(d => setServices(d.services || [])).catch(() => setFeedback('Services could not load. Please try again shortly.')); }, []);
+  const search = async (e: React.FormEvent) => { e.preventDefault(); setBusy(true); setFeedback(''); try { const r = await apiFetch(`/api/locations?search=${encodeURIComponent(location.trim())}&limit=5`); if (!r.ok) throw new Error(); const data = await r.json(); const loc = data.locations.find((l: any) => l.name.toLowerCase() === location.trim().toLowerCase()) || data.locations[0]; const service = services.find(s => s.id === serviceId); if (!loc || !service) { setFeedback('No matching city found. Try Delhi, Mumbai, London or Singapore.'); return; } onSelectServiceLocation(service.slug, loc.canonicalPath); } catch { setFeedback('Search is unavailable. Please retry.'); } finally { setBusy(false); } };
+  const detect = () => {
+    if (!navigator.geolocation) { setFeedback('Location is unavailable. Enter your city instead.'); return; }
+    setBusy(true); setFeedback('Finding your nearest service hub…');
+    navigator.geolocation.getCurrentPosition(async p => { try { const r = await apiFetch(`/api/locations/near-me?lat=${p.coords.latitude}&lng=${p.coords.longitude}`); if (!r.ok) throw new Error(); const d = await r.json(); setLocation(d.location.name); setFeedback(`Nearest known service hub: ${d.location.name} (${d.distanceKm} km). Remote services are also available.`); } catch { setFeedback('Could not find a hub. Enter your city instead.'); } finally { setBusy(false); } }, () => { setBusy(false); setFeedback('Location permission unavailable. Enter your city instead.'); }, { timeout: 8000 });
+  };
+  return <section id="hero" data-testid="home-hero">
+    <div className="hero-photo relative isolate overflow-hidden bg-slate-900">
+      <img data-testid="hero-workspace-image" src="https://images.unsplash.com/photo-1742440710226-450e3b85c100?auto=format&fit=crop&w=1920&q=85" alt="Developers collaborating at a studio workspace" className="absolute inset-0 -z-20 h-full w-full object-cover object-center" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-slate-950/95 via-slate-950/85 to-slate-950/35" />
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20"><div className="max-w-2xl">
+        <p className="mb-5 flex items-center gap-2 text-xs font-semibold uppercase text-emerald-300"><span className="h-1.5 w-1.5 rounded-full bg-emerald-300" />Independent talent. Direct collaboration.</p>
+        <motion.h1 data-testid="hero-heading" initial={reduceMotion ? false : { opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: reduceMotion ? 0 : 0.7, ease: 'easeOut' }} className="max-w-full break-words font-display text-4xl font-semibold leading-[1.12] text-white sm:text-5xl lg:text-6xl">
+          <motion.span data-testid="hero-heading-intro" initial={reduceMotion ? false : { opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : 0.1 }} className="block max-w-full">Your next idea,{' '}</motion.span>
+          <span data-testid="hero-heading-shimmer" className="hero-shimmer block w-fit max-w-full">expertly built.</span>
+        </motion.h1>
+        <p className="mt-5 max-w-lg text-sm leading-relaxed text-slate-200 sm:text-base">Find website designers, developers and digital specialists near you—or anywhere your project takes you.</p>
+        <div className="mt-7 flex flex-wrap gap-3"><button data-testid="hero-start-project" onClick={() => onStartProject()} className="inline-flex items-center gap-2 rounded-lg bg-emerald-400 px-5 py-3 text-sm font-bold text-slate-950 transition-colors hover:bg-emerald-300">Start a project<ArrowRight size={17} /></button><button data-testid="hero-explore-services" onClick={onExploreServices} className="rounded-lg border border-white/40 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/15">Explore services</button></div>
+        <div data-testid="hero-trust-highlights" className="mt-7 flex flex-wrap gap-x-6 gap-y-2 text-xs text-slate-200">{['Direct specialist contact', 'Clear project scope', 'Full code handover'].map(x => <span key={x} className="flex items-center gap-1.5"><Check size={14} className="text-emerald-300" />{x}</span>)}</div>
+      </div></div>
+    </div>
+    <div className="border-b border-slate-200 bg-white"><form data-testid="hero-search-form" onSubmit={search} className="mx-auto grid max-w-7xl gap-4 px-4 py-7 sm:px-6 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto] lg:px-8"><label className="block text-xs font-semibold text-slate-700">What do you need?<select data-testid="hero-service-select" value={serviceId} onChange={e => setServiceId(e.target.value)} className="mt-2 w-full rounded-lg border border-slate-200 bg-slate-50 p-3 text-sm font-normal">{services.map(s => <option key={s.id} value={s.id}>{s.title}</option>)}</select></label><label className="block text-xs font-semibold text-slate-700">Your city<div className="mt-2 flex rounded-lg border border-slate-200 bg-slate-50"><MapPin size={16} className="ml-3 mt-3.5 shrink-0 text-slate-400" /><input data-testid="hero-location-input" required value={location} onChange={e => setLocation(e.target.value)} placeholder="City or neighbourhood" className="min-w-0 flex-1 bg-transparent p-3 text-sm font-normal outline-none" /><button data-testid="hero-near-me" type="button" disabled={busy} onClick={detect} aria-label="Find nearest known hub" title="Use my location" className="px-3 text-indigo-600"><LocateFixed size={19} /></button></div></label><button data-testid="hero-search-submit" disabled={busy || !services.length} type="submit" className="flex items-center justify-center gap-2 self-end rounded-lg bg-indigo-600 px-5 py-3 text-sm font-semibold text-white hover:bg-indigo-700 disabled:opacity-50"><Search size={17} />{busy ? 'Finding…' : 'Find specialists'}</button>{feedback && <p data-testid="hero-search-feedback" role="status" className="text-sm text-slate-600 md:col-span-3">{feedback}</p>}</form></div>
+  </section>;
+};

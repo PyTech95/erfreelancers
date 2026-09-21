@@ -1,0 +1,192 @@
+{
+  "project_name": "ER Freelancer Admin Dashboard Redesign",
+  "app_type": "dashboard",
+  "theme": "Dual-mode Slate High Contrast (Dark slate default with seamless light toggle)",
+  "file_extension_guidelines": "Use .js or .jsx file extensions for React components (NOT .tsx)",
+  "typography": {
+    "font_family_heading": "Outfit, sans-serif",
+    "font_family_body": "'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif",
+    "font_family_code": "'Source Code Pro', Monaco, Consolas, monospace",
+    "forbidden_fonts": ["Space Grotesk", "Inter for main headings"],
+    "hierarchy": {
+      "h1_dashboard_title": "text-2xl sm:text-3xl font-extrabold tracking-tight font-heading text-slate-900 dark:text-slate-100",
+      "h2_section_header": "text-xl sm:text-2xl font-bold tracking-tight font-heading text-slate-800 dark:text-slate-200",
+      "h3_card_header": "text-base sm:text-lg font-semibold font-heading text-slate-800 dark:text-slate-200",
+      "metric_value": "text-2xl sm:text-3xl font-extrabold tracking-tight font-heading text-slate-900 dark:text-white",
+      "body_text": "text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-body",
+      "label_text": "text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 font-body",
+      "caption_text": "text-xs text-slate-500 dark:text-slate-400 font-body"
+    }
+  },
+  "colors": {
+    "archetype": "High Performance Professional Dashboard (Indigo Slate & Emerald Trigger)",
+    "forbidden_colors": ["#1B93A4", "teal green", "teal blue"],
+    "slate_neutrals": {
+      "bg_app": "bg-slate-950 dark:bg-slate-950 light:bg-slate-50",
+      "bg_card": "bg-slate-900/90 dark:bg-slate-900/90 light:bg-white",
+      "bg_sidebar": "bg-slate-900/95 dark:bg-slate-900/95 light:bg-slate-900",
+      "bg_header": "bg-slate-900/80 backdrop-blur-md dark:bg-slate-900/80 light:bg-white/80",
+      "border": "border-slate-800 dark:border-slate-800 light:border-slate-200",
+      "border_hover": "hover:border-slate-700 dark:hover:border-slate-700 light:hover:border-slate-300"
+    },
+    "brand_accents": {
+      "primary": "#6366F1",
+      "primary_hover": "#4F46E5",
+      "primary_light": "rgba(99, 102, 241, 0.15)",
+      "accent_emerald": "#10B981",
+      "accent_amber": "#F59E0B",
+      "accent_rose": "#EF4444",
+      "accent_violet": "#8B5CF6"
+    },
+    "status_pills": {
+      "delivered_success": "bg-emerald-500/10 text-emerald-400 border-emerald-500/20 dark:bg-emerald-950/50 dark:text-emerald-300 dark:border-emerald-800",
+      "pending_processing": "bg-amber-500/10 text-amber-400 border-amber-500/20 dark:bg-amber-950/50 dark:text-amber-300 dark:border-amber-800",
+      "failed_alert": "bg-rose-500/10 text-rose-400 border-rose-500/20 dark:bg-rose-950/50 dark:text-rose-300 dark:border-rose-800",
+      "contacted_info": "bg-indigo-500/10 text-indigo-400 border-indigo-500/20 dark:bg-indigo-950/50 dark:text-indigo-300 dark:border-indigo-800"
+    }
+  },
+  "layout_architecture": {
+    "structure": "Standard Dashboard Layout with Collapsible Left Navigation, Top Bar, and Main Content Canvas",
+    "sidebar": {
+      "width_desktop": "w-64 flex-shrink-0",
+      "behavior_mobile": "Fixed drawer overlay with transition slide-in-out (z-50)",
+      "navigation_items": [
+        {"id": "overview", "label": "Overview & Analytics", "icon": "LayoutDashboard"},
+        {"id": "inquiries", "label": "Inquiries & Auto-Reward", "icon": "Inbox", "badge": "New"},
+        {"id": "moderation", "label": "Freelancer Moderation", "icon": "ShieldCheck"},
+        {"id": "blog", "label": "Blog & Content Hub", "icon": "FileText"},
+        {"id": "settings", "label": "Gmail & System Settings", "icon": "Settings"},
+        {"id": "search-console", "label": "Search Console", "icon": "Search"},
+        {"id": "whatsapp-alerts", "label": "WhatsApp Alerts", "icon": "MessageSquare"},
+        {"id": "pipeline", "label": "Deal Pipeline", "icon": "GitMerge"},
+        {"id": "facts", "label": "Platform Facts", "icon": "BarChart2"},
+        {"id": "exports", "label": "Report Exports", "icon": "Download"}
+      ]
+    },
+    "header": {
+      "elements": "Breadcrumb path, Search trigger modal button, System Status Indicator (Gmail Connected / Syncing), Dark/Light Toggle, Quick Test Email Action, Admin Profile Dropdown",
+      "height": "h-16"
+    },
+    "top_graph_banner": {
+      "description": "High-density Recharts area & bar composition placed at the top of the Overview panel showcasing real inquiry volume, email reward delivery rate, and status breakdown over time",
+      "grid_span": "col-span-full"
+    }
+  },
+  "key_features_and_views": {
+    "overview": {
+      "top_metric_cards": [
+        {"title": "Total Inquiries", "test_id": "metric-total-inquiries"},
+        {"title": "Reward Emails Sent", "test_id": "metric-reward-emails-sent"},
+        {"title": "Pending Review", "test_id": "metric-pending-inquiries"},
+        {"title": "Moderated Freelancers", "test_id": "metric-freelancer-count"},
+        {"title": "Blog Published", "test_id": "metric-published-blogs"}
+      ],
+      "graph": "Recharts AreaChart / ResponsiveContainer with Gradient Fills for Inquiry volume vs Email confirmations sent"
+    },
+    "inquiries_management": {
+      "table_columns": ["Inquirer Name", "Email & Phone", "Service Requested", "Status", "Assigned To", "Email Delivery", "Received At", "Actions"],
+      "details_modal": "Drawer showing full inquiry message, assigned admin dropdown, delivery logs for Google App Password auto-thank-you email, and 'Resend Reward Email' button with loader",
+      "test_ids": {
+        "search_input": "inquiries-search-input",
+        "filter_status": "inquiries-status-filter",
+        "resend_btn": "inquiry-resend-reward-btn"
+      }
+    },
+    "freelancer_moderation": {
+      "view_modes": ["Grid view (Bento cards)", "Table view"],
+      "actions": ["Approve Profile", "Suspend Account", "Flag for Review", "View Portfolio Details"],
+      "badges": ["Verified Badge", "Pending Audit", "High Rating"]
+    },
+    "blog_management": {
+      "crud_operations": ["Create Draft", "Edit Post", "Publish / Unpublish", "Delete Post", "Public Reader Preview"],
+      "fields": ["Title", "Slug", "Author", "Category", "Read Time", "Cover Image URL", "Content Editor (Markdown/HTML format)", "Status (Draft/Published)"],
+      "test_ids": {
+        "new_post_btn": "blog-new-post-btn",
+        "title_input": "blog-title-input",
+        "publish_toggle": "blog-publish-toggle"
+      }
+    },
+    "gmail_settings": {
+      "fields": [
+        {"name": "Gmail Sender Address", "key": "gmail_address", "type": "email", "placeholder": "admin@erfreelancer.com"},
+        {"name": "Google App Password", "key": "app_password", "type": "password", "placeholder": "•••• •••• •••• ••••"},
+        {"name": "Auto Auto-Thank-You Email Trigger", "key": "auto_reply_enabled", "type": "switch"},
+        {"name": "Auto-Reply Subject Template", "key": "email_subject", "type": "text"},
+        {"name": "Auto-Reply Body Template", "key": "email_body", "type": "textarea"}
+      ],
+      "test_email_diagnostic": {
+        "trigger_button_id": "send-test-email-btn",
+        "recipient_input_id": "test-email-recipient-input",
+        "status_toast_id": "test-email-status-toast"
+      }
+    },
+    "preserved_sections": {
+      "search_console": "Search metrics, indexing status, top queries, and crawl health",
+      "whatsapp_alerts": "WhatsApp webhook status, notification triggers, phone logs",
+      "pipeline": "Deal stage funnel (Lead -> Contacted -> Quoted -> Closed Won)",
+      "facts": "Platform telemetry and quick stats overview",
+      "exports": "CSV and PDF automated report generator with date range selection"
+    }
+  },
+  "media_assets": {
+    "avatars": [
+      {
+        "id": "avatar_woman_1",
+        "url": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzV8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBhdmF0YXIlMjBwb3J0cmFpdCUyMGNvcnBvcmF0ZXxlbnwwfHx8fDE3ODk5ODI2NTR8MA&ixlib=rb-4.1.0&q=85",
+        "usage": "Admin profile picture & moderator card"
+      },
+      {
+        "id": "avatar_man_1",
+        "url": "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzV8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjBhdmF0YXIlMjBwb3J0cmFpdCUyMGNvcnBvcmF0ZXxlbnwwfHx8fDE3ODk5ODI2NTR8MA&ixlib=rb-4.1.0&q=85",
+        "usage": "Freelancer moderation record avatar 1"
+      },
+      {
+        "id": "avatar_woman_2",
+        "url": "https://images.unsplash.com/photo-1607746882042-944635dfe10e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzV8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjBhdmF0YXIlMjBwb3J0cmFpdCUyMGNvcnBvcmF0ZXxlbnwwfHx8fDE3ODk5ODI2NTR8MA&ixlib=rb-4.1.0&q=85",
+        "usage": "Freelancer moderation record avatar 2"
+      },
+      {
+        "id": "avatar_man_2",
+        "url": "https://images.unsplash.com/photo-1676989880361-091e12efc056?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzV8MHwxfHNlYXJjaHw0fHxwcm9mZXNzaW9uYWwlMjBhdmF0YXIlMjBwb3J0cmFpdCUyMGNvcnBvcmF0ZXxlbnwwfHx8fDE3ODk5ODI2NTR8MA&ixlib=rb-4.1.0&q=85",
+        "usage": "Freelancer moderation record avatar 3"
+      }
+    ]
+  },
+  "testing_and_accessibility": {
+    "data_testid_convention": "kebab-case, role-based, explicit on buttons, inputs, tabs, modals, and metric cards",
+    "mandatory_test_ids": [
+      "admin-sidebar-nav",
+      "admin-top-header",
+      "nav-item-overview",
+      "nav-item-inquiries",
+      "nav-item-moderation",
+      "nav-item-blog",
+      "nav-item-settings",
+      "nav-item-search-console",
+      "nav-item-whatsapp-alerts",
+      "nav-item-pipeline",
+      "nav-item-facts",
+      "nav-item-exports",
+      "overview-chart-container",
+      "inquiries-table",
+      "inquiry-detail-modal",
+      "gmail-settings-form",
+      "google-app-password-input",
+      "send-test-email-button",
+      "blog-post-card",
+      "blog-editor-modal",
+      "freelancer-moderation-card"
+    ],
+    "contrast_standards": "WCAG AA / APCA compliant, 4.5:1 min contrast ratio for body text, explicitly defined hover states with high contrast"
+  },
+  "instructions_to_main_agent": [
+    "Build/refactor React components inside /app/frontend/src/components/admin/ using JavaScript (.js or .jsx) syntax.",
+    "Ensure the Admin Dashboard includes a fixed left sidebar on desktop and collapsible sheet/drawer on mobile screens.",
+    "Place the main Recharts area/bar chart prominently at the top of the Overview panel.",
+    "Implement the Gmail & Google App Password settings panel with a working test email simulation using Sonner toasts.",
+    "Ensure Inquiry management features detailed status tracking and automatic thank-you email status indicators.",
+    "Provide Blog management (Create/Edit/Publish/Delete) with a public reading modal preview.",
+    "Preserve and style all existing sections: Search Console, WhatsApp Alerts, Pipeline, Facts, and Exports.",
+    "Add explicit data-testid attributes to all interactive elements as listed in testing_and_accessibility."
+  ]
+}

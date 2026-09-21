@@ -1,0 +1,118 @@
+[
+ {
+  "key": "brand_name",
+  "label": "Public Brand Name",
+  "value": "ER Freelancer",
+  "source": "Platform Charter & Brand Guidelines",
+  "approvalStatus": "approved",
+  "owner": "Rajeev",
+  "lastVerifiedDate": "2026-09-01",
+  "notes": "Official platform trademark and public identifier."
+ },
+ {
+  "key": "canonical_domain",
+  "label": "Canonical Web Domain",
+  "value": "https://erfreelancer.com",
+  "source": "DNS Registry & Host Allocation",
+  "approvalStatus": "approved",
+  "owner": "Rajeev",
+  "lastVerifiedDate": "2026-09-01",
+  "notes": "Single production canonical URL."
+ },
+ {
+  "key": "founder_legal_name",
+  "label": "Founder Legal Name",
+  "value": "Rajeev",
+  "source": "Identity & Registration Verification",
+  "approvalStatus": "approved",
+  "owner": "Rajeev",
+  "lastVerifiedDate": "2026-09-01"
+ },
+ {
+  "key": "experience_years",
+  "label": "Founder & Platform Experience",
+  "value": "15+ Years Professional Industry Experience",
+  "source": "Executive Credentials & Portfolio Audit",
+  "approvalStatus": "approved",
+  "owner": "Rajeev",
+  "lastVerifiedDate": "2026-09-20",
+  "notes": "Continuous commercial engineering delivery since 2011."
+ },
+ {
+  "key": "delivered_projects_count",
+  "label": "Total Websites & Platforms Delivered",
+  "value": "1,500+ Websites & Digital Products Delivered",
+  "source": "Master Delivery Ledger & Client Registry",
+  "approvalStatus": "approved",
+  "owner": "Rajeev",
+  "lastVerifiedDate": "2026-09-20",
+  "notes": "Covering Hospitality, Healthcare, Education, E-Commerce, Manufacturing, and Enterprise."
+ },
+ {
+  "key": "founder_display_name",
+  "label": "Founder Public Display Name",
+  "value": "Raji",
+  "source": "Profile Settings",
+  "approvalStatus": "approved",
+  "owner": "Rajeev",
+  "lastVerifiedDate": "2026-09-01",
+  "notes": "Editable public freelancer handle."
+ },
+ {
+  "key": "founder_base_location",
+  "label": "Founder Base Physical Location",
+  "value": "Unconfirmed / Pending Approval (Omitted from public claims)",
+  "source": "Policy Mandate: Section 02",
+  "approvalStatus": "approved",
+  "owner": "Rajeev",
+  "lastVerifiedDate": "2026-09-20",
+  "notes": "Never claim Raji resides physically in all target markets. Global service is remote."
+ },
+ {
+  "key": "core_value_proposition",
+  "label": "Core Brand Message",
+  "value": "Websites, apps, and digital growth — with the right freelancer for your project.",
+  "source": "Platform Charter",
+  "approvalStatus": "approved",
+  "owner": "Rajeev",
+  "lastVerifiedDate": "2026-09-01"
+ },
+ {
+  "key": "geography_statement",
+  "label": "Geography Statement",
+  "value": "Work with freelancers serving your location, including specialists available remotely.",
+  "source": "Platform Charter",
+  "approvalStatus": "approved",
+  "owner": "Rajeev",
+  "lastVerifiedDate": "2026-09-01"
+ },
+ {
+  "key": "pricing_policy",
+  "label": "Pricing Transparency Policy",
+  "value": "Indicative ranges provided for scoping; binding quotes require confirmed written brief.",
+  "source": "Client Terms of Engagement",
+  "approvalStatus": "approved",
+  "owner": "Rajeev",
+  "lastVerifiedDate": "2026-09-01"
+ },
+ {
+  "key": "direct_phone",
+  "label": "Direct Phone & WhatsApp Support",
+  "value": "+919711623561",
+  "source": "Executive Contact Registry",
+  "approvalStatus": "approved",
+  "owner": "Rajeev",
+  "lastVerifiedDate": "2026-09-20",
+  "notes": "Direct client consultation line and WhatsApp project intake."
+ },
+ {
+  "key": "support_email",
+  "label": "Direct Support Email",
+  "value": "hello@erfreelancer.com",
+  "source": "Executive Contact Registry",
+  "approvalStatus": "approved",
+  "owner": "Rajeev",
+  "lastVerifiedDate": "2026-09-20",
+  "notes": "Primary project intake and formal proposal correspondence."
+ }
+]
