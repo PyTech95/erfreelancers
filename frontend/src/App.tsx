@@ -8,7 +8,7 @@ import { WorldwideMap } from './components/WorldwideMap';
 import { FounderFeature } from './components/FounderFeature';
 import { FreelancerDirectory } from './components/FreelancerDirectory';
 import { LocationsHub } from './components/LocationsHub';
-import { WorkShowcase } from './components/WorkShowcase';
+import { LiveShowcase } from './components/LiveShowcase';
 import { WorkflowTimeline } from './components/WorkflowTimeline';
 import { TrustGuarantees } from './components/TrustGuarantees';
 import { ClientReviews } from './components/ClientReviews';
@@ -246,7 +246,7 @@ function MarketplaceApp() {
               onSelectServiceLocation={handleSelectServiceLocation}
             />
 
-            <WorkShowcase onOpenEnquiry={(serviceId) => handleOpenEnquiry(serviceId)} />
+            <LiveShowcase onOpenEnquiry={(serviceId) => handleOpenEnquiry(serviceId)} />
 
             <WorkflowTimeline />
 

@@ -80,3 +80,12 @@ Re-imported the erfreelancer2 zip into /app, recreated env, and made it producti
 
 ### Credentials
 Admin: rajeev.pytech@gmail.com / ErFreelancer@2026Admin (see test_credentials.md).
+
+
+## Live Website Showcase (2026-09-21)
+- Replaced old unverified WorkShowcase with **LiveShowcase** (`frontend/src/components/LiveShowcase.tsx`) on homepage `#work`.
+- **123 curated famous live sites** (`frontend/src/data/showcaseData.ts`) across 12 categories (AI, SaaS, E-commerce, Fintech, Media, Design, Dev, Travel, Social, Education, Health, Food): Stripe, Airbnb, Notion, Figma, Netflix, OpenAI, etc.
+- **Live screenshots** via WordPress mShots (no API key, always current). A few bot-protected sites (OpenAI, Midjourney) show a challenge page in the thumbnail (third-party limitation); links still open the real site.
+- Modern dark section: ambient glows, dot-grid texture, gradient heading, glass category pills, search, framer-motion staggered reveals, hover overlays.
+- **Card click → detail modal**: large screenshot, description, tags, "LIVE WEBSITE LINK" box with **Copy link** (clipboard + "Copied!" state) + hint "Copy this link and paste it in your next browser tab to open the full website", **Visit live website** (target=_blank), and "Build something like this" (opens enquiry).
+- Verified (headless chromium desktop 1440 + mobile 390): responsive, category filter, search, modal open/close, copy-to-clipboard, live-link target all pass.
