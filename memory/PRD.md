@@ -50,7 +50,10 @@ MONGO_URL, DB_NAME, CORS_ORIGINS, JWT_SECRET, ADMIN_EMAIL, ADMIN_PASSWORD, ADMIN
 - Verified: testing agent iteration_8 — 16/16 backend, 100% frontend (dynamic title/desc/canonical/JSON-LD on deep links, admin noindex, enquiry flow regression). SEO audit 100/100 pass.
 - **To finish Google indexing after deploy**: attach custom domain → update `PRODUCTION_CANONICAL_DOMAIN` + `public/robots.txt` Sitemap line → verify ownership in Search Console (meta tag placeholder in index.html or drop `google<token>.html` into `frontend/public/`) → submit `/api/sitemap.xml` once → Google discovers/indexes in batches (51k pages index progressively, not instantly).
 
-## Backlog
+- **Blog Content Seeded (2026-09-21)**: Seeded 6 authoritative, high-ranking blog articles into `blog_posts` (Direct Freelancer vs Agency, Pricing Guide 2026, Local SEO & GEO Guide, WordPress vs React/FastAPI, 5-Point Handover Checklist, Laxmi Nagar Tech Hub). Sitemaps (`sitemap-blog.xml` & sitemap index) automatically updated to 51,011 total URLs.
+- **Deployment Readiness Check**: Passed 100% with 0 blockers (status: `pass`).
+
+## Deployment & Production Domain Next Steps
 - P1: Real email delivery for leads (Resend/SendGrid) — currently MOCKED/simulated
 - P1: Attach custom domain erfreelancer.com after deploy; Google Search Console verification
 - P2: Streaming chatbot responses (SSE)
