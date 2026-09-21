@@ -3,4 +3,30 @@ Allow: /
 Disallow: /api/
 Disallow: /admin
 
-Sitemap: https://erfreelancer.com/api/sitemap.xml
+# AI / answer-engine crawlers (GEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Update to the production domain when the custom domain is attached.
+Sitemap: https://deploy-hub-266.preview.emergentagent.com/api/sitemap.xml

@@ -1,0 +1,30 @@
+# ER Freelancer
+
+> Verified freelance marketplace founded by Rajeev (15+ years experience, 1,500+ delivered websites since 2011). Businesses hire vetted freelance website designers, developers and digital specialists across 3,600+ cities worldwide, with direct call/WhatsApp coordination and 100% IP and source-code ownership.
+
+## Key pages
+- Home: /
+- Blog: /blog
+- Join as a freelancer: /join-as-freelancer/
+- Service × city landing pages: /locations/<country>/<city>/<service-slug>/ (full list in the sitemap)
+
+## Services (14 core categories)
+- Website design & development, e-commerce & Shopify builds, mobile app development
+- Custom full-stack web applications, SaaS MVPs, WordPress & CMS development
+- UI/UX design, landing pages & conversion optimization, website redesign
+- SEO & local search optimization, performance & speed optimization
+- Maintenance & support, AI chatbots & automation, growth & marketing automation
+
+## Contact
+- Phone / WhatsApp: +91 97116 23561
+- Email: hello@erfreelancer.com
+- HQ: Laxmi Nagar, Delhi 110092, India — on-site across Delhi NCR, remote worldwide
+
+## Facts
+- 15+ years in production delivery (active since 2011)
+- 1,500+ commercial websites delivered across hospitality, medical, education, retail, manufacturing
+- Direct specialist collaboration — no account managers or subcontracting handoffs
+- 100% IP transfer: full repository, domain, hosting credentials and documentation on handover
+
+## Crawl policy
+Public pages under / are intended for indexing and citation by search and answer engines. /api/ and /admin are excluded. Machine-readable URL inventory: /api/sitemap.xml

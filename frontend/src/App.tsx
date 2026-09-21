@@ -18,6 +18,7 @@ import { EnquiryModal } from './components/EnquiryModal';
 import { AdminDashboard } from './components/AdminDashboard';
 import { AdminLogin } from './components/AdminLogin';
 import { apiFetch, getAdminToken, clearAdminToken } from './api';
+import { applySeo } from './lib/seo';
 import { FreelancerPortal } from './components/FreelancerPortal';
 import { ChatbotWidget } from './components/ChatbotWidget';
 import { Footer } from './components/Footer';
@@ -96,9 +97,14 @@ function MarketplaceApp() {
       title = `Best Freelancer ${activeServiceLocation.service.title} in ${activeServiceLocation.location.name} | ER Freelancer`;
     }
     if (window.location.pathname !== path) window.history.pushState({}, '', path);
-    document.title = title;
-    const canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) canonical.setAttribute('href', `https://erfreelancer.com${path}`);
+    applySeo({
+      title,
+      path,
+      noindex: currentView === 'admin',
+      description: activeServiceLocation
+        ? `Hire a verified freelance ${activeServiceLocation.service.title} specialist in ${activeServiceLocation.location.name}. Direct call & WhatsApp coordination, 15+ years experience, 1,500+ delivered websites, 100% IP ownership.`
+        : 'Looking for the best freelancer services near me? Hire top-rated freelancer website designers, full-stack web developers, and tech specialists in Delhi, Laxmi Nagar & 3,600+ cities worldwide. 15+ yrs experience, 1,500+ websites, 100% IP ownership. Call/WhatsApp: +91 97116 23561.',
+    });
   }, [currentView, activeServiceLocation]);
 
   const fetchInitialData = async (signal?: AbortSignal) => {

@@ -1,6 +1,5 @@
 import os
 from datetime import datetime, timezone
-from urllib.parse import quote
 
 from fastapi import APIRouter, Response
 
@@ -9,8 +8,6 @@ from store import db, LOCATIONS, SERVICES, NO_ID
 router = APIRouter(prefix="/api")
 
 SHARD_SIZE = 5000
-TOTAL_PAGES = 50400
-TOTAL_SHARDS = -(-TOTAL_PAGES // SHARD_SIZE)
 XML_HEAD = '<?xml version="1.0" encoding="UTF-8"?>\n'
 URLSET_OPEN = '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
 
@@ -28,85 +25,129 @@ def xml_response(body: str):
                     headers={"X-Robots-Tag": "all", "Cache-Control": "public, max-age=3600"})
 
 
-def url_entry(loc, changefreq, priority):
-    return f"  <url>\n    <loc>{domain()}{loc}</loc>\n    <lastmod>{today()}</lastmod>\n    <changefreq>{changefreq}</changefreq>\n    <priority>{priority}</priority>\n  </url>\n"
+def url_entry(loc, changefreq, priority, lastmod=None):
+    return (f"  <url>\n    <loc>{domain()}{loc}</loc>\n    <lastmod>{lastmod or today()}</lastmod>\n"
+            f"    <changefreq>{changefreq}</changefreq>\n    <priority>{priority}</priority>\n  </url>\n")
 
 
-def sorted_locations():
-    return sorted(LOCATIONS, key=lambda l: l["canonicalPath"])
+def date_only(value):
+    return (value or "")[:10] or None
 
 
-def sorted_services():
-    return sorted(SERVICES, key=lambda s: s["slug"])
+async def approved_page_count() -> int:
+    return await db.pages.count_documents({"lifecycleState": "approved"})
 
 
-def child_sitemaps():
-    names = ["sitemap-core.xml", "sitemap-services.xml", "sitemap-locations.xml"] + [f"sitemap-pages-{i}.xml" for i in range(1, TOTAL_SHARDS + 1)]
+def shard_count(total: int) -> int:
+    return max(1, -(-total // SHARD_SIZE))
+
+
+def child_sitemaps(total_pages: int):
+    names = ["sitemap-core.xml", "sitemap-blog.xml"] + [f"sitemap-pages-{i}.xml" for i in range(1, shard_count(total_pages) + 1)]
     return [f"{domain()}/api/sitemaps/{n}" for n in names]
 
 
 @router.get("/sitemap.xml")
 async def sitemap_index():
+    total = await approved_page_count()
     xml = XML_HEAD + '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-    for url in child_sitemaps():
+    for url in child_sitemaps(total):
         xml += f"  <sitemap>\n    <loc>{url}</loc>\n    <lastmod>{today()}</lastmod>\n  </sitemap>\n"
     return xml_response(xml + "</sitemapindex>")
 
 
 @router.get("/sitemaps/sitemap-core.xml")
 async def sitemap_core():
-    core = [("/", "daily", "1.0"), ("/services/", "weekly", "0.9"), ("/locations/", "weekly", "0.9"),
-            ("/freelancers/", "daily", "0.9"), ("/freelancers/raji/", "weekly", "0.85"), ("/how-it-works/", "monthly", "0.8"),
-            ("/work/", "monthly", "0.8"), ("/join-as-freelancer/", "monthly", "0.8"), ("/about/", "monthly", "0.7"), ("/contact/", "monthly", "0.7")]
+    # Only routes that actually render distinct content in the SPA.
+    core = [("/", "daily", "1.0"), ("/blog", "daily", "0.7"), ("/join-as-freelancer/", "monthly", "0.7")]
     return xml_response(XML_HEAD + URLSET_OPEN + "".join(url_entry(*c) for c in core) + "</urlset>")
 
 
-@router.get("/sitemaps/sitemap-services.xml")
-async def sitemap_services():
-    return xml_response(XML_HEAD + URLSET_OPEN + "".join(url_entry(f"/services/{s['slug']}/", "weekly", "0.9") for s in sorted_services()) + "</urlset>")
-
-
-@router.get("/sitemaps/sitemap-locations.xml")
-async def sitemap_locations():
-    return xml_response(XML_HEAD + URLSET_OPEN + "".join(url_entry(l["canonicalPath"], "weekly", "0.8") for l in sorted_locations()) + "</urlset>")
+@router.get("/sitemaps/sitemap-blog.xml")
+async def sitemap_blog():
+    posts = await db.blog_posts.find({"status": "published"}, {"_id": 0, "slug": 1, "updatedAt": 1, "publishedAt": 1}) \
+        .sort("publishedAt", -1).limit(1000).to_list(1000)
+    body = "".join(url_entry(f"/blog/{p['slug']}", "weekly", "0.7",
+                             date_only(p.get("updatedAt") or p.get("publishedAt"))) for p in posts)
+    return xml_response(XML_HEAD + URLSET_OPEN + body + "</urlset>")
 
 
 @router.get("/sitemaps/sitemap-pages-{shard}.xml")
 async def sitemap_pages(shard: int):
-    if shard < 1 or shard > TOTAL_SHARDS:
-        return xml_response(XML_HEAD + '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>')
-    locs, svcs = sorted_locations(), sorted_services()
-    start = (shard - 1) * SHARD_SIZE
-    end = min(TOTAL_PAGES, start + SHARD_SIZE)
-    body = ""
-    for idx in range(start, end):
-        li, si = divmod(idx, len(svcs))
-        if li < len(locs):
-            body += url_entry(f"{locs[li]['canonicalPath']}{svcs[si]['slug']}/", "weekly", "0.85")
+    # Sitemap mirrors the real generated corpus: only approved, resolvable pages are listed,
+    # so Google never receives URLs that 404 or soft-fail.
+    total = await approved_page_count()
+    if shard < 1 or shard > shard_count(total):
+        return xml_response(XML_HEAD + URLSET_OPEN + "</urlset>")
+    cursor = db.pages.find({"lifecycleState": "approved"},
+                           {"_id": 0, "canonicalPath": 1, "updatedAt": 1, "createdAt": 1}) \
+        .sort("canonicalPath", 1).skip((shard - 1) * SHARD_SIZE).limit(SHARD_SIZE)
+    pages = await cursor.to_list(SHARD_SIZE)
+    body = "".join(url_entry(p["canonicalPath"], "weekly", "0.85",
+                             date_only(p.get("updatedAt") or p.get("createdAt"))) for p in pages)
     return xml_response(XML_HEAD + URLSET_OPEN + body + "</urlset>")
+
+
+ROBOTS_TEMPLATE = """User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin
+
+# AI / answer-engine crawlers (GEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: {origin}/api/sitemap.xml
+"""
 
 
 @router.get("/robots.txt")
 async def robots():
-    return Response(f"User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /admin\n\nSitemap: {domain()}/api/sitemap.xml\n",
-                    media_type="text/plain; charset=utf-8")
+    return Response(ROBOTS_TEMPLATE.format(origin=domain()), media_type="text/plain; charset=utf-8")
 
 
 @router.get("/seo/sitemaps-manifest")
 async def sitemaps_manifest():
-    shards = [{"name": f"sitemap-pages-{i}.xml", "url": f"{domain()}/api/sitemaps/sitemap-pages-{i}.xml",
-               "urlsCount": 400 if i == TOTAL_SHARDS else SHARD_SIZE, "startIndex": (i - 1) * SHARD_SIZE + 1,
-               "endIndex": min(TOTAL_PAGES, i * SHARD_SIZE)} for i in range(1, TOTAL_SHARDS + 1)]
+    total_pages = await approved_page_count()
+    total_blog = await db.blog_posts.count_documents({"status": "published"})
+    shards = shard_count(total_pages)
     return {
         "status": "ready",
         "googleSearchConsoleTarget": f"{domain()}/api/sitemap.xml",
-        "totalPublicUrls": 10 + len(SERVICES) + len(LOCATIONS) + TOTAL_PAGES,
-        "breakdown": {"corePages": 10, "servicesHubs": len(SERVICES), "locationHubs": len(LOCATIONS), "serviceLocationLandingPages": TOTAL_PAGES},
+        "totalPublicUrls": 3 + total_blog + total_pages,
+        "breakdown": {"corePages": 3, "blogPosts": total_blog, "approvedServiceLocationPages": total_pages,
+                      "targetPairsInPipeline": len(LOCATIONS) * len(SERVICES)},
         "sitemapIndex": f"{domain()}/api/sitemap.xml",
-        "childSitemaps": child_sitemaps(),
-        "shards": shards,
-        "googlePingUrl": "https://www.google.com/ping?sitemap=" + quote(f"{domain()}/api/sitemap.xml", safe=""),
+        "childSitemaps": child_sitemaps(total_pages),
+        "shards": [{"name": f"sitemap-pages-{i}.xml", "url": f"{domain()}/api/sitemaps/sitemap-pages-{i}.xml",
+                    "urlsCount": min(SHARD_SIZE, total_pages - (i - 1) * SHARD_SIZE),
+                    "startIndex": (i - 1) * SHARD_SIZE + 1,
+                    "endIndex": min(total_pages, i * SHARD_SIZE)} for i in range(1, shards + 1)],
         "robotsTxtUrl": f"{domain()}/api/robots.txt",
+        "indexingGuidance": "Google retired the sitemap ping endpoint. Submit /api/sitemap.xml once in Search Console "
+                            "(it is also referenced from robots.txt for automatic discovery) and use URL Inspection "
+                            "-> Request Indexing for priority pages. The sitemap only lists generated, approved pages.",
     }
 
 

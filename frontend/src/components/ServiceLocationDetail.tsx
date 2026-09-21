@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { apiFetch } from '../api';
+import { applySeo } from '../lib/seo';
 import {
   MapPin,
   Briefcase,
@@ -64,6 +65,12 @@ export const ServiceLocationDetail: React.FC<ServiceLocationDetailProps> = ({
       const data = await res.json();
       if (data.page) {
         setPageRecord(data.page);
+        const seo = data.page.contentPackage?.seo;
+        applySeo({
+          title: seo?.title || `Best Freelancer ${service.title} in ${location.name} | ER Freelancer`,
+          description: seo?.description,
+          path,
+        });
       }
 
       // Fetch matching specialists for this service & location
@@ -136,7 +143,8 @@ export const ServiceLocationDetail: React.FC<ServiceLocationDetailProps> = ({
   }
 
   const pkg = pageRecord?.contentPackage;
-  const canonicalUrl = `https://erfreelancer.com${pkg?.canonical_path || location.canonicalPath + service.slug + '/'}`;
+  const origin = window.location.origin;
+  const canonicalUrl = `${origin}${pkg?.canonical_path || location.canonicalPath + service.slug + '/'}`;
 
   // Complete Schema.org Graph for Google SEO indexing & rich snippets
   const pageHeading = pkg?.hero.heading || `Best Freelancer ${service.title} in ${location.name}`;
@@ -155,8 +163,8 @@ export const ServiceLocationDetail: React.FC<ServiceLocationDetailProps> = ({
     '@graph': [
       {
         '@type': 'WebSite',
-        '@id': 'https://erfreelancer.com/#website',
-        'url': 'https://erfreelancer.com',
+        '@id': `${origin}/#website`,
+        'url': origin,
         'name': 'ER Freelancer',
         'description': 'Freelance-led digital services platform connecting businesses with verified specialists worldwide.'
       },
@@ -184,15 +192,15 @@ export const ServiceLocationDetail: React.FC<ServiceLocationDetailProps> = ({
           'name': 'ER Freelancer',
           'telephone': '+919711623561',
           'email': 'hello@erfreelancer.com',
-          'url': 'https://erfreelancer.com'
+          'url': origin
         }
       },
       {
         '@type': 'BreadcrumbList',
         'itemListElement': [
-          { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://erfreelancer.com/' },
-          { '@type': 'ListItem', 'position': 2, 'name': location.countryName, 'item': `https://erfreelancer.com/locations/${location.countryName.toLowerCase().replace(/ /g, '-')}/` },
-          { '@type': 'ListItem', 'position': 3, 'name': location.name, 'item': `https://erfreelancer.com${location.canonicalPath}` },
+          { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': `${origin}/` },
+          { '@type': 'ListItem', 'position': 2, 'name': location.countryName, 'item': `${origin}/locations/${location.countryName.toLowerCase().replace(/ /g, '-')}/` },
+          { '@type': 'ListItem', 'position': 3, 'name': location.name, 'item': `${origin}${location.canonicalPath}` },
           { '@type': 'ListItem', 'position': 4, 'name': service.title, 'item': canonicalUrl }
         ]
       },
