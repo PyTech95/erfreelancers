@@ -1,0 +1,56 @@
+{
+  "release": "Final indexing and URL repair",
+  "validated_at_utc": "2026-10-09T17:52:54.319208+00:00",
+  "production_build": "passed",
+  "application_eslint_warnings": 0,
+  "typescript": "passed",
+  "backend_tests": {
+    "passed": 24,
+    "failed": 0,
+    "workers": 2,
+    "config": "backend/pytest.ini"
+  },
+  "frontend_tests": {
+    "passed": 13,
+    "failed": 0
+  },
+  "http_crawl": {
+    "html_pages_checked": 948,
+    "sitemap_files_checked": 6,
+    "sitemap_page_urls_observed": 948,
+    "complete_site_crawl": false,
+    "all_discovered_sitemap_urls_checked": true,
+    "release_regression_cases": 23,
+    "backend_comparison": null,
+    "result": "pass",
+    "failed_checks": 0,
+    "warnings": 0,
+    "strict": true
+  },
+  "browser": {
+    "routes_checked": 13,
+    "regressions_passed": 6,
+    "javascript_errors": 0,
+    "mobile_overflow": false,
+    "globe_bottom_buttons": 0,
+    "globe_visible_pins": 8,
+    "simulated_location": "London, United Kingdom",
+    "enquiry_http_status": 201
+  },
+  "editorial_approval_and_withdrawal": "passed with isolated authenticated account",
+  "main_js": "main.298f1896.js",
+  "main_js_gzip_kb": 196.87,
+  "production_deployed": false,
+  "production_database_used": false,
+  "search_console_live_test_performed": false,
+  "remaining_environment_warnings": [
+    "Inherited Python test-library deprecations (4 warnings).",
+    "Node build-tool fs.F_OK deprecation and environment npm proxy-config notice; compilation succeeded."
+  ],
+  "limitations": [
+    "Local tests use seeded, isolated in-memory MongoDB; live configuration and database were not accessed.",
+    "Nginx integration, SSL/domain redirects, real Search Console results and third-party delivery need post-deployment verification.",
+    "Named location data and actual published content still require editorial/source verification.",
+    "Google controls crawling, indexing and ranking; URL shortening alone does not guarantee these."
+  ]
+}

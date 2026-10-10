@@ -1,0 +1,131 @@
+[
+  {
+    "url": "https://erfreelancers.com/robots.txt",
+    "final": "https://erfreelancers.com/robots.txt",
+    "status": 200,
+    "headers": {
+      "Server": "nginx/1.24.0 (Ubuntu)",
+      "Date": "Thu, 08 Oct 2026 18:45:45 GMT",
+      "Content-Type": "text/plain",
+      "Content-Length": "501",
+      "Last-Modified": "Mon, 05 Oct 2026 07:30:18 GMT",
+      "Connection": "close",
+      "ETag": "\"6ac3520a-1f5\"",
+      "Accept-Ranges": "bytes"
+    },
+    "bytes": 501,
+    "root_empty": false,
+    "h1": [],
+    "canonicals": [],
+    "body": "User-agent: *\nUser-agent: GPTBot\nUser-agent: OAI-SearchBot\nUser-agent: ChatGPT-User\nUser-agent: ClaudeBot\nUser-agent: Claude-User\nUser-agent: PerplexityBot\nUser-agent: Perplexity-User\nUser-agent: Google-Extended\n\nAllow: /\nAllow: /api/sitemap.xml\nAllow: /api/sitemaps/\nAllow: /api/pages/resolve\nAllow: /api/services\nAllow: /api/locations\nAllow: /api/freelancers\nAllow: /api/founder\nAllow: /api/blog\nAllow: /api/map/hubs\n\nDisallow: /api/\nDisallow: /admin\n\nSitemap: https://erfreelancers.com/sitemap.xml\n"
+  },
+  {
+    "url": "https://erfreelancers.com/",
+    "final": "https://erfreelancers.com/",
+    "status": 200,
+    "headers": {
+      "Server": "nginx/1.24.0 (Ubuntu)",
+      "Date": "Thu, 08 Oct 2026 18:45:45 GMT",
+      "Content-Type": "text/html",
+      "Content-Length": "9376",
+      "Last-Modified": "Mon, 05 Oct 2026 07:31:03 GMT",
+      "Connection": "close",
+      "ETag": "\"6ac35237-24a0\"",
+      "Accept-Ranges": "bytes"
+    },
+    "bytes": 9366,
+    "root_empty": true,
+    "h1": [],
+    "canonicals": [
+      "<link rel=\"canonical\" href=\"https://erfreelancers.com/\"/>"
+    ]
+  },
+  {
+    "url": "https://erfreelancers.com/services/",
+    "final": "https://erfreelancers.com/services/",
+    "status": 200,
+    "headers": {
+      "Server": "nginx/1.24.0 (Ubuntu)",
+      "Date": "Thu, 08 Oct 2026 18:45:45 GMT",
+      "Content-Type": "text/html",
+      "Content-Length": "9376",
+      "Last-Modified": "Mon, 05 Oct 2026 07:31:03 GMT",
+      "Connection": "close",
+      "ETag": "\"6ac35237-24a0\"",
+      "Accept-Ranges": "bytes"
+    },
+    "bytes": 9366,
+    "root_empty": true,
+    "h1": [],
+    "canonicals": [
+      "<link rel=\"canonical\" href=\"https://erfreelancers.com/\"/>"
+    ]
+  },
+  {
+    "url": "https://erfreelancers.com/api/sitemaps/sitemap-services.xml",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "url": "https://erfreelancers.com/api/health",
+    "final": "https://erfreelancers.com/api/health",
+    "status": 200,
+    "headers": {
+      "Server": "nginx/1.24.0 (Ubuntu)",
+      "Date": "Thu, 08 Oct 2026 18:45:46 GMT",
+      "Content-Type": "application/json",
+      "Content-Length": "75",
+      "Connection": "close",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+      "permissions-policy": "geolocation=(self), microphone=(), camera=()"
+    },
+    "bytes": 75,
+    "root_empty": false,
+    "h1": [],
+    "canonicals": []
+  },
+  {
+    "url": "http://erfreelancers.com",
+    "final": "https://erfreelancers.com/",
+    "status": 200,
+    "headers": {
+      "Server": "nginx/1.24.0 (Ubuntu)",
+      "Date": "Thu, 08 Oct 2026 18:45:46 GMT",
+      "Content-Type": "text/html",
+      "Content-Length": "9376",
+      "Last-Modified": "Mon, 05 Oct 2026 07:31:03 GMT",
+      "Connection": "close",
+      "ETag": "\"6ac35237-24a0\"",
+      "Accept-Ranges": "bytes"
+    },
+    "bytes": 9366,
+    "root_empty": true,
+    "h1": [],
+    "canonicals": [
+      "<link rel=\"canonical\" href=\"https://erfreelancers.com/\"/>"
+    ]
+  },
+  {
+    "url": "https://www.erfreelancers.com",
+    "final": "https://www.erfreelancers.com",
+    "status": 200,
+    "headers": {
+      "Server": "nginx/1.24.0 (Ubuntu)",
+      "Date": "Thu, 08 Oct 2026 18:45:41 GMT",
+      "Content-Type": "text/html",
+      "Content-Length": "9376",
+      "Last-Modified": "Mon, 05 Oct 2026 07:31:03 GMT",
+      "Connection": "close",
+      "ETag": "\"6ac35237-24a0\"",
+      "Accept-Ranges": "bytes"
+    },
+    "bytes": 9366,
+    "root_empty": true,
+    "h1": [],
+    "canonicals": [
+      "<link rel=\"canonical\" href=\"https://erfreelancers.com/\"/>"
+    ]
+  }
+]

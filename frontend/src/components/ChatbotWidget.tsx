@@ -1,0 +1,44 @@
+import React, { useEffect, useRef, useState } from 'react';
+import { Bot, X, Send, RotateCcw, Square, CheckCircle2, ArrowRight } from 'lucide-react';
+import { apiFetch } from '../api';
+import { useStreamingChat } from '../hooks/useStreamingChat';
+
+interface Props { currentServiceTitle?: string; currentLocationName?: string; onOpenEnquiryModal?: () => void; }
+export const ChatbotWidget: React.FC<Props> = ({ currentServiceTitle, currentLocationName }) => {
+  const [open, setOpen] = useState(false);
+  const [input, setInput] = useState('');
+  const [finalize, setFinalize] = useState(false);
+  const [name, setName] = useState(''); const [contact, setContact] = useState(''); const [budget, setBudget] = useState('');
+  const [timeline, setTimeline] = useState('Within 4 weeks');
+  const [saving, setSaving] = useState(false); const [lead, setLead] = useState(''); const [leadError, setLeadError] = useState('');
+  const chat = useStreamingChat({ serviceTitle: currentServiceTitle, locationName: currentLocationName });
+  const scrollRef = useRef<HTMLDivElement>(null);
+  useEffect(() => { const el = scrollRef.current; if (el) el.scrollTop = el.scrollHeight; }, [chat.messages, chat.loading, open, finalize]);
+  const send = (text = input) => { if (!text.trim() || chat.loading) return; setInput(''); chat.send(text); };
+  const saveLead = async (e: React.FormEvent) => {
+    e.preventDefault(); setSaving(true); setLeadError('');
+    try {
+      const res = await apiFetch('/api/chat/finalize', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ clientName: name, contactValue: contact, budget, timeline, sessionId: chat.sessionId, messages: chat.messages, locationName: currentLocationName, projectDescription: chat.messages.filter(m => m.sender === 'user').map(m => m.text).join('\n') }) });
+      const data = await res.json(); if (!res.ok || !data.lead) throw new Error();
+      setLead(data.lead.id); setFinalize(false);
+    } catch { setLeadError('Your enquiry could not be saved. Please retry.'); }
+    finally { setSaving(false); }
+  };
+  const reset = () => { chat.reset(); setInput(''); setFinalize(false); setLead(''); setLeadError(''); setName(''); setContact(''); setBudget(''); };
+  return <aside className="chat-position" aria-label="Project scoping assistant">
+    {!open ? <button data-testid="chat-open" aria-label="Open Help & Support Chatbot" onClick={() => setOpen(true)} className="flex items-center gap-3 rounded-full bg-indigo-600 p-4 text-white shadow-xl transition-transform hover:scale-105"><span className="hidden md:block text-sm font-semibold">Let's scope your project</span><Bot size={25} /></button> :
+      <div data-testid="chat-window" role="dialog" aria-label="ER Freelancer project assistant" className="chat-window flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-2xl">
+        <div className="flex shrink-0 items-center justify-between gap-2 bg-slate-900 p-4 text-white"><div className="flex items-center gap-2"><Bot className="shrink-0 text-emerald-300" size={24} /><div><h2 className="text-sm font-semibold">ER Freelancer assistant</h2><p data-testid="chat-response-status" className="mt-1 text-xs text-slate-300">{chat.loading ? 'Replying live…' : 'Project scoping & estimates'}</p></div></div><div className="flex shrink-0"><button data-testid="chat-reset" onClick={reset} disabled={saving} aria-label="Reset conversation" title="New conversation" className="rounded-lg p-2 hover:bg-white/10"><RotateCcw size={17} /></button><button data-testid="chat-close" aria-label="Close chat" title="Close chat" onClick={() => setOpen(false)} className="rounded-lg p-2 hover:bg-white/10"><X size={19} /></button></div></div>
+        {currentLocationName && <p data-testid="chat-context" className="border-b border-slate-200 px-4 py-2 text-xs text-slate-600">{currentServiceTitle} · {currentLocationName}</p>}
+        <div ref={scrollRef} data-testid="chat-messages" role="log" aria-live="polite" className="chat-messages min-h-0 flex-1 space-y-4 overflow-y-auto bg-slate-50 p-4">
+          {chat.messages.map(m => <div key={m.id} data-testid={`chat-message-${m.id}`} data-sender={m.sender} className={`max-w-[92%] rounded-lg px-3 py-3 text-sm leading-relaxed whitespace-pre-wrap ${m.sender === 'user' ? 'ml-auto bg-indigo-600 text-white' : 'border border-slate-200 bg-white text-slate-700'}`}>{m.text || <span data-testid="chat-typing" className="animate-pulse text-slate-500">Thinking…</span>}{chat.loading && m.id === chat.messages[chat.messages.length - 1]?.id && m.text && <span aria-hidden="true" className="ml-1 inline-block h-3 w-1 animate-pulse bg-indigo-500" />}</div>)}
+          {chat.messages.length === 1 && <div className="flex flex-wrap gap-2">{['I need a website', 'Build an ecommerce store', 'Help with pricing'].map((s, i) => <button key={s} data-testid={`chat-suggestion-${i}`} onClick={() => send(s)} className="rounded-lg border border-indigo-200 bg-white px-3 py-2 text-left text-xs font-medium text-indigo-700 hover:bg-indigo-50">{s}</button>)}</div>}
+          {chat.error && <div data-testid="chat-error" role="alert" className="rounded-lg border border-amber-200 bg-amber-50 p-3 text-sm text-amber-900"><p>{chat.error}</p><button data-testid="chat-retry" onClick={() => chat.send('', true)} disabled={chat.loading} className="mt-2 inline-flex items-center gap-1 font-semibold underline"><RotateCcw size={14} />Retry reply</button></div>}
+          {finalize && !lead && <form data-testid="chat-lead-form" onSubmit={saveLead} className="space-y-3 border-t border-slate-200 pt-4"><h3 className="text-sm font-semibold">Request your project proposal</h3>{[['name', 'Your name', name, setName], ['contact', 'Phone / WhatsApp or email', contact, setContact], ['budget', 'Budget (optional)', budget, setBudget]].map(([id, label, value, setter]: any) => <label key={id} className="block text-xs text-slate-600">{label}<input data-testid={`chat-lead-${id}`} required={id !== 'budget'} value={value} onChange={e => setter(e.target.value)} className="mt-1 block w-full rounded-lg border border-slate-200 bg-white p-2 text-sm" /></label>)}<label className="block text-xs">Timeline<select data-testid="chat-lead-timeline" value={timeline} onChange={e => setTimeline(e.target.value)} className="mt-1 w-full rounded-lg border border-slate-200 bg-white p-2">{['1-2 weeks', 'Within 4 weeks', '2-3 months', 'Flexible'].map(x => <option key={x}>{x}</option>)}</select></label>{leadError && <p data-testid="chat-lead-error" role="alert" className="text-xs text-rose-700">{leadError}</p>}<button data-testid="chat-lead-submit" disabled={saving || chat.loading} className="w-full rounded-lg bg-indigo-600 py-3 text-sm font-semibold text-white disabled:opacity-50">{saving ? 'Saving…' : 'Save enquiry'}</button><button data-testid="chat-lead-cancel" type="button" onClick={() => setFinalize(false)} className="w-full py-2 text-xs text-slate-500">Cancel</button></form>}
+          {lead && <div data-testid="chat-lead-success" role="status" className="rounded-lg border border-emerald-200 bg-emerald-50 p-3 text-sm text-emerald-900"><CheckCircle2 size={20} className="mb-2" />Your enquiry is saved for our team.<p className="mt-2 break-all text-xs">Reference: {lead}</p></div>}
+        </div>
+        {!finalize && !lead && chat.messages.some(m => m.sender === 'user') && <button data-testid="chat-show-lead-form" disabled={chat.loading} onClick={() => setFinalize(true)} className="flex shrink-0 items-center justify-between border-t border-slate-200 px-4 py-3 text-xs font-semibold text-indigo-700 disabled:opacity-50">Request a proposal<ArrowRight size={14} /></button>}
+        <form onSubmit={e => { e.preventDefault(); send(); }} className="flex shrink-0 gap-2 border-t border-slate-200 bg-white p-3"><input data-testid="chat-input" aria-label="Your message" maxLength={4000} value={input} onChange={e => setInput(e.target.value)} disabled={chat.loading} placeholder="Tell us about your project…" className="min-w-0 flex-1 rounded-lg border border-slate-200 bg-slate-50 p-3 text-sm" />{chat.loading ? <button data-testid="chat-stop" type="button" onClick={chat.stop} title="Stop reply" aria-label="Stop reply" className="grid w-11 shrink-0 place-items-center rounded-lg bg-slate-800 text-white"><Square size={16} /></button> : <button data-testid="chat-send" type="submit" aria-label="Send message" disabled={!input.trim()} className="grid w-11 shrink-0 place-items-center rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 disabled:opacity-40"><Send size={18} /></button>}</form>
+      </div>}
+  </aside>;
+};

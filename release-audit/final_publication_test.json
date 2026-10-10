@@ -1,0 +1,7 @@
+{
+  "environment": "isolated in-memory database",
+  "approve_makes_indexable": true,
+  "withdraw_makes_noindex": true,
+  "original_record_preserved": true,
+  "authenticated": true
+}

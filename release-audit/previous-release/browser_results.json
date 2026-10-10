@@ -1,0 +1,91 @@
+[
+  {
+    "path": "/",
+    "status": 200,
+    "pathname": "/",
+    "title": "Freelance Web, App & AI Development | ER Freelancer",
+    "h1": [
+      "Your next idea, expertly built."
+    ],
+    "canonical": "https://erfreelancers.com/",
+    "robots": "index,follow,max-image-preview:large",
+    "overflow": false,
+    "schemas": 1
+  },
+  {
+    "path": "/services/freelance-web-developer/",
+    "status": 200,
+    "pathname": "/services/freelance-web-developer/",
+    "title": "Freelance Website Designer & Developer | ER Freelancer",
+    "h1": [
+      "Freelance Website Designer & Developer"
+    ],
+    "canonical": "https://erfreelancers.com/services/freelance-web-developer/",
+    "robots": "index,follow,max-image-preview:large",
+    "overflow": false,
+    "schemas": 1
+  },
+  {
+    "path": "/locations/india/delhi/",
+    "status": 200,
+    "pathname": "/locations/india/delhi/",
+    "title": "Freelance services for Delhi, India | ER Freelancer",
+    "h1": [
+      "Freelance services for Delhi, India"
+    ],
+    "canonical": "https://erfreelancers.com/locations/india/delhi/",
+    "robots": "index,follow,max-image-preview:large",
+    "overflow": false,
+    "schemas": 1
+  },
+  {
+    "path": "/locations/india/delhi/freelance-web-developer/",
+    "status": 200,
+    "pathname": "/locations/india/delhi/freelance-web-developer/",
+    "title": "Freelance web design and development for Delhi | ER Freelancer",
+    "h1": [
+      "Freelance web design and development for Delhi"
+    ],
+    "canonical": "https://erfreelancers.com/locations/india/delhi/freelance-web-developer/",
+    "robots": "noindex,follow",
+    "overflow": false,
+    "schemas": 1
+  },
+  {
+    "path": "/freelancers/raji/",
+    "status": 200,
+    "pathname": "/freelancers/raji/",
+    "title": "Raji | ER Freelancer",
+    "h1": [
+      "Raji"
+    ],
+    "canonical": "https://erfreelancers.com/freelancers/raji/",
+    "robots": "index,follow,max-image-preview:large",
+    "overflow": false,
+    "schemas": 1
+  },
+  {
+    "path": "/nonexistent-qa-page/",
+    "status": 404,
+    "pathname": "/nonexistent-qa-page/",
+    "title": "Page not found | ER Freelancer",
+    "h1": [
+      "Page not found"
+    ],
+    "canonical": "https://erfreelancers.com/nonexistent-qa-page/",
+    "robots": "noindex,follow",
+    "overflow": false,
+    "schemas": 1
+  },
+  {
+    "mobile": {
+      "overflow": false,
+      "removedLabels": 0,
+      "detected": "Detected: London, United Kingdom",
+      "active": "London"
+    },
+    "formVisible": 1,
+    "enquirySaved": 201,
+    "errors": []
+  }
+]

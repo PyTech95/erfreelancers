@@ -1,0 +1,231 @@
+{
+  "environment": "isolated local backend and in-memory MongoDB",
+  "routes": [
+    {
+      "requested": "/",
+      "status": 200,
+      "path": "/",
+      "title": "Freelance Web, App & AI Development | ER Freelancer",
+      "h1": [
+        "Your next idea, expertly built."
+      ],
+      "canonical": "https://erfreelancers.com/",
+      "robots": "index,follow,max-image-preview:large",
+      "overflow": false,
+      "schemaCount": 1
+    },
+    {
+      "requested": "/services/freelance-web-developer/",
+      "status": 200,
+      "path": "/services/freelance-web-developer/",
+      "title": "Freelance Website Designer & Developer | ER Freelancer",
+      "h1": [
+        "Freelance Website Designer & Developer"
+      ],
+      "canonical": "https://erfreelancers.com/services/freelance-web-developer/",
+      "robots": "index,follow,max-image-preview:large",
+      "overflow": false,
+      "schemaCount": 1
+    },
+    {
+      "requested": "/india/delhi/",
+      "status": 200,
+      "path": "/india/delhi/",
+      "title": "Freelance services for Delhi, India | ER Freelancer",
+      "h1": [
+        "Freelance services for Delhi, India"
+      ],
+      "canonical": "https://erfreelancers.com/india/delhi/",
+      "robots": "index,follow,max-image-preview:large",
+      "overflow": false,
+      "schemaCount": 1
+    },
+    {
+      "requested": "/india/delhi/freelance-web-developer/",
+      "status": 200,
+      "path": "/india/delhi/freelance-web-developer/",
+      "title": "Freelance web design and development for Delhi | ER Freelancer",
+      "h1": [
+        "Freelance web design and development for Delhi"
+      ],
+      "canonical": "https://erfreelancers.com/india/delhi/freelance-web-developer/",
+      "robots": "noindex,follow",
+      "overflow": false,
+      "schemaCount": 1
+    },
+    {
+      "requested": "/locations/india/delhi/",
+      "status": 200,
+      "path": "/india/delhi/",
+      "title": "Freelance services for Delhi, India | ER Freelancer",
+      "h1": [
+        "Freelance services for Delhi, India"
+      ],
+      "canonical": "https://erfreelancers.com/india/delhi/",
+      "robots": "index,follow,max-image-preview:large",
+      "overflow": false,
+      "schemaCount": 1
+    },
+    {
+      "requested": "/freelancers/raji/",
+      "status": 200,
+      "path": "/freelancers/raji/",
+      "title": "Raji | ER Freelancer",
+      "h1": [
+        "Raji"
+      ],
+      "canonical": "https://erfreelancers.com/freelancers/raji/",
+      "robots": "index,follow,max-image-preview:large",
+      "overflow": false,
+      "schemaCount": 1
+    },
+    {
+      "requested": "/australia/brisbane/zone-102-cluster/freelance-seo-expert/",
+      "status": 404,
+      "path": "/australia/brisbane/zone-102-cluster/freelance-seo-expert/",
+      "title": "Page not found | ER Freelancer",
+      "h1": [
+        "Page not found"
+      ],
+      "canonical": "https://erfreelancers.com/australia/brisbane/zone-102-cluster/freelance-seo-expert/",
+      "robots": "noindex,follow",
+      "overflow": false,
+      "schemaCount": 1
+    },
+    {
+      "requested": "/locations/australia/brisbane/zone-102-cluster/freelance-seo-expert/",
+      "status": 404,
+      "path": "/locations/australia/brisbane/zone-102-cluster/freelance-seo-expert/",
+      "title": "Page not found | ER Freelancer",
+      "h1": [
+        "Page not found"
+      ],
+      "canonical": "https://erfreelancers.com/locations/australia/brisbane/zone-102-cluster/freelance-seo-expert/",
+      "robots": "noindex,follow",
+      "overflow": false,
+      "schemaCount": 1
+    },
+    {
+      "requested": "/not-a-real-page/",
+      "status": 404,
+      "path": "/not-a-real-page/",
+      "title": "Page not found | ER Freelancer",
+      "h1": [
+        "Page not found"
+      ],
+      "canonical": "https://erfreelancers.com/not-a-real-page/",
+      "robots": "noindex,follow",
+      "overflow": false,
+      "schemaCount": 1
+    },
+    {
+      "requested": "/admin/",
+      "status": 200,
+      "path": "/admin/",
+      "title": "Admin login | ER Freelancer",
+      "h1": [],
+      "canonical": "https://erfreelancers.com/admin/",
+      "robots": "noindex,nofollow",
+      "overflow": false,
+      "schemaCount": 0
+    },
+    {
+      "requested": "/?page=2",
+      "status": 404,
+      "path": "/",
+      "title": "Page not found | ER Freelancer",
+      "h1": [
+        "Page not found"
+      ],
+      "canonical": "https://erfreelancers.com/",
+      "robots": "noindex,follow",
+      "overflow": false,
+      "schemaCount": 1
+    },
+    {
+      "requested": "/?page=invalid",
+      "status": 404,
+      "path": "/",
+      "title": "Page not found | ER Freelancer",
+      "h1": [
+        "Page not found"
+      ],
+      "canonical": "https://erfreelancers.com/",
+      "robots": "noindex,follow",
+      "overflow": false,
+      "schemaCount": 1
+    },
+    {
+      "requested": "/join-as-freelancer/?page=2",
+      "status": 404,
+      "path": "/join-as-freelancer/",
+      "title": "Page not found | ER Freelancer",
+      "h1": [
+        "Page not found"
+      ],
+      "canonical": "https://erfreelancers.com/join-as-freelancer/",
+      "robots": "noindex,follow",
+      "overflow": false,
+      "schemaCount": 1
+    }
+  ],
+  "regressions": [
+    {
+      "test": "mobile globe and simulated Europe location",
+      "overflow": false,
+      "bottomCityButtons": 0,
+      "detected": "Approximate location: London, United Kingdom",
+      "active": "London",
+      "pins": 8
+    },
+    {
+      "test": "mobile service enquiry with isolated DB",
+      "status": 201
+    },
+    {
+      "test": "static fallback: network failure",
+      "apiRequests": 1,
+      "path": "/",
+      "title": "Freelance Web, App & AI Development | ER Freelancer",
+      "h1": [
+        "Your next idea, expertly built."
+      ],
+      "canonical": "https://erfreelancers.com/",
+      "robots": "index,follow",
+      "overflow": false,
+      "schemaCount": 0
+    },
+    {
+      "test": "static fallback: invalid JSON",
+      "apiRequests": 1,
+      "path": "/",
+      "title": "Freelance Web, App & AI Development | ER Freelancer",
+      "h1": [
+        "Your next idea, expertly built."
+      ],
+      "canonical": "https://erfreelancers.com/",
+      "robots": "index,follow",
+      "overflow": false,
+      "schemaCount": 0
+    },
+    {
+      "test": "static fallback: incomplete payload",
+      "apiRequests": 1,
+      "path": "/",
+      "title": "Freelance Web, App & AI Development | ER Freelancer",
+      "h1": [
+        "Your next idea, expertly built."
+      ],
+      "canonical": "https://erfreelancers.com/",
+      "robots": "index,follow",
+      "overflow": false,
+      "schemaCount": 0
+    },
+    {
+      "test": "draft SSR bootstrap preserved without metadata API",
+      "apiRequests": 0,
+      "robots": "noindex,follow"
+    }
+  ],
+  "errors": []
+}

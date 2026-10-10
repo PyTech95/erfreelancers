@@ -1,0 +1,5 @@
+# Isolated tests; use the application virtual environment.
+pytest==9.1.1
+pytest-xdist==3.8.0
+httpx==0.28.1
+mongomock-motor==0.0.36

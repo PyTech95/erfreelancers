@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 120" fill="none">
+  <!-- Freelancer Icon Mark -->
+  <g transform="translate(10, 10)">
+    <!-- Top Blue Bar -->
+    <path d="M28 6 L124 6 L100 34 L8 34 Z" fill="#2E37FE"/>
+    <!-- Teal Polygon Facet -->
+    <path d="M8 34 L62 34 L8 70 Z" fill="#13B59B"/>
+    <!-- Lower Blue Wing and Stem -->
+    <path d="M8 70 L62 34 L122 58 L54 78 L26 78 L26 100 L8 116 Z" fill="#2E37FE"/>
+  </g>
+  <!-- Freelancer Wordmark -->
+  <text x="145" y="80" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', 'Outfit', sans-serif" font-weight="800" font-size="64" fill="#0F172A" letter-spacing="-1.5">Freelancer</text>
+</svg>

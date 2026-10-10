@@ -1,0 +1,80 @@
+[
+  {
+    "url": "https://erfreelancers.com/api/sitemaps/sitemap-core.xml",
+    "status": 200,
+    "contentType": "application/xml; charset=utf-8",
+    "bytes": 605
+  },
+  {
+    "url": "https://erfreelancers.com/api/sitemaps/sitemap-blog.xml",
+    "status": 200,
+    "contentType": "application/xml; charset=utf-8",
+    "bytes": 109
+  },
+  {
+    "url": "https://erfreelancers.com/api/sitemaps/sitemap-pages-1.xml",
+    "status": 200,
+    "contentType": "application/xml; charset=utf-8",
+    "bytes": 1153455
+  },
+  {
+    "url": "https://erfreelancers.com/api/sitemaps/sitemap-pages-2.xml",
+    "status": 200,
+    "contentType": "application/xml; charset=utf-8",
+    "bytes": 1136788
+  },
+  {
+    "url": "https://erfreelancers.com/api/sitemaps/sitemap-pages-3.xml",
+    "status": 200,
+    "contentType": "application/xml; charset=utf-8",
+    "bytes": 1127676
+  },
+  {
+    "url": "https://erfreelancers.com/api/sitemaps/sitemap-pages-4.xml",
+    "status": 200,
+    "contentType": "application/xml; charset=utf-8",
+    "bytes": 1110022
+  },
+  {
+    "url": "https://erfreelancers.com/api/sitemaps/sitemap-pages-5.xml",
+    "status": 200,
+    "contentType": "application/xml; charset=utf-8",
+    "bytes": 1167642
+  },
+  {
+    "url": "https://erfreelancers.com/api/sitemaps/sitemap-pages-6.xml",
+    "status": 200,
+    "contentType": "application/xml; charset=utf-8",
+    "bytes": 1177577
+  },
+  {
+    "url": "https://erfreelancers.com/api/sitemaps/sitemap-pages-7.xml",
+    "status": 200,
+    "contentType": "application/xml; charset=utf-8",
+    "bytes": 1206987
+  },
+  {
+    "url": "https://erfreelancers.com/api/sitemaps/sitemap-pages-8.xml",
+    "status": 200,
+    "contentType": "application/xml; charset=utf-8",
+    "bytes": 1180797
+  },
+  {
+    "url": "https://erfreelancers.com/api/sitemaps/sitemap-pages-9.xml",
+    "status": 200,
+    "contentType": "application/xml; charset=utf-8",
+    "bytes": 1180328
+  },
+  {
+    "url": "https://erfreelancers.com/api/sitemaps/sitemap-pages-10.xml",
+    "status": 200,
+    "contentType": "application/xml; charset=utf-8",
+    "bytes": 1181870
+  },
+  {
+    "url": "https://erfreelancers.com/api/sitemaps/sitemap-pages-11.xml",
+    "status": 200,
+    "contentType": "application/xml; charset=utf-8",
+    "bytes": 233076
+  }
+]

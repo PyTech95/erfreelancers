@@ -1,0 +1,22 @@
+{
+  "summary": "Iteration 4 targeted regression on hardened prod (marketplace-hardened.preview.emergentagent.com) covering the 6 follow-up items (service card images, animated globe + geolocation + interactions, hero shimmer/sparkle, SEO backend). All 6 pass. Backend: /api/pages/resolve for /locations/india/delhi/freelance-seo-expert/ returns service-aware SEO title (68 chars, mentions SEO) and description (155 chars, mentions SEO, not the generic 'website designer' fallback). /api/seo/audit?sample=12 returns errorCount=0, titleLengthAlerts=0, descLengthAlerts=0. Frontend: hero-heading present, 1 .hero-shimmer element ('expertly built.') and 3 .hero-sparkle elements confirmed. All 14 service-image-S01..S14 loaded (naturalWidth=1264, complete=true, no broken). service-view-* / service-hire-* still work (View Details navigates to /locations/india/delhi/freelance-web-developer/, Hire opens enquiry modal). world-map-svg renders 179 path elements (countries). Globe auto-rotates: country path idx=20 d attr changes ~every animation frame (proven via 2s delta). Zoom-in changes projection scale (path d changes). Region 'europe' click tweens the globe to Europe (path d changes). map-locate-me/map-zoom-in/out/reset/map-service-select(SELECT)/map-explore-location/map-submit-brief/map-active-location/map-local-count/map-region-{all,india,middle-east,europe,americas,apac}/map-pin-*(1)/map-hub-london/map-hub-detail all present. Geolocation via ipapi.co works from test env: map-detected-badge shows 'Detected: Council Bluffs, United States' and map-user-location marker is rendered on the front hemisphere. Known pre-existing console warnings (WorldwideMap duplicate-key + <span>-in-<option> hydration from Emergent overlay) still present but explicitly out-of-scope per E1.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {"ui_bugs": [], "integration_issues": [], "design_issues": []},
+  "test_report_links": [
+    "/app/backend/tests/test_iteration4_seo.py",
+    "/app/test_reports/pytest/iter4_seo.xml"
+  ],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "WorldwideMap.tsx: auto-rotation increments longitude at ~7.2 deg/sec (0.12 per rAF frame) — silky. flyTo tween easing (0.09 lerp) converges cleanly.",
+    "content_builder.py SEO strings are now correctly service-aware and length-clamped (title<=95, desc 100-170); /api/seo/audit returns 0 alerts across a 12-page sample.",
+    "Pre-existing (not new): duplicate-key warning in WorldwideMap render and <span> child of <option> hydration warning from Emergent instrumentation — both flagged in iteration_3 and still present; low priority."
+  ],
+  "updated_files": ["/app/backend/tests/test_iteration4_seo.py (new)"],
+  "success_rate": {"backend": "100% (2/2 targeted + 36/36 from iteration_3 unchanged)", "frontend": "100% of the 6 requested items"},
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Globe auto-rotation must be asserted on a mid-range path index (e.g. path index 20+ inside world-map-svg). Path index 0 is the sphere/background circle and is constant regardless of rotation, so d1==d2 there is expected. ipapi.co works from this environment (visitor mapped to Council Bluffs, US); if it ever fails the 'Live interactive globe' fallback badge is acceptable per E1.",
+  "rca of the issue": "N/A — all 6 items pass."
+}

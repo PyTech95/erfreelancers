@@ -1,0 +1,20 @@
+{
+  "build": "passed",
+  "typescript": "passed",
+  "focused_tests_passed": 15,
+  "local_indexable_urls_crawled": 948,
+  "local_http_failed_checks": 0,
+  "local_http_warnings": 0,
+  "javascript_page_errors": 0,
+  "mobile_overflow": false,
+  "globe_bottom_location_buttons": 0,
+  "simulated_europe_location": "London, United Kingdom",
+  "enquiry_http_status": 201,
+  "main_js_gzip_kb_before": 378.29,
+  "main_js_gzip_kb_after": 196.19,
+  "production_deployed": false,
+  "search_console_access": false,
+  "browser_screenshots": "not produced; behavioral DOM checks completed",
+  "build_lint_warnings": 4,
+  "test_dependency_deprecation_warnings": 4
+}

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://erfreelancers.com/sitemap.xml

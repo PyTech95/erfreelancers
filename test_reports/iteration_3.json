@@ -1,0 +1,50 @@
+{
+  "summary": "Iteration 3 regression on hardened prod (marketplace-hardened.preview.emergentagent.com). 36/36 backend regression tests pass, including public smoke, leads idempotency, chatbot LLM+finalize, freelancer register (under_review), JWT auth + /me, admin auth-gate on 4 GET endpoints + pipeline/run, brute-force rate-limit 429, SEO (sitemap.xml/sitemap-core.xml/robots.txt), security headers (HSTS, X-Frame-Options, X-Content-Type-Options=nosniff, Referrer-Policy), and backend docs disabled (/api/docs, /api/openapi.json, /api/redoc all 404). Frontend: home hero 'Your next idea, expertly built.' renders, header Admin link opens /admin login page, admin login with provided creds succeeds (token persisted in localStorage key erf_admin_token, dashboard shows Leads/WhatsApp Alerts/Pipeline/Freelancers/Facts/Exports/Search Console tabs, Sign out visible). 'Post a Requirement' modal submits successfully (Project Brief Saved, Lead Record ID returned). Chatbot widget returns real Gemini/Emergent LLM reply for a bakery-ecommerce prompt. No blocking issues found.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {
+        "screen": "Global console (non-blocking)",
+        "issues": [
+          "React 'unique key prop' warning from WorldwideMap render.",
+          "Hydration warning: <span> child of <option> from Emergent overlay instrumentation (noisy, non-blocking).",
+          "Rate-limit 429 on /api/auth/login is shown to admin user as generic 'Login failed. Please check your credentials.' — consider surfacing a specific rate-limit message so a legitimate admin does not think their password is wrong."
+        ]
+      }
+    ]
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_iteration3_hardening.py",
+    "/app/backend/tests/test_erfreelancer_api.py",
+    "/app/test_reports/pytest/iter3_final.xml"
+  ],
+  "action_items": [
+    "OPTIONAL UX: Distinguish 429 from 401 on the admin login screen (specific message + retry-after hint).",
+    "OPTIONAL: Fix duplicate-key warning in WorldwideMap and hydration <span>/<option> warning to clean up console noise."
+  ],
+  "critical_code_review_comments": [
+    "CORS + security headers + generic 500 handler + JWT admin gate all working end-to-end on prod URL.",
+    "Rate-limit 429 is observable after ~10 rapid /api/auth/login attempts (slowapi decorator active).",
+    "Leads idempotency (POST /api/leads with same idempotencyKey -> 200 isDuplicate=true) works.",
+    "Chatbot end-to-end (Gemini via Emergent LLM key) returns rich, contextual replies for INR-budget bakery ecommerce prompt.",
+    "Backend FastAPI docs are properly disabled behind the /api prefix (404 on /api/docs, /api/openapi.json, /api/redoc)."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_iteration3_hardening.py (new)",
+    "/app/backend/tests/test_erfreelancer_api.py (updated BASE_URL + admin creds to current env)"
+  ],
+  "success_rate": {
+    "backend": "100% (36/36)",
+    "frontend": "100% of critical flows (home, admin login+dashboard, enquiry modal, chatbot)"
+  },
+  "seed_data_creation": "Created TEST_Iter3_* lead via POST /api/leads (idempotency verified), TEST_Iter3_Reg_* freelancer via /api/freelancers/register (under_review), TEST_ChatIter3 lead via /api/chat/finalize, and one UI-submitted lead TEST_UITest_Iter3 (lead-1789980510928-ppc2yc).",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Hardening iteration passes end-to-end. Note that the rate-limit is per-IP and shared between backend tests and browser sessions; if you burst /api/auth/login you must wait ~60s before UI admin login will succeed. Console has known noisy warnings (WorldwideMap keys, span-in-option hydration) that are non-blocking. Admin creds and JWT key/EMERGENT_LLM_KEY are configured; no changes to env needed.",
+  "rca of the issue": "No blocking issues. The prior iteration_2 concerns (cookie-based auth, CORS origin mismatch, bruteforce lockout 429) are now resolved on the hardened build: login rate-limit returns 429 correctly on the current preview origin, and CORS is locked to the frontend domain. The lockout state after 5 wrong attempts is not separately asserted here (429 from slowapi throttles first)."
+}

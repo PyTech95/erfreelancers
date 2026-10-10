@@ -1,0 +1,79 @@
+{
+  "summary": "Executed backend + frontend regression on preview URL for hero/responsive/admin email/leads/outbox/blog workflows. Backend pytest passed (19/19). Frontend core flows mostly pass but UI run exposed reproducible mobile overflow and intermittent admin fetch/blog-editor instability.",
+  "backend_issues": {
+    "critical": [],
+    "minor": [
+      {
+        "endpoint": "/api/admin/email/test",
+        "issue": "Intermittently returns edge 502 HTML (gateway) instead of API JSON during rapid calls; still rate-limits/fails safely without credential leakage."
+      }
+    ]
+  },
+  "frontend_issues": {
+    "ui_bugs": [
+      {
+        "component": "Public mobile layout",
+        "issue": "At 320px viewport, document horizontal overflow detected (+17px).",
+        "selector": "decorative absolute blob + nearby flex group in visible section",
+        "priority": "HIGH"
+      },
+      {
+        "component": "Admin Blog",
+        "issue": "Intermittent inability to open blog editor after clicking New post (timeout waiting blog-editor-form) under active fetch failures.",
+        "selector": "[data-testid='blog-new-post'] -> [data-testid='blog-editor-form']",
+        "priority": "HIGH"
+      }
+    ],
+    "integration_issues": [
+      {
+        "flow": "Admin data loading",
+        "issue": "Console shows repeated 'TypeError: Failed to fetch' for locations/freelancers/initial platform data while admin UI is open.",
+        "affected_selectors": [
+          "[data-testid='admin-dashboard']",
+          "[data-testid='admin-blog-panel']"
+        ]
+      }
+    ],
+    "design_issues": [
+      {
+        "screen": "Public + ServiceLocationFinder render",
+        "issues": [
+          "Hydration warning persists: <span> rendered inside <option> (invalid DOM).",
+          "Recharts emits width(-1)/height(-1) warnings on admin overview during some resize states."
+        ]
+      }
+    ]
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_iteration5_admin_email_blog.py",
+    "/app/backend/tests/test_iteration5_email_worker_unit.py",
+    "/app/test_reports/pytest/iter5_results.xml"
+  ],
+  "action_items": [
+    "Fix mobile 320 overflow by constraining decorative absolute element(s) and parent flex sizing.",
+    "Investigate intermittent frontend fetch failures in admin (network interceptor/proxy/runtime script path).",
+    "Stabilize Admin Blog New-post interaction when upstream fetch failures occur.",
+    "Fix invalid <option> child markup causing hydration warnings.",
+    "Review Recharts container sizing around breakpoint transitions to prevent width(-1)/height(-1) warnings."
+  ],
+  "critical_code_review_comments": [
+    "backend/tests/test_iteration4_seo.py still uses fallback default URL in BASE env read; conflicts with env-only policy.",
+    "Email settings API correctly avoids returning passwordCiphertext/appPassword; encryption-at-rest behavior verified indirectly through response contract + restore-safe DB fixture.",
+    "Email worker durable intent behavior covered with isolated unit tests: lead recovery, claim->sent, retry->failed and lease recovery path."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_iteration5_admin_email_blog.py",
+    "/app/backend/tests/test_iteration5_email_worker_unit.py",
+    "/app/test_reports/iteration_5.json"
+  ],
+  "success_rate": {
+    "backend": "100% (19/19)",
+    "frontend": "~75% targeted flows completed (core hero/admin/leads/chart/partial blog passed; blog UI stability + overflow issues remain)"
+  },
+  "seed_data_creation": "Created temporary TEST_ leads and temporary blog posts; blog posts cleaned during tests. Gmail settings were snapshotted and restored to original document via DB fixture.",
+  "retest_needed": true,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Use existing admin creds from /app/memory/test_credentials.md. Focus retest on: (1) 320px overflow, (2) admin fetch failures, (3) blog-new-post intermittency under fetch errors. Required screenshots already captured at 1920x800 and 390x844 in artifacts_iter5_ui.",
+  "rca of the issue": "RCA: (a) 320 overflow likely from absolute decorative blob width (w-80) extending beyond viewport clipping context, plus neighboring flex sizing. (b) Blog UI timeout appears secondary to repeated runtime fetch failures in console; when data fetches fail repeatedly, state transitions become unstable and editor open action intermittently stalls. (c) Hydration warning originates from invalid DOM composition in ServiceLocationFinder option rendering (<span> inside <option>).",
+  "test_credentials": "Loaded from /app/memory/test_credentials.md (admin: rajeev.pytech@gmail.com / ErFreelancer@2026Admin)."
+}

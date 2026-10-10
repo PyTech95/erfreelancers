@@ -1,0 +1,209 @@
+{
+  "audit_date_utc": "2026-10-08",
+  "scope": "Read-only source audit of original uploaded ZIP, followed by the specified content-builder repair. Does not establish live Google indexing reasons.",
+  "source_archive": "erfreelancer2-main (1)2.zip",
+  "original_source_sha256": {
+    "backend/content_builder.py": "804b3136fead3dde80d5e6f3ba29bfdcd815327fc530c771681e50cf05b363c3",
+    "frontend/src/App.tsx": "b1c820ebc9699b1888d9fa6ca4fcff7f7e05680eedfe67d69fca1fe1ff2142ab"
+  },
+  "original_measurements": {
+    "locations": 3643,
+    "countries": 43,
+    "location_types": {
+      "country": 43,
+      "city": 127,
+      "neighborhood": 3473
+    },
+    "synthetic_sector_pattern_records": 2719,
+    "other_location_records_not_independently_verified": 924,
+    "synthetic_examples": [
+      "Sharjah Sector 194",
+      "Brisbane Sector 114"
+    ],
+    "freelancer_seed_records": 144,
+    "freelancer_seed_states": {
+      "approved": 144
+    },
+    "identity_badges_without_supporting_evidence_in_archive": 143,
+    "portfolio_items_marked_real": 286,
+    "profiles_with_placeholder_language": 47,
+    "delhi_mumbai_website_sections_similarity": 0.9914,
+    "delhi_mumbai_sections_identical_after_city_substitution": true,
+    "similarity_method": "difflib.SequenceMatcher with autojunk=False across section titles and content; matched S01 city records, then replaced Delhi and Mumbai with the same city token."
+  },
+  "findings": [
+    {
+      "severity": "critical",
+      "files": [
+        "frontend/public/index.html",
+        "frontend/src/App.tsx",
+        "frontend/src/components/ServiceLocationDetail.tsx"
+      ],
+      "finding": "Canonical, Open Graph and schema URLs hard-code singular erfreelancer.com; confirm against live hostname. Every HTML shell begins with the homepage canonical; client code later changes it."
+    },
+    {
+      "severity": "critical",
+      "files": [
+        "frontend/src/App.tsx",
+        "backend/seo.py"
+      ],
+      "finding": "Sitemap advertises service hubs, geography hubs and core URLs that original client routing does not implement. Unknown/non-location routes fall back to homepage and push homepage URL instead of serving a meaningful page or 404."
+    },
+    {
+      "severity": "critical",
+      "files": [
+        "frontend/public/robots.txt",
+        "backend/seo.py",
+        "frontend/src/App.tsx"
+      ],
+      "finding": "Disallow /api blocks resources required for client-rendered public content. Original HTML has no rendered primary content."
+    },
+    {
+      "severity": "critical",
+      "files": [
+        "backend/data/locations.json"
+      ],
+      "finding": "2,719 generated sector/zone pattern locations are marked verified without source evidence. Country/city timezone shortcuts include Perth and Brisbane using Australia/Sydney."
+    },
+    {
+      "severity": "critical",
+      "files": [
+        "backend/data/freelancers.json",
+        "backend/store.py"
+      ],
+      "finding": "All 144 seed profiles are approved, including an explicitly named staging test specialist and repetitive generated global profiles. Identity badges, real project markers and qualification claims need actual evidence; seed labels are not evidence."
+    },
+    {
+      "severity": "high",
+      "files": [
+        "frontend/public/index.html",
+        "frontend/src/components/ServiceLocationDetail.tsx",
+        "frontend/src/components/ClientReviews.tsx"
+      ],
+      "finding": "Static aggregateRating 5.0 with 1,500 reviewCount, unsupported testimonial metrics and ProfessionalService addresses at target locations misrepresent evidence or physical presence unless separately substantiated."
+    },
+    {
+      "severity": "critical",
+      "files": [
+        "backend/content_builder.py",
+        "backend/store.py"
+      ],
+      "finding": "Original builder assigns qualityScore 98, passed review, approved lifecycle and published time automatically. Fetching a candidate route generates the page. Repeated location-name substitution does not establish useful independent content."
+    },
+    {
+      "severity": "high",
+      "files": [
+        "backend/seo.py"
+      ],
+      "finding": "Sitemap blindly publishes the Cartesian matrix, fixed at 50,400 although 3,643 x 14 equals 51,002 candidate combinations. Lastmod is today on every request rather than actual change time; Google ping URL is obsolete."
+    },
+    {
+      "severity": "high",
+      "files": [
+        "frontend/src/components/Header.tsx",
+        "frontend/src/components/Footer.tsx",
+        "frontend/src/components/ServicesGrid.tsx",
+        "frontend/src/components/LocationsHub.tsx"
+      ],
+      "finding": "Main discovery actions are buttons instead of crawlable href links. Stored internal_link_ids do not measure actual inbound navigation links."
+    },
+    {
+      "severity": "high",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/ServiceLocationDetail.tsx"
+      ],
+      "finding": "Location pages keep global homepage description and Open Graph metadata. The generated package metadata is not fully applied by original client code."
+    },
+    {
+      "severity": "medium",
+      "files": [
+        "frontend/src/pages/BlogPage.tsx",
+        "backend/seo.py"
+      ],
+      "finding": "Published blog posts are omitted from sitemap. Blog pagination is in component state rather than crawlable paginated URLs; failed slugs keep an HTML success shell."
+    },
+    {
+      "severity": "high",
+      "files": [
+        "backend/server.py",
+        "backend/seo.py"
+      ],
+      "finding": "Completion report invents zero HTTP/SEO failures and treats generated count as HTTP-tested count. SEO audit is only string lengths and FAQ existence with several always-true fields."
+    },
+    {
+      "severity": "high",
+      "files": [
+        "backend/data/freelancers.json",
+        "frontend/public/index.html"
+      ],
+      "finding": "Founder is named Rajeev Sharma in archive despite user identity Rajeev Kumar. Base location is unconfirmed in facts but Laxmi Nagar office/residency claims occur in public content."
+    },
+    {
+      "severity": "informational",
+      "files": [
+        "backend/search_console.py"
+      ],
+      "finding": "Search Console feature is a manual checklist, not an authenticated integration. Exact Page Indexing exclusion reasons and URL Inspection results remain unknown."
+    }
+  ],
+  "content_builder_repair": {
+    "file": "backend/content_builder.py",
+    "new_pages": "needs_review; indexable false; review pending; publishedAt null; qualityAssessment not_scored; numeric qualityScore 0 retained for legacy interface",
+    "content": "Distinct practical guidance for all 14 service categories; scope options, project questions, exclusions, pricing factors, acceptance checks and qualified timezone scheduling.",
+    "unsupported_claims_removed": [
+      "1,500 projects or reviews",
+      "5-star ratings",
+      "verified local presence",
+      "near-me superiority",
+      "competitor savings",
+      "24-hour SLA",
+      "guaranteed performance",
+      "automatic warranty",
+      "arbitrary payment split",
+      "fictional source references"
+    ],
+    "availability": "Approved service matches only, no unavailable/waitlist/test profiles; remote countries respect country_remote coverage; onsite requires explicitly listed area; no-match stays empty.",
+    "limitation": "This remains a reusable draft template. It intentionally does not claim independent local value or approve/index the matrix. Existing stored pages require parent-managed migration and public delivery safeguards.",
+    "regression_checks": "Four content integrity regression functions passed by direct Python execution. pytest is not installed in this runtime."
+  },
+  "official_sources": [
+    {
+      "url": "https://developers.google.com/search/docs/essentials",
+      "supports": "Technical requirements and best practices do not guarantee crawling, indexing or serving."
+    },
+    {
+      "url": "https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics",
+      "supports": "SSR/prerendering, consistent canonicals, correct statuses, crawlable links and accessible rendering resources."
+    },
+    {
+      "url": "https://developers.google.com/search/docs/essentials/spam-policies",
+      "supports": "Doorway and scaled low-value content policies."
+    },
+    {
+      "url": "https://developers.google.com/search/docs/appearance/ai-features",
+      "supports": "Same core SEO principles for Google AI features; indexed and snippet-eligible content; no special AI schema or text file required."
+    },
+    {
+      "url": "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
+      "supports": "Visible, accurate structured data; no fabricated reviews or misleading content."
+    },
+    {
+      "url": "https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap",
+      "supports": "Canonical URLs, sitemap limits and accurate lastmod."
+    },
+    {
+      "url": "https://developers.google.com/search/blog/2023/06/sitemaps-lastmod-ping",
+      "supports": "Deprecated ping endpoint and truthful lastmod."
+    }
+  ],
+  "remaining_external_checks": [
+    "Google Search Console Page Indexing reason groups and sample exports",
+    "URL Inspection fetched/rendered HTML and Google-selected canonical",
+    "Manual Actions and Security Issues reports",
+    "Sitemap processing and discovered URL counts",
+    "Production HTTP/HTTPS/www redirects, response codes and robot headers",
+    "Core Web Vitals field data; mobile/lab measurements cannot prove all real-user performance",
+    "Owner validation of location, freelancer, review, portfolio and legal identity claims"
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "base": "previous supplied ZIP version 1",
+  "changed_source_files": [
+    {
+      "path": "README.md",
+      "change": "modified",
+      "sha256": "6486c6b66ab936bf10031f28c28ddfa24a6cfb82e45c43519c66224092182dd7"
+    },
+    {
+      "path": "START_HERE.md",
+      "change": "added",
+      "sha256": "2900d429390bfe18eee545f81eed79835aee20d190dd5df0032ab5b6830e695a"
+    },
+    {
+      "path": "backend/content_builder.py",
+      "change": "modified",
+      "sha256": "bf77e7c49302e826f094a07f7a52135dbfe83e8351f11c31e1d74649ef8649c9"
+    },
+    {
+      "path": "backend/public_site.py",
+      "change": "modified",
+      "sha256": "4a7c2a70fe950b09e49b0c1844ccdd68bb025d11e8f3047c0e23930832b25eb5"
+    },
+    {
+      "path": "backend/seo.py",
+      "change": "modified",
+      "sha256": "1c8d45fa17091ea8ecc4ff0e761738345c717849f0b023bcc0e914c4c8909114"
+    },
+    {
+      "path": "backend/server.py",
+      "change": "modified",
+      "sha256": "2b0a80bbf8e3024fbdcac86281bdb186afbcfcc1b206234f74d0481945a67280"
+    },
+    {
+      "path": "backend/store.py",
+      "change": "modified",
+      "sha256": "f4a289094acee669da4bb21c3494842bd6ca0abe31cba660c7bfa36372ac5393"
+    },
+    {
+      "path": "backend/tests/test_public_seo_unit.py",
+      "change": "modified",
+      "sha256": "0a8254b38c61bbc1ee62f344fba152890b9e1134ba1b13ace1f9e12f349760b2"
+    },
+    {
+      "path": "backend/url_paths.py",
+      "change": "added",
+      "sha256": "761e7292a974c2e082a17442a2a985d4d3ba688a5a7089c7a19bb19973c16994"
+    },
+    {
+      "path": "deploy/DEPLOYMENT.md",
+      "change": "modified",
+      "sha256": "a92673f4fb2f25133c82e23097d6bc22e87702f065a591d5599939d7b82d2f04"
+    },
+    {
+      "path": "deploy/START_HERE.md",
+      "change": "added",
+      "sha256": "ae0cd7fdf9869a7be46a0cfc4db8909160f75985cd06cce44dafa7fbb83f8581"
+    },
+    {
+      "path": "deploy/nginx-erfreelancers.conf",
+      "change": "modified",
+      "sha256": "5e9a2317aa646c7808ddeb1ac0108b6ff7a497a5a91702c0ad4423fe8ea9f361"
+    },
+    {
+      "path": "deploy/nginx-existing-vhost-snippet.conf",
+      "change": "added",
+      "sha256": "6b9748bd80a5ce31508c9830f2ecbd320005673e57bb1b69f262cd117f55bc92"
+    },
+    {
+      "path": "deploy/nginx-public-proxy.inc",
+      "change": "added",
+      "sha256": "56e19f98fe983dab159fcee008ac75d6fe1deba520ca0a6e3b2517b4de02fd8c"
+    },
+    {
+      "path": "deploy/preflight.sh",
+      "change": "added",
+      "sha256": "dbcf27cdbc1e9e6e627ed0e96383db0833499b54e31718211d3d2d37897834ad"
+    },
+    {
+      "path": "deploy/verify_release.sh",
+      "change": "added",
+      "sha256": "3c622d461ede8c1f3b92df9d5c9b56a71ea50006df9dd0cb0a1128591a6e443b"
+    },
+    {
+      "path": "frontend/public/robots.txt",
+      "change": "modified",
+      "sha256": "bb27d2fd854ef7c84d85ecc69cf6eea02f24d7b3f6103c54ad6dbd524f13f4d2"
+    },
+    {
+      "path": "frontend/src/App.tsx",
+      "change": "modified",
+      "sha256": "841fa11700203e03636ff0269b40ec9b6dcab0faea39a0d640a13c59513536cc"
+    },
+    {
+      "path": "frontend/src/components/LocationsHub.tsx",
+      "change": "modified",
+      "sha256": "f2e3584af4ae3464fd3cf3c09113d425e31edc5ef3314af9fb50f4a14c431c8f"
+    },
+    {
+      "path": "frontend/src/components/ServiceLocationDetail.tsx",
+      "change": "modified",
+      "sha256": "66a2d05cbf49ddcdefdfa2c2a58c491a10a8c13c9f7e423f451c157f7f831b30"
+    },
+    {
+      "path": "frontend/src/components/ServiceLocationFinder.tsx",
+      "change": "modified",
+      "sha256": "ebc50ac7d344d37dd16347df490bd56f5a5bfae868902477a727baf8020b0a3f"
+    },
+    {
+      "path": "frontend/src/components/WorldwideMap.tsx",
+      "change": "modified",
+      "sha256": "334974f9c94cdd68b9d62762cbbd0d93a3f6d71574d7c7719e282b7f285e258a"
+    },
+    {
+      "path": "frontend/src/components/admin/WhatsAppAlerts.tsx",
+      "change": "modified",
+      "sha256": "0804fe19b5f4fa946df74c4a1b69a6c2e9d3bce9d23411b27937067f81c45b9a"
+    },
+    {
+      "path": "frontend/src/pages/PublicPage.tsx",
+      "change": "modified",
+      "sha256": "146e88bd2e722c450a9814832f172ee357e874a4292f50ac746ec8bfe3cfe1eb"
+    },
+    {
+      "path": "frontend/src/publicPageData.test.js",
+      "change": "added",
+      "sha256": "5519d4f7c57e732fe0d8f197e17d63fa7bbc6c6f6c66fc3f296b9f17ff3f68cb"
+    },
+    {
+      "path": "frontend/src/publicPageData.ts",
+      "change": "modified",
+      "sha256": "7145e04d37544b153d38864d6535d29d0523ee26fc0c69f11a4ec260a6dd6597"
+    },
+    {
+      "path": "frontend/src/publicRoutes.ts",
+      "change": "added",
+      "sha256": "aeb93976e10e76920d811aeaee1d3cfb316a987c8404439788ecd04d3b92bc22"
+    },
+    {
+      "path": "scripts/verify_live_seo.py",
+      "change": "modified",
+      "sha256": "1699f3fcfc748e71096f01b28cacb9cc4dc0331bb5ae4bd89b9db3baf0ee21f6"
+    }
+  ]
+}

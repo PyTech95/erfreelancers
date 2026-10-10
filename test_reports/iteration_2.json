@@ -1,0 +1,89 @@
+{
+  "summary": "Executed targeted backend + frontend regression for responsive layouts, map, lead forms, WhatsApp queue/settings, Search Console kit, admin workflows, and streaming chat on the public preview URL.",
+  "backend_issues": {
+    "critical": [
+      {
+        "endpoint": "/api/auth/login",
+        "issue": "Login response does not set any httpOnly cookie (token-only response). Auth playbook requirement failed.",
+        "priority": "HIGH"
+      },
+      {
+        "endpoint": "CORS preflight /api/health",
+        "issue": "Access-Control-Allow-Origin is not the app origin under test (returned cluster-5 emergentcf.cloud), so explicit-origin + credentials expectation failed.",
+        "priority": "HIGH"
+      },
+      {
+        "endpoint": "/api/auth/login (bruteforce lockout)",
+        "issue": "After 5 invalid attempts, 6th attempt still returns 401 instead of 429 lockout.",
+        "priority": "HIGH"
+      }
+    ],
+    "minor": [
+      {
+        "endpoint": "/app/auth_testing.md",
+        "issue": "Auth playbook reference file is missing in workspace, so full doc-driven auth checklist cannot be followed exactly."
+      }
+    ]
+  },
+  "frontend_issues": {
+    "ui_bugs": [
+      {
+        "component": "TrustGuarantees comparison table",
+        "issue": "Horizontal overflow at 320px on home and detail pages due hard min width; page scrollWidth=337 on 320 viewport.",
+        "selector": ".min-w-[620px] inside TrustGuarantees table",
+        "priority": "CRITICAL"
+      }
+    ],
+    "integration_issues": [
+      {
+        "flow": "Initial homepage data loading",
+        "issue": "Intermittent failed fetch logs during first render (locations/freelancers/services/founder/map) before recovery; caused inconsistent UX in one run.",
+        "affected_selectors": [
+          "[data-testid=service-location-finder]",
+          "[data-testid=world-map-section]",
+          "[data-testid=home-hero]"
+        ]
+      }
+    ],
+    "design_issues": [
+      {
+        "screen": "Global (console/hydration)",
+        "issues": [
+          "React warning: unique key prop issue reported for WorldwideMap render.",
+          "Hydration warning: <span> inside <option> observed from Emergent overlay instrumentation; noisy but non-blocking for flows."
+        ]
+      }
+    ]
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_iteration2_regression.py",
+    "/app/backend/tests/test_erfreelancer_api.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [
+    "Implement cookie-based auth session support (httpOnly cookie) or align auth acceptance criteria and test expectations.",
+    "Fix CORS origin/credentials policy for the active preview origin and ensure deterministic preflight headers.",
+    "Fix brute-force lockout behavior to return 429 after 5 failed attempts (verify identifier consistency behind ingress/proxy).",
+    "Remove 320px overflow by replacing TrustGuarantees `min-w-[620px]` with responsive strategy (stacked/mobile table pattern).",
+    "Stabilize initial homepage fetch behavior to avoid recurring failed-fetch console noise."
+  ],
+  "critical_code_review_comments": [
+    "Auth route returns bearer token only; if cookie-based hardening is required, current implementation is incomplete.",
+    "CORS is currently permissive and not tied to explicit expected frontend origin in this environment.",
+    "TrustGuarantees uses a fixed min-width container that breaks strict mobile viewport requirements.",
+    "App has repeated console noise in normal browsing, reducing confidence in production observability."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_iteration2_regression.py",
+    "/app/test_reports/iteration_2.json"
+  ],
+  "success_rate": {
+    "backend": "84% (16/19 passing)",
+    "frontend": "88% (core flows pass; 320 overflow + console quality issues)"
+  },
+  "seed_data_creation": "Created TEST_-style leads via API during tests; queue entries persisted as pending_setup/dismissed with attempts=0.",
+  "retest_needed": true,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Key verified passes: /api/map/hubs(8), near-me London, WhatsApp settings/queue auth+validation+dismiss, search-console checklist persistence, sitemap health, chat stream start/delta/done, chat sessionStorage restore/reset isolation, enquiry form saves from detail+modal, project URL unverified labels for Amanpuri and zumarestaurants. Re-run responsive at 320 specifically for overflow regression.",
+  "rca of the issue": "Auth lockout likely fails due identifier behavior under ingress (request.client.host variability/proxy context), so attempts never satisfy lockout condition for the same computed key. CORS mismatch indicates environment-origin negotiation not aligned with expected preview host. 320px overflow is directly caused by fixed `min-w-[620px]` in TrustGuarantees table wrapper, forcing document width > viewport."
+}

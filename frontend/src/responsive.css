@@ -1,0 +1,53 @@
+/* Shared intrinsic sizing prevents long copy, selects and grids widening the page. */
+html { scroll-padding-top: 160px; }
+body { overflow-wrap: break-word; }
+button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+button, a { touch-action: manipulation; }
+input, select, textarea { min-width: 0; max-width: 100%; }
+button:focus-visible, a:focus-visible { outline: 2px solid #4f46e5; outline-offset: 3px; }
+.grid > *, .flex > * { min-width: 0; }
+.tracking-tight { letter-spacing: 0; }
+.mobile-menu { max-height: calc(100dvh - 180px); overflow-y: auto; overscroll-behavior: contain; }
+.safe-area-pb { padding-bottom: env(safe-area-inset-bottom); }
+.detail-page { overflow-wrap: anywhere; }
+.detail-page svg { flex-shrink: 0; }
+.chat-position { position: fixed; right: 20px; bottom: 20px; z-index: 60; }
+.chat-window { width: min(420px, calc(100vw - 24px)); height: min(620px, calc(100dvh - 40px)); }
+.chat-messages { overscroll-behavior: contain; overflow-wrap: anywhere; }
+.enquiry-overlay { z-index: 70; }
+.enquiry-window { max-height: calc(100dvh - 32px); overflow-y: auto; overscroll-behavior: contain; }
+.admin-dashboard { overflow-wrap: anywhere; }
+.admin-dashboard button, .admin-dashboard input, .admin-dashboard select { max-width: 100%; }
+.admin-dashboard h1 { overflow-wrap: break-word; }
+.trust-comparison .grid { gap: 1rem; }
+.blog-content { overflow-wrap: anywhere; font-size: 16px; line-height: 1.8; }
+.blog-content > * + * { margin-top: 1.25rem; }
+.blog-content h1, .blog-content h2, .blog-content h3 { font-family: Outfit, sans-serif; font-size: 18px; font-weight: 600; line-height: 1.5; }
+.blog-content ul, .blog-content ol { padding-left: 1.5rem; list-style: revert; }
+.blog-content a { color: #047857; text-decoration: underline; }
+.blog-content pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #f1f5f9; padding: 1rem; border-radius: 6px; }
+.blog-content blockquote { border-left: 3px solid #10b981; padding-left: 1.25rem; color: #475569; }
+.admin-dashboard .overflow-x-auto { max-width: 100%; }
+.admin-dashboard pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+.admin-link { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; color: #4338ca; font-size: 14px; border-radius: 6px; transition: background-color 150ms; }
+.admin-link:hover { background: #eef2ff; }
+@media (max-width: 767px) {
+  .trust-comparison .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .trust-comparison .grid > :first-child { grid-column: 1 / -1; }
+  .trust-comparison-header > :first-child { display: none; }
+  .blog-content { font-size: 14px; }
+  .chat-position { right: 12px; bottom: calc(80px + env(safe-area-inset-bottom)); }
+  .chat-window { height: min(600px, calc(100dvh - 100px - env(safe-area-inset-bottom))); }
+  input:not([type="checkbox"]), select, textarea { font-size: 16px !important; }
+  .detail-page .brief-panel { padding: 20px; }
+  .enquiry-window { padding: 20px; }
+  .enquiry-window h2 { padding-right: 35px; }
+}
+@media (max-width: 359px) {
+  .header-brand [class*="text-xl"] { font-size: 18px; }
+  .header-brand .rounded-full { display: none; }
+  .detail-page .brief-panel { padding: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
