@@ -134,5 +134,5 @@ test('individual location links shorten while the directory and other routes rem
   expect(publicPath('/locations/')).toBe('/locations/');
   expect(publicPath('/locations/?page=2')).toBe('/locations/?page=2');
   expect(publicPath('/services/freelance-web-developer/')).toBe('/services/freelance-web-developer/');
-  expect(publicPath('tel:+919711623561')).toBe('tel:+919711623561');
+  expect(publicPath('tel:+918800774388')).toBe('tel:+918800774388');
 });

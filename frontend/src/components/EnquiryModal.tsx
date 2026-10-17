@@ -188,7 +188,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
               </div>
               <div className="flex items-center gap-3">
                 <a
-                  href="tel:+919711623561"
+                  href="tel:+918800774388"
                   className="inline-flex items-center gap-1 font-bold text-indigo-700 hover:underline"
                 >
                   <Phone className="h-3.5 w-3.5 text-indigo-600" />
@@ -196,7 +196,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
                 </a>
                 <span className="text-slate-300">•</span>
                 <a
-                  href="https://wa.me/919711623561?text=Hello%20Rajeev,%20I%20have%20a%20project%20enquiry"
+                  href="https://wa.me/918800774388?text=Hello%20Rajeev,%20I%20have%20a%20project%20enquiry"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-1 font-bold text-emerald-700 hover:underline"

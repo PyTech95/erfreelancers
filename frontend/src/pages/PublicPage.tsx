@@ -21,6 +21,28 @@ function LinkList({ links, cards = false }: { links?: PublicLink[]; cards?: bool
   </ul>;
 }
 
+const SOURCE_LINE = /^Source: (.+?) — (https:\/\/\S+)$/;
+
+/** Section bodies are plain text: "• " lines become a list, "Source: label — https://…" a cited link. */
+function SectionBody({ text }: { text: string }) {
+  const blocks: React.ReactNode[] = [];
+  let items: string[] = [];
+  const flush = () => {
+    if (items.length) blocks.push(<ul key={`ul-${blocks.length}`} className="list-disc space-y-1.5 pl-5">{items.map((item, i) => <li key={i}>{item}</li>)}</ul>);
+    items = [];
+  };
+  text.split('\n').map(line => line.trim()).filter(Boolean).forEach(line => {
+    if (line.startsWith('• ')) { items.push(line.slice(2)); return; }
+    flush();
+    const source = SOURCE_LINE.exec(line);
+    blocks.push(source
+      ? <p key={`p-${blocks.length}`} className="text-sm text-slate-500">Source: <a href={source[2]} rel="noopener" target="_blank" className="font-medium text-indigo-700 underline">{source[1]}</a></p>
+      : <p key={`p-${blocks.length}`}>{line}</p>);
+  });
+  flush();
+  return <div className="space-y-3">{blocks}</div>;
+}
+
 function PublicPageContent({ data, onOpenEnquiry }: { data: PublicPageData; onOpenEnquiry?: PublicPageProps['onOpenEnquiry'] }) {
   const isError = data.kind === 'not-found';
   const profiles = data.profile ? [data.profile] : data.profiles || [];
@@ -28,9 +50,14 @@ function PublicPageContent({ data, onOpenEnquiry }: { data: PublicPageData; onOp
     <section className="border-b border-slate-200 bg-gradient-to-br from-white via-indigo-50/50 to-emerald-50/30">
       <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6 sm:py-20 lg:px-8">
         <nav aria-label="Breadcrumb" className="mb-7 flex flex-wrap items-center gap-2 text-xs text-slate-500">
-          <a href="/" className="hover:text-indigo-700">Home</a><span aria-hidden="true">/</span>
-          {data.kind === 'service' || data.kind === 'landing' ? <><a href="/services/" className="hover:text-indigo-700">Services</a><span aria-hidden="true">/</span></> : null}
-          <span aria-current="page">{data.heading}</span>
+          {data.breadcrumbs?.length ? <>
+            {data.breadcrumbs.slice(0, -1).map(crumb => <React.Fragment key={crumb.href}><a href={publicPath(crumb.href)} className="hover:text-indigo-700">{crumb.label}</a><span aria-hidden="true">/</span></React.Fragment>)}
+            <span aria-current="page">{data.breadcrumbs[data.breadcrumbs.length - 1].label}</span>
+          </> : <>
+            <a href="/" className="hover:text-indigo-700">Home</a><span aria-hidden="true">/</span>
+            {data.kind === 'service' || data.kind === 'landing' ? <><a href="/services/" className="hover:text-indigo-700">Services</a><span aria-hidden="true">/</span></> : null}
+            <span aria-current="page">{data.heading}</span>
+          </>}
         </nav>
         <div className="max-w-4xl">
           <p className="mb-4 text-xs font-bold uppercase tracking-widest text-indigo-700">{isError ? 'Page not found' : 'ER Freelancer · Digital services'}</p>
@@ -49,7 +76,7 @@ function PublicPageContent({ data, onOpenEnquiry }: { data: PublicPageData; onOp
 
       {data.sections.map((section, index) => <section key={`${section.heading}-${index}`} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
         {section.heading && <h2 className="font-display text-xl font-bold text-slate-900 sm:text-2xl">{section.heading}</h2>}
-        {section.body && <div className="mt-4 max-w-4xl whitespace-pre-line text-base leading-relaxed text-slate-600">{data.kind === 'post' ? <BlogContent content={section.body} /> : section.body}</div>}
+        {section.body && <div className="mt-4 max-w-4xl whitespace-pre-line text-base leading-relaxed text-slate-600">{data.kind === 'post' ? <BlogContent content={section.body} /> : <SectionBody text={section.body} />}</div>}
         {section.links?.length ? <div className="mt-6"><LinkList links={section.links} cards /></div> : null}
       </section>)}
 
@@ -89,7 +116,7 @@ function PublicPageContent({ data, onOpenEnquiry }: { data: PublicPageData; onOp
         <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-300">Share your requirements, location and preferred timeline. We will review the brief and discuss a suitable scope and delivery approach.</p>
         <div className="mt-6 flex flex-wrap items-center gap-4">
           {onOpenEnquiry && <button onClick={() => onOpenEnquiry(data.service?.id, data.location?.id, data.profile?.id)} className="rounded-lg bg-white px-5 py-3 text-sm font-bold text-slate-900 hover:bg-indigo-50">Send a project brief</button>}
-          <a href="tel:+919711623561" className="inline-flex items-center gap-2 text-sm font-semibold"><Phone size={16} />Call +91 97116 23561</a>
+          <a href="tel:+918800774388" className="inline-flex items-center gap-2 text-sm font-semibold"><Phone size={16} />Call +91 88007 74388</a>
           <a href="/contact/" className="inline-flex items-center gap-2 text-sm font-semibold"><Mail size={16} />Contact details</a>
         </div>
       </section>}

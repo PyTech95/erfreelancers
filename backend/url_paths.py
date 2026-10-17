@@ -4,6 +4,8 @@ Only individual geography URLs lose `/locations`; the directory itself stays
 at `/locations/`. Mapping is not validation: callers must still check catalog
 membership before serving or redirecting a URL.
 """
+import re
+import unicodedata
 from copy import deepcopy
 from urllib.parse import urlsplit, urlunsplit
 
@@ -104,3 +106,50 @@ def preferred_page_records(records):
         if path:
             preferred.setdefault(path, record)
     return list(preferred.values())
+
+
+def clean_slug(name):
+    """ASCII slug from a display name: "São Paulo" -> "sao-paulo", "Colombo 03 (Kollupitiya)" -> "colombo-03-kollupitiya"."""
+    ascii_name = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode()
+    return re.sub(r"[^a-z0-9]+", "-", ascii_name.lower()).strip("-")
+
+
+def clean_location_slugs(locations):
+    """Replace slugs mangled by the original import (s-o-paulo, bogot-, -stermalm) in place.
+
+    Paths are rebuilt from the parent chain so children follow a renamed parent. The old
+    slug stays as an alias, and the returned {old path: new path} map drives 301 redirects.
+    Records are public copies; the raw import file is not changed.
+    """
+    by_id = {loc["id"]: loc for loc in locations}
+    taken = {}
+    for loc in locations:
+        taken.setdefault(loc.get("parentId"), set()).add(loc["slug"])
+    wanted = {}
+    for loc in locations:
+        slug = clean_slug(loc["name"]) or loc["slug"]
+        if slug != loc["slug"] and slug in taken[loc.get("parentId")]:
+            slug = loc["slug"]  # never collide with a sibling's existing URL
+        wanted[loc["id"]] = slug
+
+    def new_path(loc, seen=()):
+        parent = by_id.get(loc.get("parentId"))
+        if parent and parent["id"] not in seen:
+            return new_path(parent, seen + (loc["id"],)) + wanted[loc["id"]] + "/"
+        return "/" + wanted[loc["id"]] + "/"
+
+    moved = {}
+    paths = {loc["id"]: new_path(loc) for loc in locations}
+    for loc in locations:
+        old = loc["canonicalPath"]
+        if paths[loc["id"]] != old:
+            moved[old] = paths[loc["id"]]
+            if loc["slug"] != wanted[loc["id"]]:
+                loc["aliases"] = list(dict.fromkeys([*loc.get("aliases", []), loc["slug"]]))
+            loc["slug"] = wanted[loc["id"]]
+            loc["canonicalPath"] = paths[loc["id"]]
+    for loc in locations:
+        parent = by_id.get(loc.get("parentId"))
+        if parent and loc.get("parentPath"):
+            loc["parentPath"] = parent["canonicalPath"]
+    return moved

@@ -75,5 +75,5 @@
   "should_main_agent_self_test": false,
   "context_for_next_testing_agent": "Use existing admin creds from /app/memory/test_credentials.md. Focus retest on: (1) 320px overflow, (2) admin fetch failures, (3) blog-new-post intermittency under fetch errors. Required screenshots already captured at 1920x800 and 390x844 in artifacts_iter5_ui.",
   "rca of the issue": "RCA: (a) 320 overflow likely from absolute decorative blob width (w-80) extending beyond viewport clipping context, plus neighboring flex sizing. (b) Blog UI timeout appears secondary to repeated runtime fetch failures in console; when data fetches fail repeatedly, state transitions become unstable and editor open action intermittently stalls. (c) Hydration warning originates from invalid DOM composition in ServiceLocationFinder option rendering (<span> inside <option>).",
-  "test_credentials": "Loaded from /app/memory/test_credentials.md (admin: rajeev.pytech@gmail.com / ErFreelancer@2026Admin)."
+  "test_credentials": "Loaded from /app/memory/test_credentials.md (admin: rajeev.pytech@gmail.com / [REDACTED])."
 }

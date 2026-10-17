@@ -59,4 +59,4 @@ Re-imported the erfreelancer2 zip into /app, recreated env, and made it producti
 - SEO fixed: content_builder titles/descriptions are now service-specific and length-clamped (title <=92, desc <=165). seo/audit: 12/12 pass, score 100, 0 title/desc alerts, 0 duplicates, 0 orphans. Pilot pages re-seeded.
 
 ### Credentials
-Admin: rajeev.pytech@gmail.com / ErFreelancer@2026Admin (see test_credentials.md).
+Admin credentials live only in the server's backend/.env (ADMIN_EMAIL / ADMIN_PASSWORD) and must never be committed. The password previously written here was public and has to be rotated.

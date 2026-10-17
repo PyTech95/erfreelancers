@@ -1,0 +1,3822 @@
+{
+ "reviewed": "2026-10-17",
+ "countries": {
+  "IN": {
+   "code": "IN",
+   "currency": "INR",
+   "currencyName": "Indian rupee",
+   "languages": [
+    "English",
+    "Hindi",
+    "regional languages (Tamil, Telugu, Marathi, Bengali, Kannada and more)"
+   ],
+   "tld": ".in",
+   "dial": "+91",
+   "privacy": "Digital Personal Data Protection Act, 2023 (DPDP Act)",
+   "privacyNote": "The DPDP Rules, 2025 are being phased in — forms need clear purpose-specific consent, and users must be able to withdraw it.",
+   "web": [
+    "E-commerce sites must display seller details and a grievance officer under the Consumer Protection (E-Commerce) Rules, 2020.",
+    "GST-compliant invoices (GSTIN, HSN/SAC codes) for paid orders.",
+    "RBI card-tokenisation and e-mandate rules apply to saved cards and subscriptions."
+   ],
+   "payments": [
+    "UPI",
+    "Razorpay",
+    "PayU",
+    "Cashfree",
+    "PhonePe PG",
+    "Paytm"
+   ],
+   "commerce": [
+    "Amazon.in",
+    "Flipkart",
+    "Meesho",
+    "ONDC"
+   ],
+   "channels": [
+    "WhatsApp",
+    "Instagram",
+    "YouTube",
+    "LinkedIn",
+    "Facebook"
+   ],
+   "industries": [
+    "it",
+    "startups",
+    "retail",
+    "education",
+    "healthcare",
+    "realestate"
+   ],
+   "timezone": "Asia/Kolkata"
+  },
+  "PK": {
+   "code": "PK",
+   "currency": "PKR",
+   "currencyName": "Pakistani rupee",
+   "languages": [
+    "Urdu",
+    "English"
+   ],
+   "tld": ".pk",
+   "dial": "+92",
+   "privacy": "No comprehensive data-protection act in force yet (a Personal Data Protection Bill has been drafted)",
+   "privacyNote": "We build to GDPR-style consent and data-minimisation by default so you are ready when national rules are finalised.",
+   "web": [
+    "Urdu content needs right-to-left (RTL) layout and Nastaliq-friendly fonts.",
+    "The Prevention of Electronic Crimes Act, 2016 (PECA) governs online content and data misuse."
+   ],
+   "payments": [
+    "JazzCash",
+    "Easypaisa",
+    "Raast (instant bank payments)",
+    "bank card gateways"
+   ],
+   "commerce": [
+    "Daraz",
+    "Shopify / WooCommerce stores"
+   ],
+   "channels": [
+    "WhatsApp",
+    "Facebook",
+    "TikTok",
+    "YouTube",
+    "Instagram"
+   ],
+   "rtl": true,
+   "industries": [
+    "textiles",
+    "it",
+    "retail",
+    "agriculture",
+    "manufacturing"
+   ],
+   "timezone": "Asia/Karachi"
+  },
+  "BD": {
+   "code": "BD",
+   "currency": "BDT",
+   "currencyName": "Bangladeshi taka",
+   "languages": [
+    "Bengali (Bangla)",
+    "English"
+   ],
+   "tld": ".bd",
+   "dial": "+880",
+   "privacy": "Personal Data Protection Act, 2026",
+   "privacyNote": "The Act replaced a 2025 ordinance — consent is required for most processing, and some duties phase in over 18 months.",
+   "web": [
+    "Bangla typography (Unicode, proper conjuncts) matters for readability and SEO.",
+    "Facebook-led \"f-commerce\" shops often need a proper website to scale beyond social selling."
+   ],
+   "payments": [
+    "bKash",
+    "Nagad",
+    "Rocket",
+    "SSLCommerz"
+   ],
+   "commerce": [
+    "Daraz",
+    "Chaldal",
+    "Facebook shops"
+   ],
+   "channels": [
+    "Facebook",
+    "WhatsApp",
+    "YouTube",
+    "Instagram"
+   ],
+   "industries": [
+    "textiles",
+    "fashion",
+    "it",
+    "manufacturing",
+    "retail"
+   ],
+   "timezone": "Asia/Dhaka"
+  },
+  "LK": {
+   "code": "LK",
+   "currency": "LKR",
+   "currencyName": "Sri Lankan rupee",
+   "languages": [
+    "Sinhala",
+    "Tamil",
+    "English"
+   ],
+   "tld": ".lk",
+   "dial": "+94",
+   "privacy": "Personal Data Protection Act, No. 9 of 2022",
+   "privacyNote": "The Act is coming into force in phases; core duties (lawful processing, DPOs, breach notification) apply from 1 January 2027.",
+   "web": [
+    "Trilingual content (Sinhala, Tamil, English) is common for public-facing sites."
+   ],
+   "payments": [
+    "PayHere",
+    "LankaPay",
+    "bank card gateways"
+   ],
+   "commerce": [
+    "Daraz",
+    "Kapruka"
+   ],
+   "channels": [
+    "Facebook",
+    "WhatsApp",
+    "YouTube",
+    "TikTok"
+   ],
+   "industries": [
+    "tourism",
+    "hospitality",
+    "textiles",
+    "it",
+    "agriculture"
+   ],
+   "timezone": "Asia/Colombo"
+  },
+  "KZ": {
+   "code": "KZ",
+   "currency": "KZT",
+   "currencyName": "Kazakhstani tenge",
+   "languages": [
+    "Kazakh",
+    "Russian",
+    "English"
+   ],
+   "tld": ".kz",
+   "dial": "+7",
+   "privacy": "Law on Personal Data and Their Protection (2013)",
+   "privacyNote": "Personal data of Kazakh citizens generally has to be stored on servers located in Kazakhstan — hosting choice matters.",
+   "web": [
+    "Bilingual Kazakh/Russian interfaces are expected; Kazakh is moving from Cyrillic to Latin script."
+   ],
+   "payments": [
+    "Kaspi Pay",
+    "Halyk",
+    "Freedom Pay",
+    "bank card gateways"
+   ],
+   "commerce": [
+    "Kaspi.kz marketplace",
+    "Wildberries",
+    "Ozon"
+   ],
+   "channels": [
+    "Telegram",
+    "Instagram",
+    "WhatsApp",
+    "YouTube"
+   ],
+   "search": "Google leads, but Yandex still has meaningful share — we check rankings on both.",
+   "industries": [
+    "energy",
+    "finance",
+    "logistics",
+    "retail",
+    "it"
+   ],
+   "timezone": "Asia/Almaty"
+  },
+  "UZ": {
+   "code": "UZ",
+   "currency": "UZS",
+   "currencyName": "Uzbekistani som",
+   "languages": [
+    "Uzbek",
+    "Russian",
+    "English"
+   ],
+   "tld": ".uz",
+   "dial": "+998",
+   "privacy": "Law on Personal Data (2019)",
+   "privacyNote": "Since 2021 personal data of Uzbek citizens must be stored on servers inside Uzbekistan.",
+   "web": [
+    "Uzbek (Latin script) and Russian versions are usually both needed."
+   ],
+   "payments": [
+    "Payme",
+    "Click",
+    "Uzcard",
+    "Humo"
+   ],
+   "commerce": [
+    "Uzum Market",
+    "Telegram shops"
+   ],
+   "channels": [
+    "Telegram",
+    "Instagram",
+    "YouTube"
+   ],
+   "search": "Google and Yandex are both used — Telegram is often the main customer channel.",
+   "industries": [
+    "textiles",
+    "agriculture",
+    "tourism",
+    "it",
+    "retail"
+   ],
+   "timezone": "Asia/Tashkent"
+  },
+  "AE": {
+   "code": "AE",
+   "currency": "AED",
+   "currencyName": "UAE dirham",
+   "languages": [
+    "Arabic",
+    "English"
+   ],
+   "tld": ".ae",
+   "dial": "+971",
+   "privacy": "Federal Decree-Law No. 45 of 2021 on Personal Data Protection (PDPL)",
+   "privacyNote": "Free zones have their own regimes — DIFC Data Protection Law 2020 and ADGM Data Protection Regulations 2021.",
+   "web": [
+    "Bilingual Arabic/English sites need a true RTL layout, not a mirrored template.",
+    "Prices are usually shown VAT-inclusive (5% UAE VAT)."
+   ],
+   "payments": [
+    "Network International (N-Genius)",
+    "Telr",
+    "PayTabs",
+    "Checkout.com",
+    "Stripe",
+    "Apple Pay",
+    "Tabby",
+    "Tamara"
+   ],
+   "commerce": [
+    "Amazon.ae",
+    "noon"
+   ],
+   "channels": [
+    "WhatsApp",
+    "Instagram",
+    "LinkedIn",
+    "TikTok",
+    "Snapchat"
+   ],
+   "rtl": true,
+   "industries": [
+    "realestate",
+    "tourism",
+    "hospitality",
+    "logistics",
+    "finance",
+    "retail"
+   ],
+   "timezone": "Asia/Dubai"
+  },
+  "SA": {
+   "code": "SA",
+   "currency": "SAR",
+   "currencyName": "Saudi riyal",
+   "languages": [
+    "Arabic",
+    "English"
+   ],
+   "tld": ".sa",
+   "dial": "+966",
+   "privacy": "Personal Data Protection Law (PDPL), enforced by SDAIA",
+   "privacyNote": "Full enforcement began in September 2024 — cross-border transfers and consent need to be documented.",
+   "web": [
+    "Arabic-first RTL design is expected for consumer brands.",
+    "VAT-registered businesses must issue ZATCA-compliant e-invoices (FATOORA); VAT is 15%."
+   ],
+   "payments": [
+    "mada",
+    "STC Pay",
+    "Apple Pay",
+    "HyperPay",
+    "Moyasar",
+    "PayTabs",
+    "Tabby",
+    "Tamara"
+   ],
+   "commerce": [
+    "Amazon.sa",
+    "noon",
+    "Salla",
+    "Zid"
+   ],
+   "channels": [
+    "Snapchat",
+    "X (Twitter)",
+    "Instagram",
+    "TikTok",
+    "WhatsApp"
+   ],
+   "rtl": true,
+   "industries": [
+    "energy",
+    "government",
+    "realestate",
+    "retail",
+    "tourism",
+    "logistics"
+   ],
+   "timezone": "Asia/Riyadh"
+  },
+  "QA": {
+   "code": "QA",
+   "currency": "QAR",
+   "currencyName": "Qatari riyal",
+   "languages": [
+    "Arabic",
+    "English"
+   ],
+   "tld": ".qa",
+   "dial": "+974",
+   "privacy": "Law No. 13 of 2016 on Personal Data Privacy Protection (PDPPL)",
+   "privacyNote": "Companies in the Qatar Financial Centre follow separate QFC data-protection regulations.",
+   "web": [
+    "Arabic/English bilingual sites with RTL support are standard for public-facing brands."
+   ],
+   "payments": [
+    "NAPS debit",
+    "Apple Pay",
+    "Tap Payments",
+    "SkipCash",
+    "bank card gateways"
+   ],
+   "commerce": [
+    "Snoonu",
+    "Talabat",
+    "Shopify / WooCommerce stores"
+   ],
+   "channels": [
+    "Instagram",
+    "Snapchat",
+    "WhatsApp",
+    "X (Twitter)"
+   ],
+   "rtl": true,
+   "industries": [
+    "energy",
+    "finance",
+    "hospitality",
+    "realestate",
+    "logistics"
+   ],
+   "timezone": "Asia/Qatar"
+  },
+  "KW": {
+   "code": "KW",
+   "currency": "KWD",
+   "currencyName": "Kuwaiti dinar",
+   "languages": [
+    "Arabic",
+    "English"
+   ],
+   "tld": ".kw",
+   "dial": "+965",
+   "privacy": "CITRA Data Privacy Protection Regulation (Resolution No. 26 of 2024)",
+   "privacyNote": "Kuwait has no general data-protection law; the regulation applies to CITRA-licensed telecom and online service providers, who must report breaches.",
+   "web": [
+    "Arabic/English with RTL support; KWD prices use three decimal places."
+   ],
+   "payments": [
+    "KNET",
+    "MyFatoorah",
+    "Tap Payments",
+    "Apple Pay"
+   ],
+   "commerce": [
+    "Talabat",
+    "Xcite",
+    "Instagram stores"
+   ],
+   "channels": [
+    "Instagram",
+    "Snapchat",
+    "X (Twitter)",
+    "WhatsApp"
+   ],
+   "rtl": true,
+   "industries": [
+    "energy",
+    "finance",
+    "retail",
+    "realestate"
+   ],
+   "timezone": "Asia/Kuwait"
+  },
+  "BH": {
+   "code": "BH",
+   "currency": "BHD",
+   "currencyName": "Bahraini dinar",
+   "languages": [
+    "Arabic",
+    "English"
+   ],
+   "tld": ".bh",
+   "dial": "+973",
+   "privacy": "Personal Data Protection Law (Law No. 30 of 2018)",
+   "privacyNote": "Consent, purpose limitation and cross-border transfer rules apply to customer data.",
+   "web": [
+    "Arabic/English sites with RTL; BHD prices use three decimal places."
+   ],
+   "payments": [
+    "BenefitPay",
+    "Tap Payments",
+    "Credimax",
+    "Apple Pay"
+   ],
+   "commerce": [
+    "Instagram stores",
+    "Talabat",
+    "Shopify / WooCommerce stores"
+   ],
+   "channels": [
+    "Instagram",
+    "WhatsApp",
+    "X (Twitter)",
+    "Snapchat"
+   ],
+   "rtl": true,
+   "industries": [
+    "finance",
+    "logistics",
+    "tourism",
+    "retail"
+   ],
+   "timezone": "Asia/Bahrain"
+  },
+  "OM": {
+   "code": "OM",
+   "currency": "OMR",
+   "currencyName": "Omani rial",
+   "languages": [
+    "Arabic",
+    "English"
+   ],
+   "tld": ".om",
+   "dial": "+968",
+   "privacy": "Personal Data Protection Law (Royal Decree 6/2022)",
+   "privacyNote": "In force since February 2023 and fully enforceable since February 2026 — explicit consent is required before processing personal data.",
+   "web": [
+    "Arabic/English with RTL; OMR prices use three decimal places."
+   ],
+   "payments": [
+    "OmanNet",
+    "Thawani Pay",
+    "bank card gateways"
+   ],
+   "commerce": [
+    "Instagram stores",
+    "Talabat",
+    "Shopify / WooCommerce stores"
+   ],
+   "channels": [
+    "Instagram",
+    "WhatsApp",
+    "Snapchat",
+    "X (Twitter)"
+   ],
+   "rtl": true,
+   "industries": [
+    "energy",
+    "logistics",
+    "tourism",
+    "government"
+   ],
+   "timezone": "Asia/Muscat"
+  },
+  "JO": {
+   "code": "JO",
+   "currency": "JOD",
+   "currencyName": "Jordanian dinar",
+   "languages": [
+    "Arabic",
+    "English"
+   ],
+   "tld": ".jo",
+   "dial": "+962",
+   "privacy": "Personal Data Protection Law No. 24 of 2023",
+   "privacyNote": "The law introduces consent, data-subject rights and breach-notification duties for businesses.",
+   "web": [
+    "Arabic/English with RTL support."
+   ],
+   "payments": [
+    "eFAWATEERcom",
+    "CliQ (instant payments)",
+    "JoMoPay",
+    "bank card gateways"
+   ],
+   "commerce": [
+    "Instagram stores",
+    "Talabat",
+    "Shopify / WooCommerce stores"
+   ],
+   "channels": [
+    "Facebook",
+    "Instagram",
+    "WhatsApp",
+    "TikTok"
+   ],
+   "rtl": true,
+   "industries": [
+    "it",
+    "startups",
+    "healthcare",
+    "tourism",
+    "education"
+   ],
+   "timezone": "Asia/Amman"
+  },
+  "GB": {
+   "code": "GB",
+   "currency": "GBP",
+   "currencyName": "pound sterling",
+   "languages": [
+    "English"
+   ],
+   "tld": ".uk / .co.uk",
+   "dial": "+44",
+   "privacy": "UK GDPR and the Data Protection Act 2018",
+   "privacyNote": "PECR governs cookies and e-marketing; the Data (Use and Access) Act 2025 updates parts of both regimes.",
+   "web": [
+    "Most non-essential cookies need prior consent under PECR; since February 2026 some analytics and preference cookies are exempt if users get clear information and an easy opt-out.",
+    "Online shops must follow the Consumer Contracts Regulations (14-day cancellation for most goods).",
+    "Limited companies must show their registered name and number on the website."
+   ],
+   "payments": [
+    "Stripe",
+    "GoCardless (Direct Debit)",
+    "Worldpay",
+    "PayPal",
+    "Klarna",
+    "Apple Pay",
+    "Open Banking payments"
+   ],
+   "commerce": [
+    "Amazon.co.uk",
+    "eBay",
+    "Etsy"
+   ],
+   "channels": [
+    "LinkedIn",
+    "Instagram",
+    "Facebook",
+    "TikTok",
+    "WhatsApp"
+   ],
+   "industries": [
+    "finance",
+    "startups",
+    "media",
+    "consulting",
+    "retail",
+    "education"
+   ],
+   "timezone": "Europe/London"
+  },
+  "DE": {
+   "code": "DE",
+   "currency": "EUR",
+   "currencyName": "euro",
+   "languages": [
+    "German",
+    "English (in tech and B2B)"
+   ],
+   "tld": ".de",
+   "dial": "+49",
+   "privacy": "GDPR and the Federal Data Protection Act (BDSG)",
+   "privacyNote": "Cookies and tracking fall under the TDDDG; German regulators are strict about consent banners and US data transfers.",
+   "web": [
+    "Every commercial site needs an Impressum (legal notice) under § 5 of the Digitale-Dienste-Gesetz (DDG).",
+    "The Barrierefreiheitsstärkungsgesetz (BFSG) brings accessibility duties for online shops from 28 June 2025.",
+    "Customers expect \"Kauf auf Rechnung\" (pay by invoice) and clear withdrawal (Widerruf) information."
+   ],
+   "payments": [
+    "PayPal",
+    "Klarna",
+    "SEPA Direct Debit",
+    "girocard",
+    "Apple Pay",
+    "Stripe"
+   ],
+   "commerce": [
+    "Amazon.de",
+    "Otto",
+    "Zalando",
+    "eBay.de"
+   ],
+   "channels": [
+    "LinkedIn",
+    "Instagram",
+    "WhatsApp",
+    "YouTube"
+   ],
+   "industries": [
+    "automotive",
+    "manufacturing",
+    "finance",
+    "startups",
+    "logistics",
+    "media"
+   ],
+   "timezone": "Europe/Berlin"
+  },
+  "FR": {
+   "code": "FR",
+   "currency": "EUR",
+   "currencyName": "euro",
+   "languages": [
+    "French"
+   ],
+   "tld": ".fr",
+   "dial": "+33",
+   "privacy": "GDPR and the Loi Informatique et Libertés",
+   "privacyNote": "The CNIL actively fines non-compliant cookie banners — \"Refuse all\" must be as visible as \"Accept all\".",
+   "web": [
+    "Mentions légales (legal notice) are mandatory on business websites.",
+    "Consumer-facing content should be available in French (Loi Toubon).",
+    "The European Accessibility Act applies to many e-commerce and digital services from 28 June 2025 (WCAG 2.1 AA is the practical baseline)."
+   ],
+   "payments": [
+    "Cartes Bancaires (CB)",
+    "PayPal",
+    "Stripe",
+    "Alma (instalments)",
+    "Apple Pay"
+   ],
+   "commerce": [
+    "Amazon.fr",
+    "Cdiscount",
+    "Leboncoin",
+    "Vinted"
+   ],
+   "channels": [
+    "Instagram",
+    "LinkedIn",
+    "Facebook",
+    "WhatsApp",
+    "TikTok"
+   ],
+   "industries": [
+    "tourism",
+    "fashion",
+    "aerospace",
+    "retail",
+    "startups",
+    "hospitality"
+   ],
+   "timezone": "Europe/Paris"
+  },
+  "NL": {
+   "code": "NL",
+   "currency": "EUR",
+   "currencyName": "euro",
+   "languages": [
+    "Dutch",
+    "English"
+   ],
+   "tld": ".nl",
+   "dial": "+31",
+   "privacy": "GDPR and the Dutch GDPR Implementation Act (UAVG)",
+   "privacyNote": "The Autoriteit Persoonsgegevens enforces cookie and tracking consent.",
+   "web": [
+    "Cookie consent must be opt-in (ePrivacy rules) — rejecting has to be as easy as accepting.",
+    "Dutch shoppers expect iDEAL at checkout (being migrated to the European Wero wallet).",
+    "The European Accessibility Act applies to many e-commerce and digital services from 28 June 2025 (WCAG 2.1 AA is the practical baseline)."
+   ],
+   "payments": [
+    "iDEAL / Wero",
+    "Mollie",
+    "Adyen",
+    "Klarna",
+    "PayPal"
+   ],
+   "commerce": [
+    "Bol",
+    "Amazon.nl",
+    "Coolblue"
+   ],
+   "channels": [
+    "LinkedIn",
+    "Instagram",
+    "WhatsApp",
+    "Facebook"
+   ],
+   "industries": [
+    "logistics",
+    "startups",
+    "finance",
+    "agriculture",
+    "retail"
+   ],
+   "timezone": "Europe/Amsterdam"
+  },
+  "ES": {
+   "code": "ES",
+   "currency": "EUR",
+   "currencyName": "euro",
+   "languages": [
+    "Spanish",
+    "Catalan, Basque and Galician regionally"
+   ],
+   "tld": ".es",
+   "dial": "+34",
+   "privacy": "GDPR and the LOPDGDD (Organic Law 3/2018)",
+   "privacyNote": "The LSSI requires a legal notice (aviso legal) and consent for non-essential cookies.",
+   "web": [
+    "Catalan versions help for Barcelona-focused brands.",
+    "The European Accessibility Act applies to many e-commerce and digital services from 28 June 2025 (WCAG 2.1 AA is the practical baseline)."
+   ],
+   "payments": [
+    "Bizum",
+    "Redsys card gateway",
+    "PayPal",
+    "Stripe"
+   ],
+   "commerce": [
+    "Amazon.es",
+    "El Corte Inglés",
+    "Wallapop"
+   ],
+   "channels": [
+    "Instagram",
+    "WhatsApp",
+    "TikTok",
+    "LinkedIn"
+   ],
+   "industries": [
+    "tourism",
+    "hospitality",
+    "retail",
+    "startups",
+    "realestate"
+   ],
+   "timezone": "Europe/Madrid"
+  },
+  "IT": {
+   "code": "IT",
+   "currency": "EUR",
+   "currencyName": "euro",
+   "languages": [
+    "Italian"
+   ],
+   "tld": ".it",
+   "dial": "+39",
+   "privacy": "GDPR and the Italian Privacy Code (Legislative Decree 196/2003)",
+   "privacyNote": "The Garante’s cookie guidelines require granular consent and a clear way to refuse.",
+   "web": [
+    "Electronic invoicing through the SdI system is mandatory for B2B and B2C invoices.",
+    "The European Accessibility Act applies to many e-commerce and digital services from 28 June 2025 (WCAG 2.1 AA is the practical baseline)."
+   ],
+   "payments": [
+    "Nexi",
+    "PostePay",
+    "Satispay",
+    "PayPal",
+    "Scalapay",
+    "Stripe"
+   ],
+   "commerce": [
+    "Amazon.it",
+    "Subito",
+    "Zalando"
+   ],
+   "channels": [
+    "Instagram",
+    "Facebook",
+    "WhatsApp",
+    "LinkedIn"
+   ],
+   "industries": [
+    "fashion",
+    "manufacturing",
+    "tourism",
+    "hospitality",
+    "automotive"
+   ],
+   "timezone": "Europe/Rome"
+  },
+  "IE": {
+   "code": "IE",
+   "currency": "EUR",
+   "currencyName": "euro",
+   "languages": [
+    "English",
+    "Irish"
+   ],
+   "tld": ".ie",
+   "dial": "+353",
+   "privacy": "GDPR and the Data Protection Act 2018",
+   "privacyNote": "The Data Protection Commission is lead EU regulator for many global tech firms headquartered in Dublin.",
+   "web": [
+    "Cookie consent must be opt-in (ePrivacy rules) — rejecting has to be as easy as accepting.",
+    "The European Accessibility Act applies to many e-commerce and digital services from 28 June 2025 (WCAG 2.1 AA is the practical baseline)."
+   ],
+   "payments": [
+    "Stripe",
+    "Revolut",
+    "PayPal",
+    "Apple Pay"
+   ],
+   "commerce": [
+    "Amazon (UK/DE shipping)",
+    "DoneDeal",
+    "Adverts.ie"
+   ],
+   "channels": [
+    "LinkedIn",
+    "Instagram",
+    "WhatsApp",
+    "Facebook"
+   ],
+   "industries": [
+    "it",
+    "pharma",
+    "finance",
+    "startups"
+   ],
+   "timezone": "Europe/Dublin"
+  },
+  "CH": {
+   "code": "CH",
+   "currency": "CHF",
+   "currencyName": "Swiss franc",
+   "languages": [
+    "German",
+    "French",
+    "Italian",
+    "English"
+   ],
+   "tld": ".ch",
+   "dial": "+41",
+   "privacy": "Revised Federal Act on Data Protection (revFADP / nDSG)",
+   "privacyNote": "In force since 1 September 2023 — privacy notices must list recipients and countries data goes to.",
+   "web": [
+    "Multilingual sites (DE/FR/IT) are expected for national reach."
+   ],
+   "payments": [
+    "TWINT",
+    "PostFinance",
+    "Datatrans",
+    "Stripe",
+    "credit cards"
+   ],
+   "commerce": [
+    "Digitec Galaxus",
+    "Ricardo",
+    "Zalando"
+   ],
+   "channels": [
+    "LinkedIn",
+    "Instagram",
+    "WhatsApp"
+   ],
+   "industries": [
+    "finance",
+    "pharma",
+    "consulting",
+    "tourism",
+    "manufacturing"
+   ],
+   "timezone": "Europe/Zurich"
+  },
+  "SE": {
+   "code": "SE",
+   "currency": "SEK",
+   "currencyName": "Swedish krona",
+   "languages": [
+    "Swedish",
+    "English"
+   ],
+   "tld": ".se",
+   "dial": "+46",
+   "privacy": "GDPR and the Swedish Data Protection Act (2018:218)",
+   "privacyNote": "IMY (the Swedish Authority for Privacy Protection) supervises compliance.",
+   "web": [
+    "Cookie consent must be opt-in (ePrivacy rules) — rejecting has to be as easy as accepting.",
+    "BankID is the standard for login and e-signing.",
+    "The European Accessibility Act applies to many e-commerce and digital services from 28 June 2025 (WCAG 2.1 AA is the practical baseline)."
+   ],
+   "payments": [
+    "Swish",
+    "Klarna",
+    "Trustly",
+    "cards"
+   ],
+   "commerce": [
+    "CDON",
+    "Blocket",
+    "Amazon.se"
+   ],
+   "channels": [
+    "Instagram",
+    "LinkedIn",
+    "Facebook"
+   ],
+   "industries": [
+    "startups",
+    "gaming",
+    "manufacturing",
+    "finance",
+    "it"
+   ],
+   "timezone": "Europe/Stockholm"
+  },
+  "PL": {
+   "code": "PL",
+   "currency": "PLN",
+   "currencyName": "Polish złoty",
+   "languages": [
+    "Polish"
+   ],
+   "tld": ".pl",
+   "dial": "+48",
+   "privacy": "GDPR and the Polish Act on the Protection of Personal Data (2018)",
+   "privacyNote": "UODO is the national supervisory authority.",
+   "web": [
+    "KSeF national e-invoicing is mandatory since 2026 (February for large firms, April for others; the smallest taxpayers join in 2027).",
+    "The European Accessibility Act applies to many e-commerce and digital services from 28 June 2025 (WCAG 2.1 AA is the practical baseline)."
+   ],
+   "payments": [
+    "BLIK",
+    "Przelewy24",
+    "PayU",
+    "Tpay"
+   ],
+   "commerce": [
+    "Allegro",
+    "OLX",
+    "Amazon.pl"
+   ],
+   "channels": [
+    "Facebook",
+    "Instagram",
+    "LinkedIn",
+    "WhatsApp"
+   ],
+   "industries": [
+    "it",
+    "manufacturing",
+    "logistics",
+    "gaming",
+    "retail"
+   ],
+   "timezone": "Europe/Warsaw"
+  },
+  "US": {
+   "code": "US",
+   "currency": "USD",
+   "currencyName": "US dollar",
+   "languages": [
+    "English",
+    "Spanish"
+   ],
+   "tld": ".com / .us",
+   "dial": "+1",
+   "privacy": "State privacy laws (California CCPA/CPRA and a growing list of other states)",
+   "privacyNote": "There is no single federal privacy law — COPPA covers children’s data, CAN-SPAM covers email and TCPA covers SMS.",
+   "web": [
+    "ADA lawsuits make WCAG 2.1 AA accessibility a practical requirement for business sites.",
+    "Online sellers may owe sales tax in states where they have economic nexus."
+   ],
+   "payments": [
+    "Stripe",
+    "Square",
+    "PayPal",
+    "Apple Pay",
+    "Google Pay",
+    "Shop Pay",
+    "Affirm / Klarna / Afterpay"
+   ],
+   "commerce": [
+    "Amazon",
+    "Walmart Marketplace",
+    "Etsy",
+    "eBay",
+    "Shopify"
+   ],
+   "channels": [
+    "LinkedIn",
+    "Instagram",
+    "Facebook",
+    "TikTok",
+    "YouTube"
+   ],
+   "industries": [
+    "startups",
+    "finance",
+    "healthcare",
+    "media",
+    "retail",
+    "realestate"
+   ],
+   "timezone": "America/New_York"
+  },
+  "CA": {
+   "code": "CA",
+   "currency": "CAD",
+   "currencyName": "Canadian dollar",
+   "languages": [
+    "English",
+    "French"
+   ],
+   "tld": ".ca",
+   "dial": "+1",
+   "privacy": "PIPEDA (federal) plus Québec’s Law 25",
+   "privacyNote": "CASL requires express consent before sending commercial emails or SMS.",
+   "web": [
+    "Québec requires French-language versions for consumer-facing content (Bill 96).",
+    "Ontario’s AODA sets web-accessibility duties for many organisations."
+   ],
+   "payments": [
+    "Interac",
+    "Moneris",
+    "Stripe",
+    "Square",
+    "PayPal",
+    "Apple Pay"
+   ],
+   "commerce": [
+    "Amazon.ca",
+    "Shopify",
+    "Walmart.ca",
+    "Kijiji"
+   ],
+   "channels": [
+    "LinkedIn",
+    "Instagram",
+    "Facebook",
+    "TikTok"
+   ],
+   "industries": [
+    "finance",
+    "startups",
+    "energy",
+    "realestate",
+    "education"
+   ],
+   "timezone": "America/Toronto"
+  },
+  "BR": {
+   "code": "BR",
+   "currency": "BRL",
+   "currencyName": "Brazilian real",
+   "languages": [
+    "Portuguese"
+   ],
+   "tld": ".br / .com.br",
+   "dial": "+55",
+   "privacy": "LGPD (Lei Geral de Proteção de Dados, Law 13,709/2018)",
+   "privacyNote": "The ANPD enforces the LGPD — you need a legal basis for each use of customer data and a named data officer (encarregado).",
+   "web": [
+    "Shoppers expect Pix, boleto and card instalments (parcelamento) at checkout."
+   ],
+   "payments": [
+    "Pix",
+    "Boleto",
+    "Mercado Pago",
+    "PagBank (PagSeguro)",
+    "Stripe",
+    "card instalments"
+   ],
+   "commerce": [
+    "Mercado Livre",
+    "Shopee",
+    "Magazine Luiza",
+    "Amazon.com.br"
+   ],
+   "channels": [
+    "WhatsApp",
+    "Instagram",
+    "YouTube",
+    "TikTok"
+   ],
+   "industries": [
+    "agriculture",
+    "finance",
+    "retail",
+    "startups",
+    "media"
+   ],
+   "timezone": "America/Sao_Paulo"
+  },
+  "MX": {
+   "code": "MX",
+   "currency": "MXN",
+   "currencyName": "Mexican peso",
+   "languages": [
+    "Spanish"
+   ],
+   "tld": ".mx",
+   "dial": "+52",
+   "privacy": "Federal Law on the Protection of Personal Data Held by Private Parties (new LFPDPPP, in force since March 2025)",
+   "privacyNote": "A privacy notice (aviso de privacidad) is mandatory wherever you collect personal data.",
+   "web": [
+    "Invoices must be issued as CFDI e-invoices through the SAT system.",
+    "Many customers pay in cash at OXXO or by SPEI bank transfer; card instalments (meses sin intereses) are common."
+   ],
+   "payments": [
+    "OXXO Pay",
+    "SPEI",
+    "Mercado Pago",
+    "Conekta",
+    "Clip",
+    "Stripe"
+   ],
+   "commerce": [
+    "Mercado Libre",
+    "Amazon.com.mx",
+    "Liverpool",
+    "Walmart"
+   ],
+   "channels": [
+    "WhatsApp",
+    "Facebook",
+    "Instagram",
+    "TikTok"
+   ],
+   "industries": [
+    "manufacturing",
+    "automotive",
+    "retail",
+    "tourism",
+    "logistics"
+   ],
+   "timezone": "America/Mexico_City"
+  },
+  "CO": {
+   "code": "CO",
+   "currency": "COP",
+   "currencyName": "Colombian peso",
+   "languages": [
+    "Spanish"
+   ],
+   "tld": ".co",
+   "dial": "+57",
+   "privacy": "Law 1581 of 2012 (Habeas Data) and Decree 1377 of 2013",
+   "privacyNote": "Larger companies must register their databases with the SIC’s national registry (RNBD).",
+   "web": [
+    "DIAN electronic invoicing (facturación electrónica) applies to most sellers."
+   ],
+   "payments": [
+    "PSE",
+    "Nequi",
+    "Daviplata",
+    "Wompi",
+    "PayU"
+   ],
+   "commerce": [
+    "Mercado Libre",
+    "Falabella",
+    "Rappi"
+   ],
+   "channels": [
+    "WhatsApp",
+    "Instagram",
+    "Facebook",
+    "TikTok"
+   ],
+   "industries": [
+    "startups",
+    "it",
+    "retail",
+    "tourism",
+    "agriculture"
+   ],
+   "timezone": "America/Bogota"
+  },
+  "AR": {
+   "code": "AR",
+   "currency": "ARS",
+   "currencyName": "Argentine peso",
+   "languages": [
+    "Spanish"
+   ],
+   "tld": ".ar / .com.ar",
+   "dial": "+54",
+   "privacy": "Personal Data Protection Law No. 25,326",
+   "privacyNote": "The AAIP supervises data protection; databases with personal data must be registered.",
+   "web": [
+    "Card instalments (cuotas) and Mercado Pago are expected at checkout; many B2B services quote in USD."
+   ],
+   "payments": [
+    "Mercado Pago",
+    "MODO",
+    "card instalments (cuotas)",
+    "bank transfer"
+   ],
+   "commerce": [
+    "Mercado Libre",
+    "Tiendanube stores"
+   ],
+   "channels": [
+    "WhatsApp",
+    "Instagram",
+    "Facebook"
+   ],
+   "industries": [
+    "it",
+    "startups",
+    "agriculture",
+    "media",
+    "retail"
+   ],
+   "timezone": "America/Argentina/Buenos_Aires"
+  },
+  "CL": {
+   "code": "CL",
+   "currency": "CLP",
+   "currencyName": "Chilean peso",
+   "languages": [
+    "Spanish"
+   ],
+   "tld": ".cl",
+   "dial": "+56",
+   "privacy": "Law 19,628 — being replaced by Law 21,719 (in force from December 2026)",
+   "privacyNote": "The new law creates a data-protection agency and GDPR-style duties, so new builds should plan for it now.",
+   "web": [
+    "Electronic invoices and receipts (boleta electrónica) are issued through the SII."
+   ],
+   "payments": [
+    "Webpay (Transbank)",
+    "Khipu",
+    "Mercado Pago",
+    "Flow"
+   ],
+   "commerce": [
+    "Mercado Libre",
+    "Falabella",
+    "Ripley",
+    "Paris"
+   ],
+   "channels": [
+    "WhatsApp",
+    "Instagram",
+    "Facebook"
+   ],
+   "industries": [
+    "energy",
+    "retail",
+    "agriculture",
+    "finance",
+    "startups"
+   ],
+   "timezone": "America/Santiago"
+  },
+  "SG": {
+   "code": "SG",
+   "currency": "SGD",
+   "currencyName": "Singapore dollar",
+   "languages": [
+    "English",
+    "Mandarin",
+    "Malay",
+    "Tamil"
+   ],
+   "tld": ".sg",
+   "dial": "+65",
+   "privacy": "Personal Data Protection Act 2012 (PDPA)",
+   "privacyNote": "The PDPC requires breach notification, and marketing calls/SMS must respect the Do Not Call registry.",
+   "web": [
+    "Mobile-first, fast sites are expected — Singapore has very high smartphone use."
+   ],
+   "payments": [
+    "PayNow",
+    "Stripe",
+    "GrabPay",
+    "NETS",
+    "Apple Pay",
+    "Atome"
+   ],
+   "commerce": [
+    "Shopee",
+    "Lazada",
+    "Amazon.sg",
+    "Carousell"
+   ],
+   "channels": [
+    "WhatsApp",
+    "Instagram",
+    "LinkedIn",
+    "TikTok",
+    "Facebook"
+   ],
+   "industries": [
+    "finance",
+    "logistics",
+    "startups",
+    "it",
+    "healthcare"
+   ],
+   "timezone": "Asia/Singapore"
+  },
+  "JP": {
+   "code": "JP",
+   "currency": "JPY",
+   "currencyName": "Japanese yen",
+   "languages": [
+    "Japanese"
+   ],
+   "tld": ".jp",
+   "dial": "+81",
+   "privacy": "Act on the Protection of Personal Information (APPI)",
+   "privacyNote": "The PPC enforces the APPI, including rules on cross-border transfers and breach reporting.",
+   "web": [
+    "Online sellers must publish a disclosure page under the Act on Specified Commercial Transactions (tokushōhō).",
+    "Japanese typography, dense information layouts and mobile performance strongly affect conversion."
+   ],
+   "payments": [
+    "Credit cards (incl. JCB)",
+    "Konbini payments",
+    "PayPay",
+    "Rakuten Pay",
+    "Komoju",
+    "Stripe"
+   ],
+   "commerce": [
+    "Amazon.co.jp",
+    "Rakuten Ichiba",
+    "Yahoo! Shopping",
+    "Mercari"
+   ],
+   "channels": [
+    "LINE",
+    "X (Twitter)",
+    "Instagram",
+    "YouTube"
+   ],
+   "search": "Google and Yahoo! JAPAN (which uses Google’s index) dominate — LINE is the main messaging channel.",
+   "industries": [
+    "manufacturing",
+    "automotive",
+    "gaming",
+    "retail",
+    "tourism"
+   ],
+   "timezone": "Asia/Tokyo"
+  },
+  "MY": {
+   "code": "MY",
+   "currency": "MYR",
+   "currencyName": "Malaysian ringgit",
+   "languages": [
+    "Malay",
+    "English",
+    "Chinese",
+    "Tamil"
+   ],
+   "tld": ".my",
+   "dial": "+60",
+   "privacy": "Personal Data Protection Act 2010 (amended 2024)",
+   "privacyNote": "The 2024 amendments add mandatory breach notification, data-protection officers and data portability.",
+   "web": [
+    "MyInvois e-invoicing is mandatory for businesses above the annual-sales threshold (RM3 million since September 2026)."
+   ],
+   "payments": [
+    "FPX online banking",
+    "DuitNow QR",
+    "Touch 'n Go eWallet",
+    "GrabPay",
+    "Boost",
+    "iPay88",
+    "Billplz"
+   ],
+   "commerce": [
+    "Shopee",
+    "Lazada",
+    "TikTok Shop"
+   ],
+   "channels": [
+    "WhatsApp",
+    "Facebook",
+    "Instagram",
+    "TikTok"
+   ],
+   "industries": [
+    "manufacturing",
+    "retail",
+    "tourism",
+    "logistics",
+    "it"
+   ],
+   "timezone": "Asia/Kuala_Lumpur"
+  },
+  "TH": {
+   "code": "TH",
+   "currency": "THB",
+   "currencyName": "Thai baht",
+   "languages": [
+    "Thai",
+    "English"
+   ],
+   "tld": ".th / .co.th",
+   "dial": "+66",
+   "privacy": "Personal Data Protection Act B.E. 2562 (2019)",
+   "privacyNote": "Fully enforced since June 2022 — consent and privacy notices are required for marketing data.",
+   "web": [
+    "Thai-language typography and line-breaking need proper font and CSS handling."
+   ],
+   "payments": [
+    "PromptPay",
+    "TrueMoney Wallet",
+    "LINE Pay",
+    "2C2P",
+    "Omise"
+   ],
+   "commerce": [
+    "Shopee",
+    "Lazada",
+    "TikTok Shop"
+   ],
+   "channels": [
+    "LINE",
+    "Facebook",
+    "TikTok",
+    "Instagram"
+   ],
+   "industries": [
+    "tourism",
+    "hospitality",
+    "manufacturing",
+    "automotive",
+    "retail"
+   ],
+   "timezone": "Asia/Bangkok"
+  },
+  "ID": {
+   "code": "ID",
+   "currency": "IDR",
+   "currencyName": "Indonesian rupiah",
+   "languages": [
+    "Indonesian (Bahasa Indonesia)",
+    "English"
+   ],
+   "tld": ".id",
+   "dial": "+62",
+   "privacy": "Personal Data Protection Law (Law No. 27 of 2022, UU PDP)",
+   "privacyNote": "The transition period ended in October 2024 — businesses must now comply in full.",
+   "web": [
+    "Bahasa Indonesia content is essential for local search visibility."
+   ],
+   "payments": [
+    "QRIS",
+    "GoPay",
+    "OVO",
+    "DANA",
+    "ShopeePay",
+    "virtual accounts",
+    "Xendit",
+    "Midtrans"
+   ],
+   "commerce": [
+    "Tokopedia",
+    "Shopee",
+    "Lazada",
+    "TikTok Shop"
+   ],
+   "channels": [
+    "WhatsApp",
+    "Instagram",
+    "TikTok",
+    "YouTube"
+   ],
+   "industries": [
+    "retail",
+    "startups",
+    "tourism",
+    "manufacturing",
+    "agriculture"
+   ],
+   "timezone": "Asia/Jakarta"
+  },
+  "VN": {
+   "code": "VN",
+   "currency": "VND",
+   "currencyName": "Vietnamese đồng",
+   "languages": [
+    "Vietnamese",
+    "English"
+   ],
+   "tld": ".vn",
+   "dial": "+84",
+   "privacy": "Personal Data Protection Law (No. 91/2025/QH15) and Decree 356/2025, both effective 1 January 2026",
+   "privacyNote": "Consent and impact assessments are required, and some cross-border transfers must be documented.",
+   "web": [
+    "Vietnamese diacritics need full font support for readability and SEO."
+   ],
+   "payments": [
+    "VNPay QR",
+    "MoMo",
+    "ZaloPay",
+    "Napas",
+    "OnePay"
+   ],
+   "commerce": [
+    "Shopee",
+    "Lazada",
+    "Tiki",
+    "TikTok Shop"
+   ],
+   "channels": [
+    "Zalo",
+    "Facebook",
+    "TikTok",
+    "YouTube"
+   ],
+   "industries": [
+    "manufacturing",
+    "it",
+    "retail",
+    "tourism",
+    "logistics"
+   ],
+   "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "KR": {
+   "code": "KR",
+   "currency": "KRW",
+   "currencyName": "South Korean won",
+   "languages": [
+    "Korean"
+   ],
+   "tld": ".kr",
+   "dial": "+82",
+   "privacy": "Personal Information Protection Act (PIPA)",
+   "privacyNote": "PIPA is one of the strictest privacy laws in Asia — separate consents are often needed for marketing and third-party sharing.",
+   "web": [
+    "Korean payment flows run through local PG providers rather than global gateways alone."
+   ],
+   "payments": [
+    "KakaoPay",
+    "Naver Pay",
+    "Toss Payments",
+    "KG Inicis",
+    "Samsung Pay"
+   ],
+   "commerce": [
+    "Coupang",
+    "Naver Smart Store",
+    "11st",
+    "Gmarket"
+   ],
+   "channels": [
+    "KakaoTalk",
+    "Naver Blog",
+    "Instagram",
+    "YouTube"
+   ],
+   "search": "Naver is a major search portal alongside Google — SEO plans should include Naver Search Advisor.",
+   "industries": [
+    "gaming",
+    "media",
+    "manufacturing",
+    "automotive",
+    "it"
+   ],
+   "timezone": "Asia/Seoul"
+  },
+  "ZA": {
+   "code": "ZA",
+   "currency": "ZAR",
+   "currencyName": "South African rand",
+   "languages": [
+    "English",
+    "Afrikaans",
+    "isiZulu",
+    "isiXhosa"
+   ],
+   "tld": ".za / .co.za",
+   "dial": "+27",
+   "privacy": "Protection of Personal Information Act (POPIA)",
+   "privacyNote": "The Information Regulator expects a registered information officer and documented consent for direct marketing.",
+   "web": [
+    "The ECT Act requires suppliers selling online to disclose key business and pricing details.",
+    "Fast, lightweight pages matter — many users browse on prepaid mobile data."
+   ],
+   "payments": [
+    "PayFast",
+    "Yoco",
+    "Ozow (instant EFT)",
+    "Peach Payments",
+    "SnapScan"
+   ],
+   "commerce": [
+    "Takealot",
+    "Amazon.co.za",
+    "Makro"
+   ],
+   "channels": [
+    "WhatsApp",
+    "Facebook",
+    "Instagram",
+    "LinkedIn",
+    "TikTok"
+   ],
+   "industries": [
+    "finance",
+    "retail",
+    "tourism",
+    "energy",
+    "media"
+   ],
+   "timezone": "Africa/Johannesburg"
+  },
+  "NG": {
+   "code": "NG",
+   "currency": "NGN",
+   "currencyName": "Nigerian naira",
+   "languages": [
+    "English",
+    "Hausa",
+    "Yoruba",
+    "Igbo"
+   ],
+   "tld": ".ng",
+   "dial": "+234",
+   "privacy": "Nigeria Data Protection Act 2023 (NDPA)",
+   "privacyNote": "The NDPC oversees compliance; larger data controllers have registration and audit duties.",
+   "web": [
+    "Bank transfer is a primary checkout method, so gateways with transfer support convert better.",
+    "Lightweight pages matter — many users browse on mobile data."
+   ],
+   "payments": [
+    "Paystack",
+    "Flutterwave",
+    "Interswitch",
+    "Monnify",
+    "OPay",
+    "bank transfer"
+   ],
+   "commerce": [
+    "Jumia",
+    "Konga",
+    "Jiji"
+   ],
+   "channels": [
+    "WhatsApp",
+    "Instagram",
+    "X (Twitter)",
+    "TikTok",
+    "Facebook"
+   ],
+   "industries": [
+    "finance",
+    "startups",
+    "media",
+    "retail",
+    "energy"
+   ],
+   "timezone": "Africa/Lagos"
+  },
+  "KE": {
+   "code": "KE",
+   "currency": "KES",
+   "currencyName": "Kenyan shilling",
+   "languages": [
+    "English",
+    "Swahili"
+   ],
+   "tld": ".ke",
+   "dial": "+254",
+   "privacy": "Data Protection Act, 2019",
+   "privacyNote": "Most data controllers and processors must register with the Office of the Data Protection Commissioner (ODPC); very small entities outside listed sectors are exempt.",
+   "web": [
+    "M-Pesa integration (Daraja API / Lipa na M-Pesa) is usually essential for online payments.",
+    "KRA eTIMS e-invoicing applies to most businesses."
+   ],
+   "payments": [
+    "M-Pesa",
+    "Airtel Money",
+    "Pesapal",
+    "Flutterwave",
+    "IntaSend"
+   ],
+   "commerce": [
+    "Jumia",
+    "Kilimall",
+    "Jiji"
+   ],
+   "channels": [
+    "WhatsApp",
+    "Facebook",
+    "X (Twitter)",
+    "TikTok",
+    "Instagram"
+   ],
+   "industries": [
+    "finance",
+    "startups",
+    "agriculture",
+    "tourism",
+    "logistics"
+   ],
+   "timezone": "Africa/Nairobi"
+  },
+  "EG": {
+   "code": "EG",
+   "currency": "EGP",
+   "currencyName": "Egyptian pound",
+   "languages": [
+    "Arabic",
+    "English"
+   ],
+   "tld": ".eg",
+   "dial": "+20",
+   "privacy": "Personal Data Protection Law No. 151 of 2020",
+   "privacyNote": "Executive Regulations were issued in late 2025 — consent, data-subject rights and licensing for some processing and transfers apply.",
+   "web": [
+    "Arabic RTL with Egyptian-Arabic copy for consumer brands; English for B2B."
+   ],
+   "payments": [
+    "Fawry",
+    "Paymob",
+    "InstaPay",
+    "Meeza cards",
+    "Vodafone Cash",
+    "valU"
+   ],
+   "commerce": [
+    "Amazon.eg",
+    "noon",
+    "Jumia"
+   ],
+   "channels": [
+    "Facebook",
+    "WhatsApp",
+    "Instagram",
+    "TikTok"
+   ],
+   "rtl": true,
+   "industries": [
+    "tourism",
+    "realestate",
+    "it",
+    "retail",
+    "education"
+   ],
+   "timezone": "Africa/Cairo"
+  },
+  "AU": {
+   "code": "AU",
+   "currency": "AUD",
+   "currencyName": "Australian dollar",
+   "languages": [
+    "English"
+   ],
+   "tld": ".au / .com.au",
+   "dial": "+61",
+   "privacy": "Privacy Act 1988 (Australian Privacy Principles), amended in 2024",
+   "privacyNote": "The Spam Act 2003 requires consent and an unsubscribe option for marketing email and SMS.",
+   "web": [
+    "Prices shown to consumers must include GST (10%).",
+    "The Disability Discrimination Act makes WCAG accessibility a practical requirement."
+   ],
+   "payments": [
+    "Stripe",
+    "Square",
+    "Tyro",
+    "PayPal",
+    "Afterpay",
+    "Zip",
+    "PayID / PayTo",
+    "eftpos"
+   ],
+   "commerce": [
+    "Amazon.com.au",
+    "eBay",
+    "Kogan",
+    "The Iconic"
+   ],
+   "channels": [
+    "Instagram",
+    "Facebook",
+    "LinkedIn",
+    "TikTok"
+   ],
+   "industries": [
+    "finance",
+    "education",
+    "realestate",
+    "tourism",
+    "healthcare"
+   ],
+   "timezone": "Australia/Sydney"
+  },
+  "NZ": {
+   "code": "NZ",
+   "currency": "NZD",
+   "currencyName": "New Zealand dollar",
+   "languages": [
+    "English",
+    "Māori"
+   ],
+   "tld": ".nz / .co.nz",
+   "dial": "+64",
+   "privacy": "Privacy Act 2020",
+   "privacyNote": "Serious breaches must be reported to the Privacy Commissioner, and since May 2026 (IPP 3A) people must be told when their data is collected indirectly.",
+   "web": [
+    "Consumer prices are shown GST-inclusive (15%)."
+   ],
+   "payments": [
+    "Windcave",
+    "Stripe",
+    "Afterpay",
+    "PayPal",
+    "EFTPOS"
+   ],
+   "commerce": [
+    "Trade Me",
+    "The Warehouse",
+    "Mighty Ape"
+   ],
+   "channels": [
+    "Facebook",
+    "Instagram",
+    "LinkedIn"
+   ],
+   "industries": [
+    "agriculture",
+    "tourism",
+    "startups",
+    "media",
+    "education"
+   ],
+   "timezone": "Pacific/Auckland"
+  }
+ },
+ "cities": {
+  "loc-city-in-delhi": {
+   "note": "India’s capital region, home to government bodies, corporate headquarters, education hubs and one of the country’s largest retail and real-estate markets.",
+   "industries": [
+    "government",
+    "retail",
+    "education",
+    "realestate",
+    "healthcare"
+   ],
+   "timezone": "Asia/Kolkata"
+  },
+  "loc-city-in-bengaluru": {
+   "note": "India’s leading technology and start-up hub, with thousands of SaaS companies, global capability centres and venture-backed founders.",
+   "industries": [
+    "it",
+    "startups",
+    "finance",
+    "aerospace"
+   ],
+   "timezone": "Asia/Kolkata"
+  },
+  "loc-city-in-mumbai": {
+   "note": "India’s financial capital and media centre — home to the stock exchanges, major banks, the film industry and a large D2C brand ecosystem.",
+   "industries": [
+    "finance",
+    "media",
+    "retail",
+    "realestate"
+   ],
+   "timezone": "Asia/Kolkata"
+  },
+  "loc-city-in-hyderabad": {
+   "note": "A major IT and pharmaceutical hub with large global tech campuses and the HITEC City business district.",
+   "industries": [
+    "it",
+    "pharma",
+    "startups",
+    "healthcare"
+   ],
+   "timezone": "Asia/Kolkata"
+  },
+  "loc-city-in-chennai": {
+   "note": "A manufacturing and IT powerhouse known for automotive production, SaaS companies and healthcare services.",
+   "industries": [
+    "automotive",
+    "it",
+    "manufacturing",
+    "healthcare"
+   ],
+   "timezone": "Asia/Kolkata"
+  },
+  "loc-city-in-pune": {
+   "note": "An education and IT city with a strong automotive and engineering base and a growing start-up scene.",
+   "industries": [
+    "it",
+    "automotive",
+    "education",
+    "manufacturing"
+   ],
+   "timezone": "Asia/Kolkata"
+  },
+  "loc-city-in-kolkata": {
+   "note": "Eastern India’s commercial centre, with trading houses, education institutions and the Salt Lake Sector V IT corridor.",
+   "industries": [
+    "retail",
+    "education",
+    "it",
+    "logistics"
+   ],
+   "timezone": "Asia/Kolkata"
+  },
+  "loc-city-in-ahmedabad": {
+   "note": "Gujarat’s business capital, strong in textiles, chemicals, pharma and family-run trading businesses moving online.",
+   "industries": [
+    "textiles",
+    "pharma",
+    "manufacturing",
+    "retail"
+   ],
+   "timezone": "Asia/Kolkata"
+  },
+  "loc-city-in-jaipur": {
+   "note": "A tourism and handicrafts centre whose hotels, jewellery and textile exporters sell to customers worldwide.",
+   "industries": [
+    "tourism",
+    "hospitality",
+    "textiles",
+    "retail"
+   ],
+   "timezone": "Asia/Kolkata"
+  },
+  "loc-city-in-chandigarh": {
+   "note": "A planned city serving Punjab, Haryana and Himachal, with strong education, healthcare and IT-services sectors.",
+   "industries": [
+    "education",
+    "healthcare",
+    "it",
+    "realestate"
+   ],
+   "timezone": "Asia/Kolkata"
+  },
+  "loc-city-in-kochi": {
+   "note": "Kerala’s commercial hub with a major port, the Infopark IT campus and a large tourism and spice-export trade.",
+   "industries": [
+    "logistics",
+    "tourism",
+    "it",
+    "healthcare"
+   ],
+   "timezone": "Asia/Kolkata"
+  },
+  "loc-city-in-noida": {
+   "note": "A planned NCR city with large IT parks, electronics manufacturing and fast-growing residential and commercial real estate.",
+   "industries": [
+    "it",
+    "manufacturing",
+    "realestate",
+    "education"
+   ],
+   "timezone": "Asia/Kolkata"
+  },
+  "loc-city-in-gurugram": {
+   "note": "The NCR’s corporate centre, hosting multinational offices, start-ups and premium real-estate and hospitality businesses.",
+   "industries": [
+    "startups",
+    "consulting",
+    "realestate",
+    "hospitality"
+   ],
+   "timezone": "Asia/Kolkata"
+  },
+  "loc-city-in-indore": {
+   "note": "Madhya Pradesh’s commercial capital with a growing IT-services sector, education institutions and trading businesses.",
+   "industries": [
+    "retail",
+    "education",
+    "it",
+    "manufacturing"
+   ],
+   "timezone": "Asia/Kolkata"
+  },
+  "loc-city-in-coimbatore": {
+   "note": "A textile and engineering hub in Tamil Nadu, known for pumps, motors and a growing software sector.",
+   "industries": [
+    "textiles",
+    "manufacturing",
+    "it",
+    "healthcare"
+   ],
+   "timezone": "Asia/Kolkata"
+  },
+  "loc-city-in-lucknow": {
+   "note": "Uttar Pradesh’s capital, with government, education, healthcare and a large retail and hospitality market.",
+   "industries": [
+    "government",
+    "education",
+    "healthcare",
+    "hospitality"
+   ],
+   "timezone": "Asia/Kolkata"
+  },
+  "loc-city-in-surat": {
+   "note": "The global centre of diamond cutting and a major synthetic-textile market, with many traders selling online.",
+   "industries": [
+    "textiles",
+    "retail",
+    "manufacturing",
+    "fashion"
+   ],
+   "timezone": "Asia/Kolkata"
+  },
+  "loc-city-in-nagpur": {
+   "note": "A logistics hub at the geographic centre of India, with the MIHAN multi-modal hub, education and healthcare services.",
+   "industries": [
+    "logistics",
+    "education",
+    "healthcare",
+    "agriculture"
+   ],
+   "timezone": "Asia/Kolkata"
+  },
+  "loc-city-pk-karachi": {
+   "note": "Pakistan’s largest city and commercial port, home to the stock exchange, banks, textiles and e-commerce companies.",
+   "industries": [
+    "finance",
+    "logistics",
+    "textiles",
+    "retail"
+   ],
+   "timezone": "Asia/Karachi"
+  },
+  "loc-city-pk-lahore": {
+   "note": "A cultural and business centre with a strong software-export industry, textiles and education.",
+   "industries": [
+    "it",
+    "textiles",
+    "education",
+    "retail"
+   ],
+   "timezone": "Asia/Karachi"
+  },
+  "loc-city-pk-islamabad": {
+   "note": "Pakistan’s capital, with government, NGOs, telecoms and a growing technology-park ecosystem.",
+   "industries": [
+    "government",
+    "it",
+    "consulting",
+    "education"
+   ],
+   "timezone": "Asia/Karachi"
+  },
+  "loc-city-pk-rawalpindi": {
+   "note": "Islamabad’s twin city with busy trading markets, services businesses and growing real-estate developments.",
+   "industries": [
+    "retail",
+    "realestate",
+    "education",
+    "healthcare"
+   ],
+   "timezone": "Asia/Karachi"
+  },
+  "loc-city-bd-dhaka": {
+   "note": "Bangladesh’s capital and the heart of its garment-export, telecom and fast-growing digital-services economy.",
+   "industries": [
+    "textiles",
+    "fashion",
+    "it",
+    "finance"
+   ],
+   "timezone": "Asia/Dhaka"
+  },
+  "loc-city-bd-chittagong": {
+   "note": "Bangladesh’s main seaport city, with shipping, manufacturing and import-export trading businesses.",
+   "industries": [
+    "logistics",
+    "manufacturing",
+    "textiles",
+    "retail"
+   ],
+   "timezone": "Asia/Dhaka"
+  },
+  "loc-city-lk-colombo": {
+   "note": "Sri Lanka’s commercial capital, with finance, IT outsourcing, apparel headquarters and tourism businesses.",
+   "industries": [
+    "finance",
+    "it",
+    "tourism",
+    "textiles"
+   ],
+   "timezone": "Asia/Colombo"
+  },
+  "loc-city-lk-kandy": {
+   "note": "A UNESCO-listed cultural city at the centre of Sri Lanka’s tea country and inland tourism trade.",
+   "industries": [
+    "tourism",
+    "hospitality",
+    "agriculture",
+    "education"
+   ],
+   "timezone": "Asia/Colombo"
+  },
+  "loc-city-kz-almaty": {
+   "note": "Kazakhstan’s largest city and financial centre, with banks, retail chains and a growing IT start-up scene.",
+   "industries": [
+    "finance",
+    "retail",
+    "startups",
+    "it"
+   ],
+   "timezone": "Asia/Almaty"
+  },
+  "loc-city-kz-astana": {
+   "note": "Kazakhstan’s capital, home to government ministries, the Astana International Financial Centre and new commercial districts.",
+   "industries": [
+    "government",
+    "finance",
+    "realestate",
+    "energy"
+   ],
+   "timezone": "Asia/Almaty"
+  },
+  "loc-city-uz-tashkent": {
+   "note": "Central Asia’s most populous city and Uzbekistan’s business capital, with banking, retail and IT Park companies.",
+   "industries": [
+    "finance",
+    "retail",
+    "it",
+    "manufacturing"
+   ],
+   "timezone": "Asia/Tashkent"
+  },
+  "loc-city-uz-samarkand": {
+   "note": "A Silk Road heritage city whose economy leans on tourism, hospitality, crafts and agriculture.",
+   "industries": [
+    "tourism",
+    "hospitality",
+    "agriculture",
+    "textiles"
+   ],
+   "timezone": "Asia/Tashkent"
+  },
+  "loc-city-ae-dubai": {
+   "note": "A global trade, tourism and real-estate hub with free zones such as DIFC, Dubai Internet City and JAFZA hosting international firms.",
+   "industries": [
+    "realestate",
+    "tourism",
+    "logistics",
+    "finance",
+    "retail"
+   ],
+   "timezone": "Asia/Dubai"
+  },
+  "loc-city-ae-abu-dhabi": {
+   "note": "The UAE capital, centred on energy, sovereign investment, government services and the ADGM financial free zone.",
+   "industries": [
+    "energy",
+    "government",
+    "finance",
+    "tourism"
+   ],
+   "timezone": "Asia/Dubai"
+  },
+  "loc-city-ae-sharjah": {
+   "note": "An industrial, education and trading emirate with many SMEs, manufacturers and free-zone companies.",
+   "industries": [
+    "manufacturing",
+    "education",
+    "retail",
+    "logistics"
+   ],
+   "timezone": "Asia/Dubai"
+  },
+  "loc-city-sa-riyadh": {
+   "note": "Saudi Arabia’s capital and the focus of Vision 2030 investment — government, finance, giga-projects and fast-growing retail.",
+   "industries": [
+    "government",
+    "finance",
+    "realestate",
+    "retail"
+   ],
+   "timezone": "Asia/Riyadh"
+  },
+  "loc-city-sa-jeddah": {
+   "note": "The Red Sea commercial gateway and entry point for pilgrims to Makkah, with trading, retail and hospitality businesses.",
+   "industries": [
+    "retail",
+    "hospitality",
+    "logistics",
+    "tourism"
+   ],
+   "timezone": "Asia/Riyadh"
+  },
+  "loc-city-sa-dammam": {
+   "note": "Capital of the Eastern Province and a centre for the oil, petrochemical and industrial supply chain.",
+   "industries": [
+    "energy",
+    "manufacturing",
+    "logistics",
+    "retail"
+   ],
+   "timezone": "Asia/Riyadh"
+  },
+  "loc-city-sa-khobar": {
+   "note": "A commercial and residential hub of the Eastern Province with retail, services and energy-sector companies.",
+   "industries": [
+    "energy",
+    "retail",
+    "realestate",
+    "consulting"
+   ],
+   "timezone": "Asia/Riyadh"
+  },
+  "loc-city-qa-doha": {
+   "note": "Qatar’s capital, driven by energy, finance, aviation, hospitality and large infrastructure projects.",
+   "industries": [
+    "energy",
+    "finance",
+    "hospitality",
+    "realestate"
+   ],
+   "timezone": "Asia/Qatar"
+  },
+  "loc-city-kw-kuwait-city": {
+   "note": "Kuwait’s capital and financial centre, with banking, oil-sector services and a strong consumer-retail market.",
+   "industries": [
+    "finance",
+    "energy",
+    "retail",
+    "realestate"
+   ],
+   "timezone": "Asia/Kuwait"
+  },
+  "loc-city-bh-manama": {
+   "note": "Bahrain’s capital, a regional banking and fintech centre with a business-friendly regulatory environment.",
+   "industries": [
+    "finance",
+    "startups",
+    "logistics",
+    "tourism"
+   ],
+   "timezone": "Asia/Bahrain"
+  },
+  "loc-city-om-muscat": {
+   "note": "Oman’s capital, with government, energy, logistics and a growing tourism and hospitality sector.",
+   "industries": [
+    "government",
+    "energy",
+    "tourism",
+    "logistics"
+   ],
+   "timezone": "Asia/Muscat"
+  },
+  "loc-city-jo-amman": {
+   "note": "Jordan’s capital and a regional hub for software, gaming, healthcare and NGOs.",
+   "industries": [
+    "it",
+    "startups",
+    "healthcare",
+    "education"
+   ],
+   "timezone": "Asia/Amman"
+  },
+  "loc-city-gb-london": {
+   "note": "One of the world’s largest financial and creative centres, with a deep fintech, media, retail and professional-services market.",
+   "industries": [
+    "finance",
+    "startups",
+    "media",
+    "consulting",
+    "retail"
+   ],
+   "timezone": "Europe/London"
+  },
+  "loc-city-gb-manchester": {
+   "note": "The north of England’s business capital, with digital, media (MediaCityUK), finance and e-commerce companies.",
+   "industries": [
+    "media",
+    "startups",
+    "retail",
+    "finance"
+   ],
+   "timezone": "Europe/London"
+  },
+  "loc-city-gb-birmingham": {
+   "note": "A major UK business city with manufacturing, professional services and a large retail and events economy.",
+   "industries": [
+    "manufacturing",
+    "consulting",
+    "retail",
+    "education"
+   ],
+   "timezone": "Europe/London"
+  },
+  "loc-city-gb-edinburgh": {
+   "note": "Scotland’s capital, known for financial services, universities, tourism and a fast-growing tech sector.",
+   "industries": [
+    "finance",
+    "education",
+    "tourism",
+    "startups"
+   ],
+   "timezone": "Europe/London"
+  },
+  "loc-city-gb-glasgow": {
+   "note": "Scotland’s largest city, with engineering, creative industries, healthcare and retail.",
+   "industries": [
+    "manufacturing",
+    "media",
+    "healthcare",
+    "retail"
+   ],
+   "timezone": "Europe/London"
+  },
+  "loc-city-gb-bristol": {
+   "note": "A creative and aerospace city in south-west England with strong tech, design and sustainability businesses.",
+   "industries": [
+    "aerospace",
+    "media",
+    "startups",
+    "education"
+   ],
+   "timezone": "Europe/London"
+  },
+  "loc-city-gb-leeds": {
+   "note": "A financial, legal and digital centre in Yorkshire with a large retail and healthcare economy.",
+   "industries": [
+    "finance",
+    "consulting",
+    "healthcare",
+    "retail"
+   ],
+   "timezone": "Europe/London"
+  },
+  "loc-city-ie-dublin": {
+   "note": "Europe’s home for many global tech companies, with a strong fintech, pharma and professional-services market.",
+   "industries": [
+    "it",
+    "finance",
+    "pharma",
+    "startups"
+   ],
+   "timezone": "Europe/Dublin"
+  },
+  "loc-city-ie-cork": {
+   "note": "Ireland’s second city, with pharma, medical-device and tech multinationals plus a busy port.",
+   "industries": [
+    "pharma",
+    "it",
+    "manufacturing",
+    "logistics"
+   ],
+   "timezone": "Europe/Dublin"
+  },
+  "loc-city-de-berlin": {
+   "note": "Germany’s capital and start-up capital, with venture-backed tech companies, media and a large creative economy.",
+   "industries": [
+    "startups",
+    "media",
+    "government",
+    "retail"
+   ],
+   "timezone": "Europe/Berlin"
+  },
+  "loc-city-de-munich": {
+   "note": "A wealthy industrial and tech centre home to automotive, insurance and engineering headquarters.",
+   "industries": [
+    "automotive",
+    "finance",
+    "manufacturing",
+    "it"
+   ],
+   "timezone": "Europe/Berlin"
+  },
+  "loc-city-de-frankfurt": {
+   "note": "Continental Europe’s banking capital, hosting the ECB, major banks, fintechs and a major airport hub.",
+   "industries": [
+    "finance",
+    "logistics",
+    "consulting",
+    "it"
+   ],
+   "timezone": "Europe/Berlin"
+  },
+  "loc-city-de-hamburg": {
+   "note": "Germany’s largest port city, with logistics, media, e-commerce and aviation companies.",
+   "industries": [
+    "logistics",
+    "media",
+    "retail",
+    "aerospace"
+   ],
+   "timezone": "Europe/Berlin"
+  },
+  "loc-city-de-cologne": {
+   "note": "A media, insurance and trade-fair city on the Rhine with a large services economy.",
+   "industries": [
+    "media",
+    "finance",
+    "retail",
+    "tourism"
+   ],
+   "timezone": "Europe/Berlin"
+  },
+  "loc-city-fr-paris": {
+   "note": "France’s capital and a global centre for fashion, luxury, tourism, finance and the Station F start-up campus.",
+   "industries": [
+    "fashion",
+    "tourism",
+    "finance",
+    "startups",
+    "media"
+   ],
+   "timezone": "Europe/Paris"
+  },
+  "loc-city-fr-lyon": {
+   "note": "France’s second economic region, with life sciences, gastronomy, manufacturing and a growing tech scene.",
+   "industries": [
+    "pharma",
+    "hospitality",
+    "manufacturing",
+    "startups"
+   ],
+   "timezone": "Europe/Paris"
+  },
+  "loc-city-fr-marseille": {
+   "note": "France’s main Mediterranean port, with logistics, tourism and a growing digital and data-centre sector.",
+   "industries": [
+    "logistics",
+    "tourism",
+    "it",
+    "retail"
+   ],
+   "timezone": "Europe/Paris"
+  },
+  "loc-city-nl-amsterdam": {
+   "note": "A European headquarters city for tech, fintech and e-commerce brands, with a strong creative industry.",
+   "industries": [
+    "startups",
+    "finance",
+    "retail",
+    "media"
+   ],
+   "timezone": "Europe/Amsterdam"
+  },
+  "loc-city-nl-rotterdam": {
+   "note": "Home to Europe’s largest seaport and a centre for logistics, maritime and architecture firms.",
+   "industries": [
+    "logistics",
+    "manufacturing",
+    "energy",
+    "startups"
+   ],
+   "timezone": "Europe/Amsterdam"
+  },
+  "loc-city-nl-utrecht": {
+   "note": "A central Dutch city with a major university, healthcare, consultancy and IT-services companies.",
+   "industries": [
+    "education",
+    "consulting",
+    "it",
+    "healthcare"
+   ],
+   "timezone": "Europe/Amsterdam"
+  },
+  "loc-city-es-madrid": {
+   "note": "Spain’s capital and largest business centre, with corporate headquarters, finance, retail and tourism.",
+   "industries": [
+    "finance",
+    "retail",
+    "tourism",
+    "consulting"
+   ],
+   "timezone": "Europe/Madrid"
+  },
+  "loc-city-es-barcelona": {
+   "note": "A Mediterranean tourism, design and start-up hub, and host of the annual Mobile World Congress.",
+   "industries": [
+    "tourism",
+    "startups",
+    "fashion",
+    "hospitality"
+   ],
+   "timezone": "Europe/Madrid"
+  },
+  "loc-city-it-milan": {
+   "note": "Italy’s financial and fashion capital, with design houses, banking, media and manufacturing headquarters.",
+   "industries": [
+    "fashion",
+    "finance",
+    "media",
+    "manufacturing"
+   ],
+   "timezone": "Europe/Rome"
+  },
+  "loc-city-it-rome": {
+   "note": "Italy’s capital, centred on government, tourism, hospitality and cultural institutions.",
+   "industries": [
+    "tourism",
+    "government",
+    "hospitality",
+    "media"
+   ],
+   "timezone": "Europe/Rome"
+  },
+  "loc-city-ch-zurich": {
+   "note": "Switzerland’s financial centre, with private banking, insurance, consulting and a strong tech research presence.",
+   "industries": [
+    "finance",
+    "consulting",
+    "it",
+    "pharma"
+   ],
+   "timezone": "Europe/Zurich"
+  },
+  "loc-city-ch-geneva": {
+   "note": "A city of international organisations, private banks, commodity traders and luxury watch brands.",
+   "industries": [
+    "finance",
+    "consulting",
+    "government",
+    "retail"
+   ],
+   "timezone": "Europe/Zurich"
+  },
+  "loc-city-se-stockholm": {
+   "note": "One of Europe’s most productive start-up ecosystems, home to fintech, gaming and music-tech companies.",
+   "industries": [
+    "startups",
+    "gaming",
+    "finance",
+    "media"
+   ],
+   "timezone": "Europe/Stockholm"
+  },
+  "loc-city-pl-warsaw": {
+   "note": "Poland’s capital and business centre, with finance, shared-service centres and a growing tech sector.",
+   "industries": [
+    "finance",
+    "it",
+    "consulting",
+    "retail"
+   ],
+   "timezone": "Europe/Warsaw"
+  },
+  "loc-city-pl-krakow": {
+   "note": "A university city with large IT and business-services centres and a major tourism trade.",
+   "industries": [
+    "it",
+    "education",
+    "tourism",
+    "gaming"
+   ],
+   "timezone": "Europe/Warsaw"
+  },
+  "loc-city-us-new-york": {
+   "note": "The largest US metro economy — finance, media, fashion, real estate and a dense start-up ecosystem.",
+   "industries": [
+    "finance",
+    "media",
+    "fashion",
+    "realestate",
+    "startups"
+   ],
+   "timezone": "America/New_York"
+  },
+  "loc-city-us-san-francisco": {
+   "note": "The heart of the Bay Area tech economy, home to venture-backed SaaS, AI and consumer-app companies.",
+   "industries": [
+    "startups",
+    "it",
+    "finance",
+    "healthcare"
+   ],
+   "timezone": "America/Los_Angeles"
+  },
+  "loc-city-us-los-angeles": {
+   "note": "The centre of US entertainment and creator media, with a large e-commerce, fashion and real-estate market.",
+   "industries": [
+    "media",
+    "fashion",
+    "retail",
+    "realestate"
+   ],
+   "timezone": "America/Los_Angeles"
+  },
+  "loc-city-us-austin": {
+   "note": "A fast-growing Texas tech hub with semiconductor, SaaS and start-up companies and a large events economy.",
+   "industries": [
+    "startups",
+    "it",
+    "manufacturing",
+    "media"
+   ],
+   "timezone": "America/Chicago"
+  },
+  "loc-city-us-seattle": {
+   "note": "Home to major cloud and e-commerce companies, with a strong aerospace, gaming and biotech presence.",
+   "industries": [
+    "it",
+    "retail",
+    "aerospace",
+    "gaming"
+   ],
+   "timezone": "America/Los_Angeles"
+  },
+  "loc-city-us-chicago": {
+   "note": "A Midwest business capital for finance, logistics, manufacturing and professional services.",
+   "industries": [
+    "finance",
+    "logistics",
+    "manufacturing",
+    "consulting"
+   ],
+   "timezone": "America/Chicago"
+  },
+  "loc-city-us-miami": {
+   "note": "A gateway to Latin America with real estate, tourism, finance and a fast-growing tech community.",
+   "industries": [
+    "realestate",
+    "tourism",
+    "finance",
+    "startups"
+   ],
+   "timezone": "America/New_York"
+  },
+  "loc-city-us-boston": {
+   "note": "A global centre for universities, biotech, healthcare and robotics start-ups.",
+   "industries": [
+    "healthcare",
+    "pharma",
+    "education",
+    "startups"
+   ],
+   "timezone": "America/New_York"
+  },
+  "loc-city-us-atlanta": {
+   "note": "A logistics and fintech hub of the US South-East with major corporate headquarters and media companies.",
+   "industries": [
+    "logistics",
+    "finance",
+    "media",
+    "retail"
+   ],
+   "timezone": "America/New_York"
+  },
+  "loc-city-us-denver": {
+   "note": "A Rocky Mountain business hub for energy, aerospace, outdoor brands and SaaS companies.",
+   "industries": [
+    "energy",
+    "aerospace",
+    "retail",
+    "startups"
+   ],
+   "timezone": "America/Denver"
+  },
+  "loc-city-us-dallas": {
+   "note": "A large Texas metro with corporate headquarters, finance, real estate, telecoms and logistics.",
+   "industries": [
+    "finance",
+    "realestate",
+    "logistics",
+    "retail"
+   ],
+   "timezone": "America/Chicago"
+  },
+  "loc-city-us-phoenix": {
+   "note": "A fast-growing Arizona metro with semiconductor manufacturing, real estate, healthcare and tourism.",
+   "industries": [
+    "manufacturing",
+    "realestate",
+    "healthcare",
+    "tourism"
+   ],
+   "timezone": "America/Phoenix"
+  },
+  "loc-city-us-san-diego": {
+   "note": "A Southern California economy built on biotech, defence, telecoms and tourism.",
+   "industries": [
+    "pharma",
+    "aerospace",
+    "tourism",
+    "startups"
+   ],
+   "timezone": "America/Los_Angeles"
+  },
+  "loc-city-ca-toronto": {
+   "note": "Canada’s financial capital and largest tech market, with banks, insurers, AI labs and a diverse consumer base.",
+   "industries": [
+    "finance",
+    "startups",
+    "media",
+    "retail"
+   ],
+   "timezone": "America/Toronto"
+  },
+  "loc-city-ca-vancouver": {
+   "note": "A Pacific gateway city with tech, film and gaming studios, real estate and a busy port.",
+   "industries": [
+    "media",
+    "gaming",
+    "realestate",
+    "logistics"
+   ],
+   "timezone": "America/Vancouver"
+  },
+  "loc-city-ca-montreal": {
+   "note": "A bilingual city known for AI research, gaming studios, aerospace and creative industries.",
+   "industries": [
+    "gaming",
+    "aerospace",
+    "startups",
+    "media"
+   ],
+   "timezone": "America/Toronto"
+  },
+  "loc-city-ca-calgary": {
+   "note": "Western Canada’s energy capital, with a growing tech, agriculture and logistics sector.",
+   "industries": [
+    "energy",
+    "agriculture",
+    "logistics",
+    "startups"
+   ],
+   "timezone": "America/Edmonton"
+  },
+  "loc-city-ca-ottawa": {
+   "note": "Canada’s capital, with federal government, telecoms and a strong software and e-commerce cluster.",
+   "industries": [
+    "government",
+    "it",
+    "startups",
+    "education"
+   ],
+   "timezone": "America/Toronto"
+  },
+  "loc-city-br-s-o-paulo": {
+   "note": "Latin America’s largest business centre, with banks, retailers, media groups and most of Brazil’s start-ups.",
+   "industries": [
+    "finance",
+    "retail",
+    "startups",
+    "media"
+   ],
+   "timezone": "America/Sao_Paulo"
+  },
+  "loc-city-br-rio-de-janeiro": {
+   "note": "A tourism, energy and media city with major oil-and-gas companies and a large services economy.",
+   "industries": [
+    "tourism",
+    "energy",
+    "media",
+    "hospitality"
+   ],
+   "timezone": "America/Sao_Paulo"
+  },
+  "loc-city-br-belo-horizonte": {
+   "note": "Capital of Minas Gerais, with mining, manufacturing and a well-known start-up community.",
+   "industries": [
+    "manufacturing",
+    "startups",
+    "retail",
+    "education"
+   ],
+   "timezone": "America/Sao_Paulo"
+  },
+  "loc-city-br-curitiba": {
+   "note": "A planned southern Brazilian city with automotive manufacturing, logistics and IT companies.",
+   "industries": [
+    "automotive",
+    "manufacturing",
+    "it",
+    "logistics"
+   ],
+   "timezone": "America/Sao_Paulo"
+  },
+  "loc-city-mx-mexico-city": {
+   "note": "Mexico’s capital and largest economy, with corporate headquarters, finance, media and a thriving fintech scene.",
+   "industries": [
+    "finance",
+    "retail",
+    "media",
+    "startups"
+   ],
+   "timezone": "America/Mexico_City"
+  },
+  "loc-city-mx-guadalajara": {
+   "note": "Known as Mexico’s Silicon Valley for electronics manufacturing and software development.",
+   "industries": [
+    "it",
+    "manufacturing",
+    "startups",
+    "retail"
+   ],
+   "timezone": "America/Mexico_City"
+  },
+  "loc-city-mx-monterrey": {
+   "note": "An industrial powerhouse near the US border with manufacturing, steel, cement and nearshoring investment.",
+   "industries": [
+    "manufacturing",
+    "automotive",
+    "logistics",
+    "finance"
+   ],
+   "timezone": "America/Monterrey"
+  },
+  "loc-city-co-bogot-": {
+   "note": "Colombia’s capital and largest market, with finance, BPO, retail and a growing start-up scene.",
+   "industries": [
+    "finance",
+    "startups",
+    "retail",
+    "consulting"
+   ],
+   "timezone": "America/Bogota"
+  },
+  "loc-city-co-medell-n": {
+   "note": "A city known for innovation districts, textiles, fashion and a large community of remote tech workers.",
+   "industries": [
+    "startups",
+    "textiles",
+    "fashion",
+    "tourism"
+   ],
+   "timezone": "America/Bogota"
+  },
+  "loc-city-ar-buenos-aires": {
+   "note": "Argentina’s capital and a major Latin American hub for software, media, finance and creative services.",
+   "industries": [
+    "it",
+    "media",
+    "finance",
+    "startups"
+   ],
+   "timezone": "America/Argentina/Buenos_Aires"
+  },
+  "loc-city-ar-c-rdoba": {
+   "note": "Argentina’s second city, with universities, automotive manufacturing and a growing software sector.",
+   "industries": [
+    "education",
+    "automotive",
+    "it",
+    "agriculture"
+   ],
+   "timezone": "America/Argentina/Cordoba"
+  },
+  "loc-city-cl-santiago": {
+   "note": "Chile’s capital and business centre, with mining-sector headquarters, finance, retail and Start-Up Chile.",
+   "industries": [
+    "finance",
+    "energy",
+    "retail",
+    "startups"
+   ],
+   "timezone": "America/Santiago"
+  },
+  "loc-city-sg-singapore": {
+   "note": "Asia’s leading financial and regional-headquarters hub, with fintech, logistics and a highly digital consumer market.",
+   "industries": [
+    "finance",
+    "logistics",
+    "startups",
+    "healthcare"
+   ],
+   "timezone": "Asia/Singapore"
+  },
+  "loc-city-jp-tokyo": {
+   "note": "The world’s largest metropolitan economy, with corporate headquarters, finance, gaming, media and retail.",
+   "industries": [
+    "finance",
+    "gaming",
+    "media",
+    "retail",
+    "manufacturing"
+   ],
+   "timezone": "Asia/Tokyo"
+  },
+  "loc-city-jp-osaka": {
+   "note": "The commercial centre of western Japan, known for manufacturing, trading companies, food and tourism.",
+   "industries": [
+    "manufacturing",
+    "retail",
+    "tourism",
+    "hospitality"
+   ],
+   "timezone": "Asia/Tokyo"
+  },
+  "loc-city-jp-kyoto": {
+   "note": "A historic tourism city that is also home to electronics, gaming and precision-manufacturing companies.",
+   "industries": [
+    "tourism",
+    "hospitality",
+    "gaming",
+    "education"
+   ],
+   "timezone": "Asia/Tokyo"
+  },
+  "loc-city-my-kuala-lumpur": {
+   "note": "Malaysia’s capital and business hub, with finance, Islamic banking, e-commerce and regional headquarters.",
+   "industries": [
+    "finance",
+    "retail",
+    "startups",
+    "realestate"
+   ],
+   "timezone": "Asia/Kuala_Lumpur"
+  },
+  "loc-city-my-penang": {
+   "note": "A major electronics and semiconductor manufacturing centre that is also a popular tourism destination.",
+   "industries": [
+    "manufacturing",
+    "tourism",
+    "hospitality",
+    "logistics"
+   ],
+   "timezone": "Asia/Kuala_Lumpur"
+  },
+  "loc-city-th-bangkok": {
+   "note": "Thailand’s capital and Southeast Asian business hub for retail, tourism, hospitality and automotive firms.",
+   "industries": [
+    "tourism",
+    "retail",
+    "hospitality",
+    "automotive"
+   ],
+   "timezone": "Asia/Bangkok"
+  },
+  "loc-city-th-chiang-mai": {
+   "note": "Northern Thailand’s cultural capital, popular with tourists and remote workers, with handicraft and hospitality businesses.",
+   "industries": [
+    "tourism",
+    "hospitality",
+    "education",
+    "agriculture"
+   ],
+   "timezone": "Asia/Bangkok"
+  },
+  "loc-city-id-jakarta": {
+   "note": "Indonesia’s capital and largest economy, home to its biggest e-commerce, fintech and super-app companies.",
+   "industries": [
+    "startups",
+    "finance",
+    "retail",
+    "logistics"
+   ],
+   "timezone": "Asia/Jakarta"
+  },
+  "loc-city-id-bali": {
+   "note": "One of the world’s best-known tourism destinations, with villas, resorts, wellness brands and digital nomads.",
+   "industries": [
+    "tourism",
+    "hospitality",
+    "realestate",
+    "fashion"
+   ],
+   "timezone": "Asia/Makassar"
+  },
+  "loc-city-vn-ho-chi-minh-city": {
+   "note": "Vietnam’s economic engine, with manufacturing, retail, fintech and a booming software-outsourcing sector.",
+   "industries": [
+    "manufacturing",
+    "it",
+    "retail",
+    "startups"
+   ],
+   "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "loc-city-vn-hanoi": {
+   "note": "Vietnam’s capital, with government, education, IT services and fast-growing consumer brands.",
+   "industries": [
+    "government",
+    "it",
+    "education",
+    "retail"
+   ],
+   "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "loc-city-kr-seoul": {
+   "note": "South Korea’s capital and a global leader in electronics, gaming, entertainment and e-commerce.",
+   "industries": [
+    "gaming",
+    "media",
+    "retail",
+    "manufacturing"
+   ],
+   "timezone": "Asia/Seoul"
+  },
+  "loc-city-kr-busan": {
+   "note": "Korea’s largest port city, with shipping, logistics, tourism and a film-festival-led media scene.",
+   "industries": [
+    "logistics",
+    "tourism",
+    "manufacturing",
+    "media"
+   ],
+   "timezone": "Asia/Seoul"
+  },
+  "loc-city-au-sydney": {
+   "note": "Australia’s largest city and financial centre, with banking, tech, tourism and professional services.",
+   "industries": [
+    "finance",
+    "startups",
+    "tourism",
+    "consulting"
+   ],
+   "timezone": "Australia/Sydney"
+  },
+  "loc-city-au-melbourne": {
+   "note": "A cultural and education capital with strong retail, healthcare, sports and tech sectors.",
+   "industries": [
+    "education",
+    "retail",
+    "healthcare",
+    "startups"
+   ],
+   "timezone": "Australia/Melbourne"
+  },
+  "loc-city-au-brisbane": {
+   "note": "Queensland’s capital, with resources, construction, tourism and a growing tech community.",
+   "industries": [
+    "energy",
+    "realestate",
+    "tourism",
+    "startups"
+   ],
+   "timezone": "Australia/Brisbane"
+  },
+  "loc-city-au-perth": {
+   "note": "Western Australia’s capital and a global centre for mining and energy companies.",
+   "industries": [
+    "energy",
+    "manufacturing",
+    "education",
+    "realestate"
+   ],
+   "timezone": "Australia/Perth"
+  },
+  "loc-city-nz-auckland": {
+   "note": "New Zealand’s largest city and business hub, with retail, tourism, tech and professional services.",
+   "industries": [
+    "retail",
+    "tourism",
+    "startups",
+    "consulting"
+   ],
+   "timezone": "Pacific/Auckland"
+  },
+  "loc-city-nz-wellington": {
+   "note": "New Zealand’s capital, home to government, film and visual-effects studios, and software companies.",
+   "industries": [
+    "government",
+    "media",
+    "it",
+    "education"
+   ],
+   "timezone": "Pacific/Auckland"
+  },
+  "loc-city-za-johannesburg": {
+   "note": "Africa’s largest financial centre, with banks, mining houses, retail groups and a busy fintech scene.",
+   "industries": [
+    "finance",
+    "energy",
+    "retail",
+    "startups"
+   ],
+   "timezone": "Africa/Johannesburg"
+  },
+  "loc-city-za-cape-town": {
+   "note": "A tech, tourism and creative hub with many start-ups, film production and a large wine and hospitality trade.",
+   "industries": [
+    "startups",
+    "tourism",
+    "media",
+    "hospitality"
+   ],
+   "timezone": "Africa/Johannesburg"
+  },
+  "loc-city-ng-lagos": {
+   "note": "West Africa’s commercial capital and the centre of Nigeria’s fintech, media and entertainment industries.",
+   "industries": [
+    "finance",
+    "startups",
+    "media",
+    "retail"
+   ],
+   "timezone": "Africa/Lagos"
+  },
+  "loc-city-ng-abuja": {
+   "note": "Nigeria’s capital, with government, NGOs, real estate and professional-services firms.",
+   "industries": [
+    "government",
+    "realestate",
+    "consulting",
+    "education"
+   ],
+   "timezone": "Africa/Lagos"
+  },
+  "loc-city-ke-nairobi": {
+   "note": "East Africa’s tech and mobile-money hub, nicknamed \"Silicon Savannah\", with NGOs and regional headquarters.",
+   "industries": [
+    "finance",
+    "startups",
+    "consulting",
+    "tourism"
+   ],
+   "timezone": "Africa/Nairobi"
+  },
+  "loc-city-eg-cairo": {
+   "note": "The largest city in the Arab world, with a big consumer market, outsourcing, real-estate and tourism sectors.",
+   "industries": [
+    "realestate",
+    "it",
+    "tourism",
+    "retail"
+   ],
+   "timezone": "Africa/Cairo"
+  }
+ },
+ "industries": {
+  "it": {
+   "label": "IT & software services",
+   "web": "a lead-generating services site with case studies and a technical blog",
+   "app": "a client portal with ticketing, time logs and invoicing",
+   "growth": "B2B SEO for service pages plus LinkedIn and Google Ads lead funnels"
+  },
+  "finance": {
+   "label": "Finance & fintech",
+   "web": "a compliant, fast marketing site with calculators and secure lead forms",
+   "app": "a customer dashboard with KYC steps, statements and role-based access",
+   "growth": "trust-led SEO content and tightly targeted search campaigns"
+  },
+  "tourism": {
+   "label": "Tourism & travel",
+   "web": "a multilingual booking-ready site with tour packages and enquiry flows",
+   "app": "a booking and itinerary app with payments and WhatsApp confirmations",
+   "growth": "destination SEO, Instagram content plans and seasonal Google Ads"
+  },
+  "retail": {
+   "label": "Retail & D2C brands",
+   "web": "a conversion-focused online store with local payment methods",
+   "app": "inventory, order and loyalty management connected to the store",
+   "growth": "product-page SEO, shopping campaigns and WhatsApp order updates"
+  },
+  "manufacturing": {
+   "label": "Manufacturing & industrial",
+   "web": "a product-catalogue site with spec sheets and RFQ forms",
+   "app": "production, inventory and dealer-order tracking (ERP-style) software",
+   "growth": "export-market SEO and B2B search campaigns for RFQ leads"
+  },
+  "realestate": {
+   "label": "Real estate & property",
+   "web": "a property-listing site with search filters, maps and lead capture",
+   "app": "a CRM for enquiries, site visits and broker follow-ups",
+   "growth": "project-launch landing pages with Google and Meta lead ads"
+  },
+  "healthcare": {
+   "label": "Healthcare & clinics",
+   "web": "a clinic site with doctor profiles and appointment booking",
+   "app": "patient booking, reminders and a secure records dashboard",
+   "growth": "local SEO for treatments and Google Business Profile optimisation"
+  },
+  "education": {
+   "label": "Education & training",
+   "web": "an institute site with course pages, fees and admission enquiries",
+   "app": "a learning portal with batches, attendance and online payments",
+   "growth": "admission-season search campaigns and course-page SEO"
+  },
+  "logistics": {
+   "label": "Logistics & shipping",
+   "web": "a services site with quote requests and shipment tracking",
+   "app": "dispatch, fleet and proof-of-delivery tracking software",
+   "growth": "B2B SEO for lanes and services, plus LinkedIn outreach content"
+  },
+  "government": {
+   "label": "Public sector & institutions",
+   "web": "an accessible, multilingual information portal",
+   "app": "application, approval and document-workflow systems",
+   "growth": "clear information architecture and search visibility for services"
+  },
+  "startups": {
+   "label": "Start-ups & SaaS",
+   "web": "a fast product site with pricing, docs and sign-up flows",
+   "app": "an MVP web app with authentication, billing and an admin panel",
+   "growth": "product-led SEO, comparison pages and paid acquisition tests"
+  },
+  "media": {
+   "label": "Media & creators",
+   "web": "a content site with fast article pages and newsletter capture",
+   "app": "membership, paywall or creator-dashboard features",
+   "growth": "content SEO, YouTube/Instagram distribution and audience analytics"
+  },
+  "textiles": {
+   "label": "Textiles & apparel",
+   "web": "a catalogue or B2B wholesale site with enquiry and sample requests",
+   "app": "order, dealer and stock management for wholesale buyers",
+   "growth": "export-buyer SEO and catalogue campaigns on social platforms"
+  },
+  "automotive": {
+   "label": "Automotive & mobility",
+   "web": "a dealership or parts site with inventory search and test-drive booking",
+   "app": "service-booking and parts-ordering software",
+   "growth": "local search campaigns for models, service and parts"
+  },
+  "energy": {
+   "label": "Energy & resources",
+   "web": "a corporate site with project portfolios, tenders and careers",
+   "app": "field-operations, maintenance and HSE reporting tools",
+   "growth": "B2B thought-leadership content and recruitment campaigns"
+  },
+  "agriculture": {
+   "label": "Agriculture & food",
+   "web": "a farm-to-buyer catalogue site with bulk-order enquiries",
+   "app": "procurement, traceability and distributor-order software",
+   "growth": "export SEO and WhatsApp catalogue sharing"
+  },
+  "hospitality": {
+   "label": "Hotels & restaurants",
+   "web": "a direct-booking site that reduces commission paid to OTAs",
+   "app": "table, room or event booking with automated confirmations",
+   "growth": "local SEO, Google Business Profile and Instagram campaigns"
+  },
+  "fashion": {
+   "label": "Fashion & luxury",
+   "web": "a visual, fast storefront with lookbooks and size guides",
+   "app": "drops, wish-lists and loyalty features for repeat buyers",
+   "growth": "Instagram/TikTok creative plans and shopping campaigns"
+  },
+  "pharma": {
+   "label": "Pharma & life sciences",
+   "web": "a compliant product and research site with gated resources",
+   "app": "distributor, sample and field-force reporting tools",
+   "growth": "carefully reviewed B2B content and HCP-focused search campaigns"
+  },
+  "aerospace": {
+   "label": "Aerospace & engineering",
+   "web": "a capabilities site with certifications and RFQ workflows",
+   "app": "project, document and quality-tracking software",
+   "growth": "B2B search visibility for capabilities and certifications"
+  },
+  "consulting": {
+   "label": "Consulting & professional services",
+   "web": "an authority site with service pages, insights and booking",
+   "app": "client onboarding, proposals and engagement tracking",
+   "growth": "expert-led SEO content and LinkedIn lead generation"
+  },
+  "gaming": {
+   "label": "Gaming & interactive",
+   "web": "a game or studio site with trailers, press kit and community links",
+   "app": "player accounts, leaderboards or community features",
+   "growth": "community growth on Discord/YouTube and launch landing pages"
+  }
+ },
+ "services": {
+  "S01": {
+   "short": "Website Designer & Developer",
+   "noun": "website designer and developer",
+   "category": "web",
+   "localFocus": [
+    "privacy",
+    "web",
+    "languages"
+   ],
+   "project": "a website project",
+   "value": "custom, fast business websites",
+   "summary": "Custom business websites designed and coded by a senior freelancer — responsive UI, a CMS your team can edit, technical SEO and Core Web Vitals built in from day one.",
+   "outcomes": [
+    "A site your team can update without a developer",
+    "Fast mobile performance (Core Web Vitals)",
+    "Clear calls-to-action wired to your forms, WhatsApp and analytics"
+   ]
+  },
+  "S02": {
+   "short": "Mobile App Developer",
+   "noun": "mobile app developer",
+   "category": "app",
+   "localFocus": [
+    "privacy",
+    "payments",
+    "languages"
+   ],
+   "project": "a mobile app project",
+   "value": "iOS and Android apps from one codebase",
+   "summary": "Cross-platform iOS and Android apps (Flutter or React Native) with secure APIs, push notifications, payments and app-store submission handled for you.",
+   "outcomes": [
+    "One codebase for iOS and Android",
+    "App Store and Google Play submission handled",
+    "Analytics and crash reporting from day one"
+   ]
+  },
+  "S03": {
+   "short": "WordPress Developer",
+   "noun": "WordPress developer",
+   "category": "web",
+   "localFocus": [
+    "privacy",
+    "web",
+    "payments"
+   ],
+   "project": "a WordPress project",
+   "value": "fast, secure WordPress sites and fixes",
+   "summary": "WordPress builds, redesigns and speed or security fixes — custom themes or block-based designs, WooCommerce, and clean plugin stacks that stay maintainable.",
+   "outcomes": [
+    "A lean plugin stack that is easy to update",
+    "Faster load times and better Core Web Vitals",
+    "Hardened security, backups and staging"
+   ]
+  },
+  "S04": {
+   "short": "AI Website Developer",
+   "noun": "AI website developer",
+   "category": "web",
+   "localFocus": [
+    "privacy",
+    "languages",
+    "web"
+   ],
+   "project": "an AI website project",
+   "value": "websites with built-in AI assistants and automation",
+   "summary": "Websites and web apps with practical AI built in — chat assistants trained on your content, smart search, lead qualification and content workflows — with guardrails and cost control.",
+   "outcomes": [
+    "An AI assistant that answers from your own content",
+    "Lead qualification before a human gets involved",
+    "Clear usage limits so AI costs stay predictable"
+   ]
+  },
+  "S05": {
+   "short": "SEO Expert",
+   "noun": "SEO expert",
+   "category": "growth",
+   "localFocus": [
+    "search",
+    "languages",
+    "channels"
+   ],
+   "project": "an SEO engagement",
+   "value": "technical SEO, content and local rankings",
+   "summary": "Technical SEO audits and fixes, content strategy, local SEO and link-earning — measured in Search Console and analytics, not vanity metrics.",
+   "outcomes": [
+    "Technical issues fixed (crawl, index, speed, schema)",
+    "A content plan targeting real search demand",
+    "Monthly reporting on clicks, leads and rankings"
+   ]
+  },
+  "S06": {
+   "short": "Social Media (SMO) Expert",
+   "noun": "social media optimisation expert",
+   "category": "growth",
+   "localFocus": [
+    "channels",
+    "languages"
+   ],
+   "project": "a social media engagement",
+   "value": "social media profiles, content and growth",
+   "summary": "Social media optimisation and management — profile set-up, content calendars, short-form video planning and community management on the platforms your customers actually use.",
+   "outcomes": [
+    "Optimised profiles with consistent branding",
+    "A monthly content calendar your team can approve",
+    "Engagement and lead tracking linked to your site"
+   ]
+  },
+  "S07": {
+   "short": "Ecommerce Developer",
+   "noun": "ecommerce developer",
+   "category": "web",
+   "localFocus": [
+    "payments",
+    "commerce",
+    "web",
+    "privacy"
+   ],
+   "project": "an ecommerce store build",
+   "value": "online stores with local payments and fast checkout",
+   "summary": "Online stores on Shopify, WooCommerce or custom stacks — product catalogues, local payment gateways, shipping rules, marketplace sync and fast checkout.",
+   "outcomes": [
+    "Checkout with the payment methods your buyers expect",
+    "Inventory and orders synced with marketplaces",
+    "Product pages built for search and conversion"
+   ]
+  },
+  "S08": {
+   "short": "Software Developer",
+   "noun": "custom software developer",
+   "category": "app",
+   "localFocus": [
+    "privacy",
+    "payments",
+    "languages"
+   ],
+   "project": "a custom software project",
+   "value": "custom web apps, portals and internal tools",
+   "summary": "Custom web applications, SaaS MVPs, client portals and internal tools — scoped in milestones, built on maintainable stacks and handed over with documentation.",
+   "outcomes": [
+    "Software that fits your process instead of the reverse",
+    "Role-based access, audit logs and backups",
+    "Documentation and a clean hand-over to your team"
+   ]
+  },
+  "S09": {
+   "short": "ERP Developer",
+   "noun": "ERP developer",
+   "category": "app",
+   "localFocus": [
+    "web",
+    "privacy",
+    "languages"
+   ],
+   "project": "an ERP implementation",
+   "value": "ERP set-up, customisation and integrations",
+   "summary": "ERP implementation, customisation and integration (Odoo, ERPNext or custom modules) — inventory, purchasing, accounting and production connected to your website and tools.",
+   "outcomes": [
+    "Inventory, purchasing and accounts in one system",
+    "Integrations with your store, CRM and tax/e-invoicing",
+    "Clean data migration from spreadsheets or legacy tools"
+   ]
+  },
+  "S10": {
+   "short": "CRM Developer",
+   "noun": "CRM developer",
+   "category": "app",
+   "localFocus": [
+    "privacy",
+    "channels"
+   ],
+   "project": "a CRM project",
+   "value": "CRM set-up, pipelines and automation",
+   "summary": "CRM set-up and custom pipelines (HubSpot, Zoho, Salesforce or custom) — lead capture from every channel, automated follow-ups and dashboards your sales team will actually use.",
+   "outcomes": [
+    "Every lead captured automatically from site, ads and WhatsApp",
+    "Pipelines and follow-up reminders that match your sales process",
+    "Dashboards for conversion and response times"
+   ]
+  },
+  "S11": {
+   "short": "AI Automation Developer",
+   "noun": "AI automation developer",
+   "category": "growth",
+   "localFocus": [
+    "privacy",
+    "channels",
+    "languages"
+   ],
+   "project": "an AI automation project",
+   "value": "AI workflows that remove repetitive work",
+   "summary": "AI workflow automation — document processing, email and ticket triage, report generation and AI agents connected to your tools with n8n, Make, Zapier or custom code.",
+   "outcomes": [
+    "Repetitive tasks automated end-to-end",
+    "Human review where accuracy matters",
+    "Logged, monitored workflows with cost limits"
+   ]
+  },
+  "S12": {
+   "short": "Google Ads Specialist",
+   "noun": "Google Ads specialist",
+   "category": "growth",
+   "localFocus": [
+    "languages",
+    "search",
+    "channels"
+   ],
+   "project": "a Google Ads campaign set-up",
+   "value": "Google Ads campaigns built for leads and sales",
+   "summary": "Google Ads and PPC management — search, Performance Max and shopping campaigns with proper conversion tracking, negative keywords and landing-page testing.",
+   "outcomes": [
+    "Conversion tracking you can trust (GA4 + Ads)",
+    "Search terms and negatives reviewed regularly",
+    "Landing pages tested against cost per lead"
+   ]
+  },
+  "S13": {
+   "short": "WhatsApp API Developer",
+   "noun": "WhatsApp Business API developer",
+   "category": "growth",
+   "localFocus": [
+    "channels",
+    "privacy",
+    "languages"
+   ],
+   "project": "a WhatsApp API integration",
+   "value": "WhatsApp Business API, chatbots and automation",
+   "summary": "WhatsApp Business Platform (Cloud API) set-up — verified sender, approved templates, chatbots, order and appointment notifications, and CRM integration.",
+   "outcomes": [
+    "Verified business number and approved message templates",
+    "Automated replies, notifications and lead capture",
+    "Conversations synced with your CRM"
+   ]
+  },
+  "S14": {
+   "short": "Landing Page Designer",
+   "noun": "landing page designer",
+   "category": "web",
+   "localFocus": [
+    "web",
+    "privacy",
+    "languages"
+   ],
+   "project": "a landing page",
+   "value": "high-converting landing pages for ads and launches",
+   "summary": "Landing pages for ads, launches and lead generation — clear offers, fast load times, A/B-testable sections and tracking wired to your ad platforms and CRM.",
+   "outcomes": [
+    "A focused page with one clear conversion goal",
+    "Load times that keep ad costs down",
+    "Tracking connected to Google Ads, Meta and your CRM"
+   ]
+  }
+ },
+ "areas": {
+  "loc-nh-in-delhi-laxmi-nagar": {
+   "note": "An East Delhi commercial area known for coaching institutes, training centres and busy local retail.",
+   "industries": [
+    "education",
+    "retail"
+   ]
+  },
+  "loc-nh-in-delhi-connaught-place": {
+   "note": "Delhi’s central business district, with corporate and bank offices, restaurants and flagship retail stores.",
+   "industries": [
+    "finance",
+    "consulting",
+    "hospitality",
+    "retail"
+   ]
+  },
+  "loc-nh-in-delhi-vasant-kunj": {
+   "note": "A South-West Delhi residential area with shopping malls, schools and hospitals.",
+   "industries": [
+    "retail",
+    "healthcare",
+    "education"
+   ]
+  },
+  "loc-nh-in-delhi-saket": {
+   "note": "A South Delhi area with malls, hospitals, offices and residential colonies.",
+   "industries": [
+    "healthcare",
+    "retail",
+    "consulting"
+   ]
+  },
+  "loc-nh-in-delhi-hauz-khas": {
+   "note": "A South Delhi neighbourhood known for cafés, restaurants, boutiques and design studios.",
+   "industries": [
+    "hospitality",
+    "fashion",
+    "media"
+   ]
+  },
+  "loc-nh-in-delhi-dwarka": {
+   "note": "A large planned sub-city in South-West Delhi near the airport, with residential sectors, schools, hospitals and local businesses.",
+   "industries": [
+    "education",
+    "healthcare",
+    "realestate",
+    "logistics"
+   ]
+  },
+  "loc-nh-in-delhi-rohini": {
+   "note": "A large residential sub-city in North-West Delhi with schools, clinics and neighbourhood retailers.",
+   "industries": [
+    "education",
+    "healthcare",
+    "retail"
+   ]
+  },
+  "loc-nh-in-delhi-nehru-place": {
+   "note": "One of India’s best-known IT and computer-hardware markets, surrounded by office towers.",
+   "industries": [
+    "it",
+    "retail",
+    "startups"
+   ]
+  },
+  "loc-nh-in-delhi-greater-kailash": {
+   "note": "A South Delhi residential area whose M-Block and N-Block markets are full of boutiques, restaurants and clinics.",
+   "industries": [
+    "fashion",
+    "hospitality",
+    "healthcare"
+   ]
+  },
+  "loc-nh-in-delhi-lajpat-nagar": {
+   "note": "A South-East Delhi shopping hub; its Central Market sells fashion, fabrics and household goods.",
+   "industries": [
+    "retail",
+    "fashion",
+    "textiles"
+   ]
+  },
+  "loc-nh-in-delhi-karol-bagh": {
+   "note": "A major Central Delhi shopping district for jewellery, apparel and auto parts, with many hotels.",
+   "industries": [
+    "retail",
+    "fashion",
+    "automotive",
+    "hospitality"
+   ]
+  },
+  "loc-nh-in-delhi-okhla": {
+   "note": "Home to the Okhla Industrial Area: manufacturers, garment exporters, printers and company offices.",
+   "industries": [
+    "manufacturing",
+    "textiles",
+    "logistics"
+   ]
+  },
+  "loc-nh-in-delhi-pitampura": {
+   "note": "A North-West Delhi residential and commercial area next to the Netaji Subhash Place office district.",
+   "industries": [
+    "consulting",
+    "retail",
+    "education"
+   ]
+  },
+  "loc-nh-in-delhi-janakpuri": {
+   "note": "A West Delhi residential area with a district centre of offices, hospitals and coaching institutes.",
+   "industries": [
+    "healthcare",
+    "education",
+    "consulting"
+   ]
+  },
+  "loc-nh-in-delhi-mayur-vihar": {
+   "note": "An East Delhi residential area on the Noida border, with schools, clinics and local businesses.",
+   "industries": [
+    "education",
+    "healthcare",
+    "retail"
+   ]
+  },
+  "loc-nh-in-delhi-civil-lines": {
+   "note": "A North Delhi area of government offices and older residential estates, close to the University of Delhi’s North Campus.",
+   "industries": [
+    "government",
+    "education"
+   ]
+  },
+  "loc-nh-in-delhi-chanakyapuri": {
+   "note": "Delhi’s diplomatic enclave, home to embassies, high commissions, international organisations and hotels.",
+   "industries": [
+    "government",
+    "hospitality",
+    "consulting"
+   ]
+  },
+  "loc-nh-in-delhi-defence-colony": {
+   "note": "A South Delhi residential colony whose market is known for restaurants, clinics and professional offices.",
+   "industries": [
+    "hospitality",
+    "healthcare",
+    "consulting"
+   ]
+  },
+  "loc-nh-in-delhi-south-extension": {
+   "note": "A South Delhi high street of fashion brands, showrooms, restaurants and clinics.",
+   "industries": [
+    "retail",
+    "fashion",
+    "healthcare"
+   ]
+  },
+  "loc-nh-in-delhi-vasant-vihar": {
+   "note": "An upscale South-West Delhi residential area with a community market of restaurants, boutiques and clinics.",
+   "industries": [
+    "hospitality",
+    "fashion",
+    "healthcare"
+   ]
+  },
+  "loc-nh-in-delhi-preet-vihar": {
+   "note": "An East Delhi residential and commercial area with coaching institutes and neighbourhood businesses.",
+   "industries": [
+    "education",
+    "retail"
+   ]
+  },
+  "loc-nh-in-gurugram-cyber-city": {
+   "note": "DLF Cyber City, Gurugram’s office hub for multinational, IT, consulting and financial-services companies.",
+   "industries": [
+    "it",
+    "consulting",
+    "finance",
+    "startups"
+   ]
+  },
+  "loc-nh-in-gurugram-golf-course-road": {
+   "note": "A Gurugram corridor of premium residential towers, corporate offices and hotels.",
+   "industries": [
+    "realestate",
+    "consulting",
+    "hospitality"
+   ]
+  },
+  "loc-nh-in-gurugram-sohna-road": {
+   "note": "A fast-growing Gurugram corridor of residential projects, offices and shopping centres.",
+   "industries": [
+    "realestate",
+    "retail",
+    "startups"
+   ]
+  },
+  "loc-nh-in-gurugram-dlf-phase-1": {
+   "note": "An established Gurugram residential area close to corporate offices and local markets.",
+   "industries": [
+    "realestate",
+    "startups",
+    "healthcare"
+   ]
+  },
+  "loc-nh-in-gurugram-dlf-phase-5": {
+   "note": "A Gurugram residential area near Golf Course Road, with many start-ups, co-working spaces and premium housing.",
+   "industries": [
+    "startups",
+    "realestate",
+    "consulting"
+   ]
+  },
+  "loc-nh-in-gurugram-sector-29": {
+   "note": "Gurugram’s best-known food and nightlife district, next to Leisure Valley park.",
+   "industries": [
+    "hospitality",
+    "media"
+   ]
+  },
+  "loc-nh-in-gurugram-sector-56": {
+   "note": "A Gurugram residential sector near Golf Course Road, with local markets and small businesses.",
+   "industries": [
+    "retail",
+    "education",
+    "healthcare"
+   ]
+  },
+  "loc-nh-in-noida-sector-62": {
+   "note": "One of Noida’s main IT and institutional hubs, with technology companies, institutes and offices.",
+   "industries": [
+    "it",
+    "education",
+    "startups"
+   ]
+  },
+  "loc-nh-in-noida-sector-18": {
+   "note": "Noida’s main shopping and commercial district, with malls, showrooms, restaurants and offices.",
+   "industries": [
+    "retail",
+    "hospitality",
+    "fashion"
+   ]
+  },
+  "loc-nh-in-noida-sector-15": {
+   "note": "A central Noida residential sector with clinics, schools and small offices.",
+   "industries": [
+    "healthcare",
+    "education",
+    "consulting"
+   ]
+  },
+  "loc-nh-in-noida-sector-137": {
+   "note": "A sector on the Noida–Greater Noida Expressway with high-rise housing and IT offices.",
+   "industries": [
+    "it",
+    "realestate"
+   ]
+  },
+  "loc-nh-in-noida-sector-50": {
+   "note": "A Noida residential sector with schools, clinics and a busy central market.",
+   "industries": [
+    "education",
+    "healthcare",
+    "retail"
+   ]
+  },
+  "loc-nh-in-noida-sector-128": {
+   "note": "A sector on the Noida–Greater Noida Expressway with residential townships, schools and offices.",
+   "industries": [
+    "realestate",
+    "education",
+    "it"
+   ]
+  }
+ }
+}

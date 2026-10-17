@@ -1,5 +1,7 @@
 # Start here: this release needs an Nginx routing change
 
+> October 2026 release notes, credential rotation and the static prerender fallback (`scripts/prerender_static.py`) are in [SEO_RELEASE_2026-10.md](SEO_RELEASE_2026-10.md).
+
 **Uploading the ZIP, rebuilding React and restarting FastAPI are not enough.** The observed public site still serves a small static CRA shell while the backend renderer on port 8018 supplies the correct content. Until the public virtual host proxies page requests to that backend, the live SEO repair is not deployed.
 
 This package does not access SSH or change the live server. The instructions target `/var/www/erfreelancers`, `erfreelancers.service` and `127.0.0.1:8018`; verify these against the existing VPS first.
@@ -65,7 +67,8 @@ The required live homepage response contains one H1, `script#page-data` with `ki
 - Individual location pages move from `/locations/india/delhi/` to `/india/delhi/`.
 - Individual service/location pages move from `/locations/india/delhi/freelance-web-developer/` to `/india/delhi/freelance-web-developer/`.
 - Valid old paths get a single backend-issued **301**, preserving query parameters. Do not add a blanket Nginx `/locations/` rewrite; it would incorrectly redirect invalid locations and could break the directory.
-- Synthetic/unknown places stay **404**. Existing review-required landing pages stay **noindex** until properly approved; they are not a failed deployment just because they are not indexable.
+- Synthetic/unknown places stay **404**. With the default `LANDING_INDEX_SCOPE=country-city-ncr`, service pages for countries, cities and the Delhi NCR neighbourhoods are indexable from the reviewed market-facts dataset. Other neighbourhood pages stay **noindex**; that is policy, not a failed deployment.
+- Location slugs mangled by the original import (`/brazil/s-o-paulo/`, `/colombia/bogot-/`) now redirect once (301) to clean slugs (`/brazil/sao-paulo/`, `/colombia/bogota/`).
 
 `preflight.sh` and `verify_release.sh` exercise these differences. The verifier deliberately tests a pending landing page by comparing its real status/robots with the API instead of demanding `index` for every URL.
 

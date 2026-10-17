@@ -142,7 +142,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ onOpenEnquiry }) => {
               Submit your project brief
             </button>
             <a
-              href="https://wa.me/919711623561?text=Hi%20Rajeev,%20I%20have%20a%20question%20about%20freelancer%20services"
+              href="https://wa.me/918800774388?text=Hi%20Rajeev,%20I%20have%20a%20question%20about%20freelancer%20services"
               target="_blank"
               rel="noreferrer"
               className="rounded-xl bg-emerald-600 hover:bg-emerald-500 px-4 py-3 text-xs sm:text-sm font-bold text-white flex items-center gap-2 shadow-md transition-all"

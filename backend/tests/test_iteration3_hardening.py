@@ -7,8 +7,8 @@ import pytest
 import requests
 
 BASE_URL = "https://marketplace-hardened.preview.emergentagent.com".rstrip("/")
-ADMIN_EMAIL = "rajeev.pytech@gmail.com"
-ADMIN_PASSWORD = "ErFreelancer@2026Admin"
+ADMIN_EMAIL = os.environ.get("ADMIN_EMAIL", "")
+ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "")  # never commit real credentials
 
 
 @pytest.fixture(scope="session")

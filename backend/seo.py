@@ -1,4 +1,10 @@
-"""Sitemaps describe published URLs, never the theoretical location/service matrix."""
+"""Sitemaps describe indexable URLs only.
+
+Landing pages come from two sources: records an editor approved in the database,
+and the reviewed market-facts tier (market_content.location_indexable). The
+theoretical 50,000-page matrix is never listed: neighbourhoods outside the
+on-site cities stay browsable but noindex and out of the sitemap.
+"""
 import os
 import re
 from datetime import datetime, timezone
@@ -9,6 +15,7 @@ from fastapi import APIRouter, HTTPException, Query, Response
 import store
 from store import db, LOCATIONS, SERVICES, NO_ID
 from url_paths import canonical_location_path, public_page_record, preferred_page_records
+import market_content as mc
 
 router = APIRouter(prefix="/api")
 SHARD_SIZE = 5000
@@ -99,7 +106,7 @@ def url_entry(path, lastmod=None):
     return entry + "</url>\n"
 
 
-async def eligible_pages():
+async def page_records():
     # Only a small projection is needed, even for a collection with 50,000 records.
     projection = {"_id": 0, "canonicalPath": 1, "lifecycleState": 1, "publishedAt": 1, "serviceId": 1, "locationId": 1,
                   "lastModifiedAt": 1, "indexable": 1, "robots": 1,
@@ -109,23 +116,49 @@ async def eligible_pages():
     records = await db.pages.find({}, projection).sort("canonicalPath", 1).to_list(None)
     # Resolve migration conflicts before publication filtering. A current draft
     # must never inherit sitemap eligibility from an older conflicting row.
-    eligible = [public_page_record(record) for record in preferred_page_records(records) if is_public_page(record)]
+    return preferred_page_records(records)
+
+
+async def eligible_pages(records=None):
+    records = await page_records() if records is None else records
+    eligible = [public_page_record(record) for record in records if is_public_page(record)]
     return sorted(eligible, key=lambda record: record["canonicalPath"])
 
 
+def withdrawn_paths(records):
+    """Paths an editor explicitly rejected; they stay noindex even in the market-facts tier."""
+    return {canonical_location_path(r.get("canonicalPath")) for r in records
+            if (r.get("editorialReview") or {}).get("approved") is False}
+
+
+def market_landing_paths(exclude=()):
+    services = [s for s in SERVICES if public_service(s)]
+    paths = []
+    for location in sorted(LOCATIONS, key=lambda l: l["canonicalPath"]):
+        if public_location(location) and mc.location_indexable(location, LOCATIONS):
+            base = canonical_location_path(location["canonicalPath"])
+            paths.extend(p for p in (f"{base}{s['slug']}/" for s in services) if p not in exclude)
+    return paths
+
+
 async def sitemap_inventory():
-    pages = await eligible_pages()
+    records = await page_records()
+    pages = await eligible_pages(records)
     profiles = await db.freelancers.find(profile_query(), {"_id": 0, "slug": 1, "updatedAt": 1, "lastModifiedAt": 1}).sort("slug", 1).to_list(None)
     posts = await db.blog_posts.find({"status": "published", "indexable": {"$ne": False}}, {"_id": 0, "slug": 1, "updatedAt": 1, "publishedAt": 1}).sort("slug", 1).to_list(None)
     groups = {
         "sitemap-core.xml": [(p, None) for p in CORE_PATHS],
         "sitemap-services.xml": [(f"/services/{s['slug']}/", s.get("updatedAt")) for s in SERVICES if public_service(s)],
-        "sitemap-locations.xml": [(l["canonicalPath"], l.get("updatedAt")) for l in LOCATIONS if public_location(l)],
+        "sitemap-locations.xml": [(l["canonicalPath"], l.get("updatedAt")) for l in LOCATIONS if public_location(l) and mc.hub_indexable(l, LOCATIONS)],
         "sitemap-freelancers.xml": [(f"/freelancers/{p['slug']}/", p.get("updatedAt") or p.get("lastModifiedAt")) for p in profiles if p.get("slug")],
         "sitemap-blog.xml": [(f"/blog/{p['slug']}/", p.get("updatedAt") or p.get("publishedAt")) for p in posts if p.get("slug")],
     }
     for start in range(0, len(pages), SHARD_SIZE):
         groups[f"sitemap-pages-{start // SHARD_SIZE + 1}.xml"] = [(p["canonicalPath"], p.get("lastModifiedAt") or p.get("publishedAt")) for p in pages[start:start + SHARD_SIZE]]
+    # Reviewed market-facts pages; an approved DB record already listed above wins.
+    landing = market_landing_paths(exclude={p["canonicalPath"] for p in pages} | withdrawn_paths(records))
+    for start in range(0, len(landing), SHARD_SIZE):
+        groups[f"sitemap-landing-{start // SHARD_SIZE + 1}.xml"] = [(path, mc.REVIEWED) for path in landing[start:start + SHARD_SIZE]]
     # General shards also keep directory/blog sitemaps safely within protocol limits.
     for name, entries in list(groups.items()):
         if len(entries) > SHARD_SIZE:
@@ -166,7 +199,8 @@ async def sitemaps_manifest():
     return {"status": "ready", "googleSearchConsoleTarget": f"{domain()}/sitemap.xml",
             "totalPublicUrls": sum(map(len, groups.values())),
             "breakdown": {"corePages": count("sitemap-core"), "servicesHubs": count("sitemap-services"),
-                          "locationHubs": count("sitemap-locations"), "serviceLocationLandingPages": count("sitemap-pages"),
+                          "locationHubs": count("sitemap-locations"), "serviceLocationLandingPages": count("sitemap-pages") + count("sitemap-landing"),
+                          "reviewedLandingPages": count("sitemap-pages"), "marketFactsLandingPages": count("sitemap-landing"),
                           "freelancerProfiles": count("sitemap-freelancers"), "blogPosts": count("sitemap-blog")},
             "sitemapIndex": f"{domain()}/sitemap.xml", "robotsTxtUrl": f"{domain()}/robots.txt",
             "childSitemaps": [f"{domain()}/sitemaps/{name}" for name in groups],

@@ -59,7 +59,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
 
         {/* 3. Call (Direct Auto-Dial) */}
         <a
-          href="tel:+919711623561"
+          href="tel:+918800774388"
           id="mobile-nav-call"
           data-testid="mobile-nav-call"
           className="group flex flex-col items-center justify-center py-1 text-emerald-600 active:scale-95 transition-all hover:text-emerald-700 focus:outline-none"
@@ -76,7 +76,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
 
         {/* 4. WhatsApp (Direct WhatsApp Scoping) */}
         <a
-          href="https://wa.me/919711623561?text=Hi%20Rajeev,%20I%20am%20looking%20for%20a%20freelancer%20near%20me"
+          href="https://wa.me/918800774388?text=Hi%20Rajeev,%20I%20am%20looking%20for%20a%20freelancer%20near%20me"
           target="_blank"
           rel="noreferrer"
           id="mobile-nav-whatsapp"

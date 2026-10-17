@@ -341,7 +341,10 @@ def inspect_release(args, robot_parser, sitemap_pages):
     for old, new in [("/locations/india/delhi/", "/india/delhi/"),
                      ("/locations/india/delhi?utm_source=releasecheck", "/india/delhi/?utm_source=releasecheck"),
                      ("/locations/india/delhi/freelance-web-developer/", "/india/delhi/freelance-web-developer/"),
-                     ("/locations/india/delhi/freelance-web-developer?utm_source=releasecheck", "/india/delhi/freelance-web-developer/?utm_source=releasecheck")]:
+                     ("/locations/india/delhi/freelance-web-developer?utm_source=releasecheck", "/india/delhi/freelance-web-developer/?utm_source=releasecheck"),
+                     # Slugs mangled by the original import were cleaned in this release.
+                     ("/brazil/s-o-paulo/", "/brazil/sao-paulo/"),
+                     ("/colombia/bogot-/freelance-web-developer/", "/colombia/bogota/freelance-web-developer/")]:
         response = fetch(args.base_url + old, args.timeout)
         hops = response["redirects"]
         reports.append({"case": "legacy redirect " + old, "response": compact_response(response), "checks": [

@@ -10,7 +10,7 @@ from pathlib import Path
 from motor.motor_asyncio import AsyncIOMotorClient
 
 from content_builder import generate_structured_page, profile_is_available, profile_delivery_coverage
-from url_paths import canonical_location_path, page_path_candidates, public_location_record, public_page_record
+from url_paths import canonical_location_path, clean_location_slugs, page_path_candidates, public_location_record, public_page_record
 
 DATA_DIR = Path(__file__).parent / "data"
 
@@ -22,6 +22,8 @@ ALL_LOCATIONS = json.loads((DATA_DIR / "locations.json").read_text())
 LOCATIONS = [public_location_record(loc) for loc in ALL_LOCATIONS
              if not str(loc.get("sourceId", "")).startswith("gn-zone-")
              and loc.get("active", True) and loc.get("indexable", True)]
+# {old path: new path} for slugs the import mangled (/brazil/s-o-paulo/ -> /brazil/sao-paulo/).
+LEGACY_LOCATION_PATHS = clean_location_slugs(LOCATIONS)
 SEED_FREELANCERS = json.loads((DATA_DIR / "freelancers.json").read_text())
 
 SERVICES_BY_ID = {s["id"]: s for s in SERVICES}

@@ -8,53 +8,33 @@ interface BrandLogoProps {
   dark?: boolean;
 }
 
-export const BrandLogo: React.FC<BrandLogoProps> = ({
-  className = '',
-  iconSize = 36,
-  showSubtitle = true,
-  showBadge = true,
-  dark = false
-}) => {
-  return (
-    <div className={`flex items-center gap-3 select-none ${className}`}>
-      {/* Authentic Freelancer F-Mark SVG (Blue & Teal Origami Icon) */}
-      <div 
-        className="relative flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:scale-105"
-        style={{ width: iconSize, height: iconSize }}
-      >
-        <svg 
-          viewBox="0 0 130 126" 
-          fill="none" 
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-full drop-shadow-xs"
-        >
-          {/* Top Blue Bar */}
-          <path d="M28 6 L124 6 L100 34 L8 34 Z" fill="#2E37FE" />
-          {/* Teal Polygon Facet */}
-          <path d="M8 34 L62 34 L8 70 Z" fill="#13B59B" />
-          {/* Lower Blue Wing and Stem */}
-          <path d="M8 70 L62 34 L122 58 L54 78 L26 78 L26 100 L8 116 Z" fill="#2E37FE" />
-        </svg>
-      </div>
+// Original ER Freelancer mark (an "ER" monogram tile). Deliberately distinct from other marketplaces' logos.
+export const BrandMark: React.FC<{ size?: number }> = ({ size = 36 }) => (
+  <svg width={size} height={size} viewBox="0 0 64 64" aria-hidden="true" className="shrink-0">
+    <defs>
+      <linearGradient id="erf-g" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stopColor="#4F46E5" />
+        <stop offset="1" stopColor="#0F766E" />
+      </linearGradient>
+    </defs>
+    <rect width="64" height="64" rx="16" fill="url(#erf-g)" />
+    <path d="M14 18h17v6H21v5h9v6h-9v5h10v6H14z" fill="#fff" />
+    <path d="M35 18h9.5c5.2 0 8.5 3 8.5 7.6 0 3.3-1.7 5.7-4.5 6.8L54 46h-7.6l-4.4-12.6h-.4V46H35zm6.6 6v4.4h2.6c1.6 0 2.4-.8 2.4-2.2s-.8-2.2-2.4-2.2z" fill="#A7F3D0" />
+  </svg>
+);
 
-      {/* Brand Text */}
-      <div className="flex flex-col text-left">
-        <div className="flex items-center gap-1.5 leading-none">
-          <span className={`text-xl font-extrabold tracking-tight font-display ${dark ? 'text-white' : 'text-slate-900'}`}>
-            Freelancer
-          </span>
-          {showBadge && (
-            <span className="rounded-full bg-emerald-100 px-1.5 py-0.5 text-[10px] font-bold text-emerald-800 border border-emerald-200">
-              Verified
-            </span>
-          )}
-        </div>
-        {showSubtitle && (
-          <span className={`text-[10px] font-semibold tracking-wide mt-0.5 ${dark ? 'text-slate-400' : 'text-slate-500'}`}>
-            Hire Specialists Near You
-          </span>
-        )}
-      </div>
-    </div>
-  );
-};
+export const BrandLogo: React.FC<BrandLogoProps> = ({ className = '', iconSize = 36, showSubtitle = true, dark = false }) => (
+  <span className={`flex items-center gap-2.5 select-none ${className}`}>
+    <BrandMark size={iconSize} />
+    <span className="flex flex-col text-left leading-none">
+      <span className={`font-display text-xl font-extrabold tracking-tight ${dark ? 'text-white' : 'text-slate-900'}`}>
+        ER <span className="text-indigo-600">Freelancer</span>
+      </span>
+      {showSubtitle && (
+        <span className={`mt-1 text-[10px] font-semibold tracking-wide ${dark ? 'text-slate-400' : 'text-slate-500'}`}>
+          Founder-led web, app &amp; growth team
+        </span>
+      )}
+    </span>
+  </span>
+);

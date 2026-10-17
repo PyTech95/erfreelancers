@@ -39,7 +39,7 @@ export const Footer: React.FC<FooterProps> = ({
               
               <div className="flex items-center gap-2">
                 <a
-                  href="tel:+919711623561"
+                  href="tel:+918800774388"
                   className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-3.5 py-2.5 text-xs font-semibold text-white hover:bg-emerald-700 transition-colors shadow-xs"
                   title="Click to direct dial"
                 >
@@ -48,7 +48,7 @@ export const Footer: React.FC<FooterProps> = ({
                 </a>
 
                 <a
-                  href="https://wa.me/919711623561?text=Hi%20Rajeev,%20I%20am%20looking%20for%20a%20freelancer"
+                  href="https://wa.me/918800774388?text=Hi%20Rajeev,%20I%20am%20looking%20for%20a%20freelancer"
                   target="_blank"
                   rel="noreferrer"
                   className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl border border-emerald-600 bg-emerald-50 px-3.5 py-2.5 text-xs font-semibold text-emerald-800 hover:bg-emerald-100 transition-colors"
@@ -174,12 +174,12 @@ export const Footer: React.FC<FooterProps> = ({
         <div className="mt-12 pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>© {new Date().getFullYear()} ER Freelancer Platform. All rights reserved.</p>
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
-            <a href="tel:+919711623561" className="text-emerald-700 font-semibold hover:underline flex items-center gap-1">
+            <a href="tel:+918800774388" className="text-emerald-700 font-semibold hover:underline flex items-center gap-1">
               <Phone className="h-3 w-3" />
               <span>Call Helpline</span>
             </a>
             <span>•</span>
-            <a href="https://wa.me/919711623561" target="_blank" rel="noreferrer" className="text-emerald-700 font-semibold hover:underline flex items-center gap-1">
+            <a href="https://wa.me/918800774388" target="_blank" rel="noreferrer" className="text-emerald-700 font-semibold hover:underline flex items-center gap-1">
               <MessageSquare className="h-3 w-3" />
               <span>WhatsApp Support</span>
             </a>
