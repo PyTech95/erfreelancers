@@ -494,3 +494,16 @@ def test_mangled_import_slugs_are_cleaned_with_one_301(database):
     inventory = run(seo.sitemap_inventory())
     listed = " ".join(path for entries in inventory.values() for path, _ in entries)
     assert "s-o-paulo" not in listed and "bogot-/" not in listed and "/colombia/bogota/" in listed
+
+
+def test_privacy_sources_are_cited_and_law_names_read_correctly(database):
+    import market_content as mc
+    assert set(mc.PRIVACY_SOURCES) == set(mc.COUNTRIES)
+    assert all(src["url"].startswith(("https://", "http://")) and src["label"] for src in mc.PRIVACY_SOURCES.values())
+    app = FastAPI()
+    app.include_router(public_site.router)
+    html = TestClient(app).get("/india/freelance-web-developer/").text
+    assert f'<a href="{mc.PRIVACY_SOURCES["IN"]["url"]}" rel="noopener">' in html
+    for path in ["/pakistan/freelance-web-developer/", "/united-states/freelance-web-developer/", "/canada/freelance-seo-expert/", "/chile/"]:
+        text = json.dumps(run(public_site.page_data(path, 1)))
+        assert "around the No " not in text and "around the State" not in text and "around the PIPEDA" not in text and "around the Law" not in text

@@ -21,7 +21,7 @@ function LinkList({ links, cards = false }: { links?: PublicLink[]; cards?: bool
   </ul>;
 }
 
-const SOURCE_LINE = /^Source: (.+?) — (https:\/\/\S+)$/;
+const SOURCE_LINE = /^Source: (.+?) — (https?:\/\/\S+)$/;
 
 /** Section bodies are plain text: "• " lines become a list, "Source: label — https://…" a cited link. */
 function SectionBody({ text }: { text: string }) {

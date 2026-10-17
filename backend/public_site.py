@@ -382,7 +382,7 @@ def json_script(value):
     return json.dumps(value, ensure_ascii=False, default=str).replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026").replace("\u2028", "\\u2028").replace("\u2029", "\\u2029")
 
 
-SOURCE_LINE = re.compile(r"^Source: (?P<label>.+?) — (?P<url>https://[^\s<>\"']+)$")
+SOURCE_LINE = re.compile(r"^Source: (?P<label>.+?) — (?P<url>https?://[^\s<>\"']+)$")
 
 
 def render_body(text):

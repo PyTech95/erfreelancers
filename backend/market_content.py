@@ -312,6 +312,22 @@ def _facts(location, loc_by_id):
     return country, COUNTRIES.get(country.get("countryCode"))
 
 
+# How each law reads after "planned around …" when "the" + its name would be wrong.
+PRIVACY_REF = {
+    "PK": "GDPR-style privacy practice (Pakistan’s Personal Data Protection Bill is still a draft)",
+    "US": "state privacy laws such as California’s CCPA/CPRA",
+    "CA": "PIPEDA and, for Québec, Law 25",
+    "CL": "Law 19,628 and the incoming Law 21,719 (in force from December 2026)",
+}
+
+
+def privacy_ref(code, facts):
+    if code in PRIVACY_REF:
+        return PRIVACY_REF[code]
+    name = facts["privacy"]
+    return name if name.startswith(("Law ", "PIPEDA")) else "the " + name
+
+
 def source_line(code):
     src = PRIVACY_SOURCES.get(code) or {}
     return f"Source: {src['label']} — {src['url']}" if src.get("url") else ""
@@ -340,7 +356,8 @@ def requirement_bullets(facts, focus, country_name):
         elif item == "search":
             push(facts.get("search") or f"Google is the main search engine in {country_name}; plan content in {list_join(facts['languages'][:2])} and consider a {facts['tld']} domain where it helps.")
         elif item == "languages" and not english_only:
-            push(f"Interface and content languages: {list_join(facts['languages'])}" + (", with proper right-to-left (RTL) layouts." if facts.get("rtl") else "."))
+            rtl_covered = any("right-to-left" in note for note in out)
+            push(f"Interface and content languages: {list_join(facts['languages'])}" + (", with proper right-to-left (RTL) layouts." if facts.get("rtl") and not rtl_covered else "."))
     return out
 
 
@@ -370,7 +387,7 @@ def _local_faq(item, facts, country_name, code):
         src = PRIVACY_SOURCES.get(code) or {}
         ref = f" Official reference: {src['url']}" if src.get("url") else ""
         return {"question": f"Will the project follow {PRIVACY_SHORT.get(code, 'local privacy rules')} in {country_name}?",
-                "answer": f"The build is planned around the {facts['privacy']}: consent capture on forms, a clear privacy notice, data minimisation and suitable hosting. {facts['privacyNote']} Final legal wording should be checked by your legal adviser.{ref}"}
+                "answer": f"The build is planned around {privacy_ref(code, facts)}: consent capture on forms, a clear privacy notice, data minimisation and suitable hosting. {facts['privacyNote']} Final legal wording should be checked by your legal adviser.{ref}"}
     if item == "payments":
         return {"question": f"Which payment methods can be integrated for {country_name}?",
                 "answer": f"Common options include {list_join(facts['payments'])}. Gateways are chosen around your customers, settlement currency ({facts['currency']}) and fees, and the full checkout is tested on mobile."}
@@ -574,5 +591,5 @@ def market_faqs(location, loc_by_id):
         {"question": f"How do payments work for clients in {the(country['name'])}?",
          "answer": f"Projects are split into milestones agreed in writing. You can discuss your budget in {facts['currency']} or USD, and checkout integrations can use {list_join(facts['payments'][:3])}."},
         {"question": f"Do projects account for {poss(the(country['name']))} privacy rules?",
-         "answer": f"Yes — builds are planned around the {facts['privacy']}. {facts['privacyNote']} Final legal wording should be reviewed by your adviser."},
+         "answer": f"Yes — builds are planned around {privacy_ref(country.get('countryCode'), facts)}. {facts['privacyNote']} Final legal wording should be reviewed by your adviser."},
     ]
