@@ -7,6 +7,7 @@ on-site cities stay browsable but noindex and out of the sitemap.
 """
 import os
 import re
+import time
 from datetime import datetime, timezone
 from urllib.parse import urlsplit
 from xml.sax.saxutils import escape
@@ -141,7 +142,23 @@ def market_landing_paths(exclude=()):
     return paths
 
 
+_INVENTORY_CACHE = {"at": 0.0, "value": None}
+
+
 async def sitemap_inventory():
+    """Cached for SITEMAP_CACHE_SECONDS (default 300): building it reads every page record,
+    which takes seconds on a large collection, and each sitemap file request needs it."""
+    ttl = float(os.getenv("SITEMAP_CACHE_SECONDS", "300"))
+    now = time.monotonic()
+    if ttl > 0 and _INVENTORY_CACHE["value"] is not None and now - _INVENTORY_CACHE["at"] < ttl:
+        return _INVENTORY_CACHE["value"]
+    value = await build_sitemap_inventory()
+    if ttl > 0:
+        _INVENTORY_CACHE.update(at=now, value=value)
+    return value
+
+
+async def build_sitemap_inventory():
     records = await page_records()
     pages = await eligible_pages(records)
     profiles = await db.freelancers.find(profile_query(), {"_id": 0, "slug": 1, "updatedAt": 1, "lastModifiedAt": 1}).sort("slug", 1).to_list(None)
