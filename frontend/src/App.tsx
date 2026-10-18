@@ -229,7 +229,7 @@ function MarketplaceApp() {
       {/* Floating Quick Direct Consultation Bar (Bottom Left) */}
       {currentView !== 'admin' && <div className="fixed bottom-5 left-5 z-40 hidden lg:flex items-center gap-2 rounded-full bg-white/95 backdrop-blur-md p-1.5 shadow-xl border border-slate-200/80">
         <a
-          href="https://wa.me/919711623561?text=Hello%20Rajeev,%20I%20have%20a%20project%20enquiry"
+          href="https://wa.me/918800774388?text=Hello%20Rajeev,%20I%20have%20a%20project%20enquiry"
           target="_blank"
           rel="noreferrer"
           className="flex items-center gap-1.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-1.5 text-xs font-semibold shadow-xs transition-all hover:scale-102"
@@ -240,12 +240,12 @@ function MarketplaceApp() {
         </a>
 
         <a
-          href="tel:+919711623561"
+          href="tel:+918800774388"
           className="flex items-center gap-1.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white px-3 py-1.5 text-xs font-semibold shadow-xs transition-all hover:scale-102"
           aria-label="Direct Phone Line"
         >
           <Phone className="h-3.5 w-3.5" />
-          <span>Call: +91 97116 23561</span>
+          <span>Call: +91 88007 74388</span>
         </a>
       </div>}
 

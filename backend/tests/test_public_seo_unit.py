@@ -102,7 +102,9 @@ def test_sitemap_lists_only_actual_reviewed_records_and_truthful_lastmod(databas
     assert "Sector " not in " ".join(path for entries in inventory.values() for path, _ in entries)
 
 
-def test_pending_combination_is_noindex_and_read_never_creates_rows(database):
+def test_pending_combination_is_noindex_and_read_never_creates_rows(database, monkeypatch):
+    # Previous policy (no market-facts tier): generated combinations stay noindex.
+    monkeypatch.setenv("LANDING_INDEX_SCOPE", "none")
     service = store.SERVICES[0]
     location = next(l for l in store.LOCATIONS if l["slug"] == "delhi")
     path = location["canonicalPath"] + service["slug"] + "/"
@@ -117,7 +119,8 @@ def test_pending_combination_is_noindex_and_read_never_creates_rows(database):
     assert run(database.pages.count_documents({})) == 1
 
 
-def test_legacy_generated_claims_are_replaced_without_mutation(database):
+def test_legacy_generated_claims_are_replaced_without_mutation(database, monkeypatch):
+    monkeypatch.setenv("LANDING_INDEX_SCOPE", "none")
     record = published_record()
     record["editorialReview"] = {}
     record["modelProvenance"]["engine"] = "deterministic-structured-builder-v1"
@@ -288,7 +291,8 @@ def test_location_alias_query_pagination_and_no_slash_are_one_hop(database, monk
     assert client.get('/locations/australia/?page=99999', follow_redirects=False).status_code == 404
 
 
-def test_current_draft_conflict_does_not_inherit_legacy_publication(database):
+def test_current_draft_conflict_does_not_inherit_legacy_publication(database, monkeypatch):
+    monkeypatch.setenv("LANDING_INDEX_SCOPE", "none")
     from url_paths import canonical_location_path
     legacy = legacy_published_record()
     current = copy.deepcopy(legacy)
@@ -367,3 +371,139 @@ def test_location_matching_requires_explicit_delivery_scope_and_excludes_waitlis
     # mismatch or require onsite/remote permissions until a target is selected.
     assert {'scope-us', 'base-only', 'mode-missing'} <= {p['id'] for p in directory}
     assert run(public_site.page_data('/freelancers/waiting/', 1))['status'] == 404
+
+
+# --------------------------------------------------------------- market-facts tier
+def landing_path(slug_path, service_slug="freelance-web-developer"):
+    return slug_path + service_slug + "/"
+
+
+def test_market_tier_indexes_countries_cities_and_ncr_only(database):
+    import market_content as mc
+    delhi = run(public_site.page_data(landing_path("/india/delhi/"), 1))
+    assert delhi["status"] == 200 and delhi["robots"].startswith("index,")
+    assert delhi["page"]["modelProvenance"]["engine"] == "market-facts-v3"
+    assert "88007 74388" in json.dumps(delhi) or "8800774388" in json.dumps(delhi)
+    country = run(public_site.page_data(landing_path("/united-kingdom/"), 1))
+    assert country["robots"].startswith("index,") and "UK GDPR" in json.dumps(country)
+    ncr_area = next(l for l in store.LOCATIONS if l.get("type") == "neighborhood" and l.get("parentId") in mc.ONSITE_CITY_IDS)
+    assert run(public_site.page_data(landing_path(ncr_area["canonicalPath"]), 1))["robots"].startswith("index,")
+    remote_area = next(l for l in store.LOCATIONS if l.get("type") == "neighborhood" and l.get("parentId") not in mc.ONSITE_CITY_IDS and seo.public_location(l))
+    data = run(public_site.page_data(landing_path(remote_area["canonicalPath"]), 1))
+    assert data["status"] == 200 and data["robots"] == "noindex,follow"
+    hub = run(public_site.page_data(remote_area["canonicalPath"], 1))
+    assert hub["robots"] == "noindex,follow"
+    assert run(database.pages.count_documents({})) == 0
+
+
+def test_market_pages_differ_by_market_and_avoid_unsupported_claims(database):
+    paths = ["/india/delhi/", "/united-kingdom/london/", "/united-states/new-york/", "/united-arab-emirates/dubai/", "/germany/berlin/"]
+    pages = [run(public_site.page_data(landing_path(p), 1)) for p in paths if p in store.LOC_BY_PATH]
+    assert len(pages) >= 4
+    bodies = [json.dumps(p["sections"]) for p in pages]
+    assert len({p["title"] for p in pages}) == len(pages)
+    assert len({p["description"] for p in pages}) == len(pages)
+    for body in bodies:
+        lowered = body.lower()
+        for unsupported in ["1,500", "5.0 star", "40%", "60%", "within 24 hours", "sub-second", "near me", "verified local", "30-day", "escrow"]:
+            assert unsupported not in lowered
+    # Pages for different countries share well under half of their wording (5-word shingles).
+    def shingles(page):
+        words = re.findall(r"\w+", " ".join(s["body"] for s in page["sections"] if not s.get("links")).lower())
+        return {tuple(words[i:i + 5]) for i in range(len(words) - 5)}
+    sets = [shingles(p) for p in pages]
+    for i in range(len(sets)):
+        for j in range(i + 1, len(sets)):
+            if pages[i]["location"]["countryCode"] != pages[j]["location"]["countryCode"]:
+                assert len(sets[i] & sets[j]) / len(sets[i] | sets[j]) < 0.6
+
+
+def test_withdrawn_record_stays_noindex_and_out_of_sitemap(database):
+    path = landing_path("/india/delhi/")
+    service = store.SERVICES_BY_SLUG["freelance-web-developer"]
+    location = store.LOC_BY_PATH["/india/delhi/"]
+    record = generate_structured_page(service, location, [])
+    record["editorialReview"] = {"approved": False, "reviewerId": "editor", "reviewedAt": "2026-10-01T00:00:00Z"}
+    run(database.pages.insert_one(record))
+    assert run(public_site.page_data(path, 1))["robots"] == "noindex,follow"
+    inventory = run(seo.sitemap_inventory())
+    listed = {entry[0] for name, entries in inventory.items() for entry in entries}
+    assert path not in listed
+    assert landing_path("/india/noida/") in listed
+
+
+def test_sitemap_lists_market_tier_without_thin_neighbourhoods(database):
+    import market_content as mc
+    inventory = run(seo.sitemap_inventory())
+    landing = [path for name, entries in inventory.items() if name.startswith("sitemap-landing") for path, _ in entries]
+    hubs = [path for name, entries in inventory.items() if name.startswith("sitemap-locations") for path, _ in entries]
+    assert 1000 < len(landing) < 5000 and len(set(landing)) == len(landing)
+    for path in landing:
+        location = store.LOC_BY_PATH[path.rstrip("/").rpartition("/")[0] + "/"]
+        assert mc.location_indexable(location, store.LOCATIONS)
+    assert all(mc.hub_indexable(store.LOC_BY_PATH[p], store.LOCATIONS) for p in hubs)
+    assert "/singapore/singapore/freelance-web-developer/" not in landing
+    body = run(seo.sitemap_file("sitemap-landing-1.xml")).body.decode()
+    assert f"<lastmod>{mc.REVIEWED}" in body
+
+
+def test_landing_html_has_faq_schema_og_image_and_self_canonical(database):
+    app = FastAPI()
+    app.include_router(public_site.router)
+    client = TestClient(app)
+    response = client.get("/united-kingdom/london/freelance-web-developer/")
+    assert response.status_code == 200
+    html = response.text
+    assert '<link rel="canonical" href="https://erfreelancers.com/united-kingdom/london/freelance-web-developer/">' in html
+    assert 'og:image' in html and 'summary_large_image' in html
+    match = re.search(r'<script id="page-schema" type="application/ld\+json">(.*?)</script>', html, re.S)
+    graph = json.loads(match.group(1))[0]["@graph"]
+    types = {node["@type"] for node in graph}
+    assert {"FAQPage", "Service", "BreadcrumbList"} <= types
+    service_node = next(node for node in graph if node["@type"] == "Service")
+    assert service_node["areaServed"]["@type"] == "City"
+    crumbs = next(node for node in graph if node["@type"] == "BreadcrumbList")["itemListElement"]
+    assert [c["name"] for c in crumbs] == ["Home", "United Kingdom", "London", "Website Designer & Developer"]
+    assert crumbs[2]["item"] == "https://erfreelancers.com/united-kingdom/london/"
+    assert "<ul><li>" in html and "Freelance services for the United Kingdom" == run(public_site.page_data("/united-kingdom/", 1))["heading"]
+    assert "noindex" not in response.headers.get("x-robots-tag", "")
+
+
+def test_timezone_window_is_computed_from_iana_data():
+    import market_content as mc
+    london = mc.timezone_info("Europe/London")
+    assert london["overlap"] > 0 and not london["same"]
+    assert mc.timezone_info("Asia/Kolkata")["same"]
+    assert mc.timezone_info("America/Los_Angeles")["overlap"] == 0
+
+
+def test_mangled_import_slugs_are_cleaned_with_one_301(database):
+    assert store.LOC_BY_PATH["/brazil/sao-paulo/"]["name"] == "São Paulo"
+    assert "/brazil/s-o-paulo/" not in store.LOC_BY_PATH
+    app = FastAPI()
+    app.include_router(public_site.router)
+    client = TestClient(app)
+    for old, new in [("/brazil/s-o-paulo/", "/brazil/sao-paulo/"),
+                     ("/colombia/bogot-/freelance-web-developer/?utm_source=x", "/colombia/bogota/freelance-web-developer/?utm_source=x"),
+                     ("/locations/colombia/bogot-/chic-/", "/colombia/bogota/chico/")]:
+        response = client.get(old, follow_redirects=False)
+        assert response.status_code == 301, old
+        assert response.headers["location"] == new
+        assert client.get(new, follow_redirects=False).status_code == 200
+    assert client.get("/colombia/bogot-/made-up-service/", follow_redirects=False).status_code == 404
+    inventory = run(seo.sitemap_inventory())
+    listed = " ".join(path for entries in inventory.values() for path, _ in entries)
+    assert "s-o-paulo" not in listed and "bogot-/" not in listed and "/colombia/bogota/" in listed
+
+
+def test_privacy_sources_are_cited_and_law_names_read_correctly(database):
+    import market_content as mc
+    assert set(mc.PRIVACY_SOURCES) == set(mc.COUNTRIES)
+    assert all(src["url"].startswith(("https://", "http://")) and src["label"] for src in mc.PRIVACY_SOURCES.values())
+    app = FastAPI()
+    app.include_router(public_site.router)
+    html = TestClient(app).get("/india/freelance-web-developer/").text
+    assert f'<a href="{mc.PRIVACY_SOURCES["IN"]["url"]}" rel="noopener">' in html
+    for path in ["/pakistan/freelance-web-developer/", "/united-states/freelance-web-developer/", "/canada/freelance-seo-expert/", "/chile/"]:
+        text = json.dumps(run(public_site.page_data(path, 1)))
+        assert "around the No " not in text and "around the State" not in text and "around the PIPEDA" not in text and "around the Law" not in text

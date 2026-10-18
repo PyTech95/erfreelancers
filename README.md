@@ -2,13 +2,22 @@
 
 Production origin: https://erfreelancers.com
 
+**Latest release:** [deploy/SEO_RELEASE_2026-10.md](deploy/SEO_RELEASE_2026-10.md) covers the following:
+
+- market-facts landing pages (`backend/market_content.py`) and the `LANDING_INDEX_SCOPE` setting;
+- cleaned location slugs with 301s;
+- FAQ/breadcrumb schema;
+- phone number +91 88007 74388;
+- the `scripts/prerender_static.py` fallback;
+- required credential rotation.
+
 This release repairs public routing and search-engine access while preserving the existing React homepage and FastAPI/MongoDB application. It removes the location buttons below the globe and preserves pins, region controls and the visitor-location card.
 
 ## Deploy
 
 Start with **START_HERE.md** and **deploy/START_HERE.md** before updating the VPS. The backend preflight and public verification gates must pass. The important change is that Nginx must forward public HTML requests to FastAPI; a static `/index.html` fallback will bypass the SEO renderer and return false 200 responses. A minimal merge snippet is included in **deploy/nginx-existing-vhost-snippet.conf**. Preserve the live SSL, static, API and upload configuration; the full **deploy/nginx-erfreelancers.conf** is a reference rather than an instruction to overwrite a virtual host.
 
-Keep the current backend `.env`, MongoDB data, SMTP settings and admin credentials. Set `PRODUCTION_CANONICAL_DOMAIN=https://erfreelancers.com`. This package includes a built frontend and an npm lockfile. To rebuild:
+Keep the current backend `.env`, MongoDB data and SMTP settings, but rotate `ADMIN_PASSWORD` and `JWT_SECRET` (see the release guide). Set `PRODUCTION_CANONICAL_DOMAIN=https://erfreelancers.com`. This package includes a built frontend and an npm lockfile. To rebuild:
 
 ```bash
 cd frontend

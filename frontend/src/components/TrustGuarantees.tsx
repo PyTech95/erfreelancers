@@ -37,7 +37,7 @@ export const TrustGuarantees: React.FC<TrustGuaranteesProps> = ({ onOpenEnquiry 
       </div>
       <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
         <button data-testid="trust-start-project" onClick={onOpenEnquiry} className="w-full sm:w-auto rounded-xl bg-indigo-600 hover:bg-indigo-500 px-6 py-3.5 text-xs sm:text-sm font-bold text-white shadow-lg transition-all flex items-center justify-center gap-2">Discuss your requirements<ArrowRight className="h-4 w-4" /></button>
-        <a data-testid="trust-call-founder" href="tel:+919711623561" className="w-full sm:w-auto rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 px-6 py-3.5 text-xs sm:text-sm font-bold text-white transition-all text-center">Call Rajeev</a>
+        <a data-testid="trust-call-founder" href="tel:+918800774388" className="w-full sm:w-auto rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 px-6 py-3.5 text-xs sm:text-sm font-bold text-white transition-all text-center">Call Rajeev</a>
       </div>
     </div>
   </section>

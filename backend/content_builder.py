@@ -6,7 +6,7 @@ evidence and publication decisions belong to the editorial review workflow.
 from datetime import datetime, timezone
 from url_paths import canonical_location_path, verified_location_timezone
 
-PHONE = "+91 97116 23561"
+PHONE = "+91 88007 74388"
 EMAIL = "hello@erfreelancer.com"
 
 # Guidance describes work to discuss, not historical results or guarantees.
@@ -208,7 +208,7 @@ def generate_structured_page(service: dict, location: dict, available_freelancer
         "internal_link_ids": [f"/services/{service['slug']}/", location_path, "/freelancers/"],
         # A catalog ID alone is not evidence that a geographic fact was checked.
         "source_ids": [], "claims": [], "page_value_evidence": [],
-        "direct_contact": {"phone": "+919711623561", "email": EMAIL, "whatsapp": "+919711623561"},
+        "direct_contact": {"phone": "+918800774388", "email": EMAIL, "whatsapp": "+918800774388"},
         "review": {"status": "pending", "issues": issues.copy()},
     }
     now = _now()

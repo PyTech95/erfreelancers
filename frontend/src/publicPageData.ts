@@ -16,6 +16,8 @@ export interface PublicPageData {
   heading: string;
   sections: { heading: string; body: string; links?: PublicLink[] }[];
   links?: PublicLink[];
+  breadcrumbs?: PublicLink[];
+  faqs?: { question: string; answer: string }[];
   service?: ServiceDefinition;
   location?: LocationEntity;
   page?: PageRecord;

@@ -65,7 +65,7 @@ async def unhandled_exception(request: Request, exc: Exception):
 
 COORDINATOR = {
     "founderName": "Rajeev",
-    "founderWhatsApp": "+919711623561",
+    "founderWhatsApp": "+918800774388",
     "platformEmail": "hello@erfreelancer.com",
     "note": "Project enquiries reach ER Freelancer for scope review and assignment. Delivery, ownership and payment terms are agreed in writing.",
 }

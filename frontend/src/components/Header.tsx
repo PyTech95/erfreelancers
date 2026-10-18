@@ -13,7 +13,7 @@ const links = [
   ['world-map', 'Worldwide Map', '/#world-map'], ['locations-hub', 'Locations', '/locations/'], ['work', 'Work', '/work/'],
   ['how-it-works', 'How It Works', '/how-it-works/'], ['reviews', 'Project Standards', '/#reviews'], ['faq', 'FAQ', '/#faq'],
 ];
-const whatsapp = 'https://wa.me/919711623561?text=Hi%20Rajeev,%20I%20am%20looking%20for%20a%20freelancer';
+const whatsapp = 'https://wa.me/918800774388?text=Hi%20Rajeev,%20I%20am%20looking%20for%20a%20freelancer';
 
 export const Header: React.FC<HeaderProps> = ({ currentView, onOpenEnquiry }) => {
   const [open, setOpen] = useState(false);
@@ -33,12 +33,12 @@ export const Header: React.FC<HeaderProps> = ({ currentView, onOpenEnquiry }) =>
       </div>
     </div>
     <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-4 sm:px-6 lg:px-8">
-      <a data-testid="header-home" aria-label="Freelancer Homepage" href="/" className="header-brand min-w-0 text-left"><BrandLogo iconSize={34} /></a>
+      <a data-testid="header-home" aria-label="ER Freelancer homepage" href="/" className="header-brand min-w-0 text-left"><BrandLogo iconSize={34} /></a>
       <div className="flex shrink-0 items-center gap-2">
         <div className="hidden lg:flex items-center gap-1 mr-2">
           {(['public', 'freelancer', 'admin'] as const).map((item, i) => <a key={item} data-testid={`header-view-${item}`} href={viewPaths[item]} aria-current={currentView === item ? 'page' : undefined} className={`rounded-lg px-3 py-2 text-xs font-semibold transition-colors ${currentView === item ? 'bg-slate-100 text-slate-900' : 'text-slate-500 hover:bg-slate-50'}`}>{['Client', 'Specialist', 'Admin'][i]}</a>)}
         </div>
-        <a data-testid="header-call" href="tel:+919711623561" className="hidden sm:inline-flex items-center gap-2 rounded-lg border border-slate-200 px-3 py-2.5 text-xs font-semibold hover:bg-slate-50"><Phone size={14} className="text-emerald-600" />Call</a>
+        <a data-testid="header-call" href="tel:+918800774388" className="hidden sm:inline-flex items-center gap-2 rounded-lg border border-slate-200 px-3 py-2.5 text-xs font-semibold hover:bg-slate-50"><Phone size={14} className="text-emerald-600" />Call</a>
         <button data-testid="header-post-project" onClick={() => { onOpenEnquiry(); setOpen(false); }} className="hidden sm:inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-indigo-700"><Plus size={15} />Post a Requirement</button>
         <button data-testid="header-menu-toggle" aria-label={open ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={open} aria-controls="header-mobile-menu" onClick={() => setOpen(!open)} className="lg:hidden grid h-11 w-11 place-items-center rounded-lg text-slate-700 transition-colors hover:bg-slate-100">{open ? <X size={23} /> : <Menu size={23} />}</button>
       </div>
