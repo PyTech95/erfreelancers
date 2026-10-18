@@ -14,6 +14,7 @@ from xml.etree import ElementTree
 os.environ.setdefault("MONGO_URL", "mongodb://127.0.0.1:27017")
 os.environ.setdefault("DB_NAME", "erf_public_seo_test")
 os.environ.setdefault("PRODUCTION_CANONICAL_DOMAIN", "https://erfreelancers.com")
+os.environ["SITEMAP_CACHE_SECONDS"] = "0"  # each test uses its own mock database
 
 import pytest
 from fastapi import FastAPI
@@ -507,3 +508,19 @@ def test_privacy_sources_are_cited_and_law_names_read_correctly(database):
     for path in ["/pakistan/freelance-web-developer/", "/united-states/freelance-web-developer/", "/canada/freelance-seo-expert/", "/chile/"]:
         text = json.dumps(run(public_site.page_data(path, 1)))
         assert "around the No " not in text and "around the State" not in text and "around the PIPEDA" not in text and "around the Law" not in text
+
+
+def test_sitemap_inventory_is_cached_between_requests(database, monkeypatch):
+    monkeypatch.setenv("SITEMAP_CACHE_SECONDS", "300")
+    monkeypatch.setattr(seo, "_INVENTORY_CACHE", {"at": 0.0, "value": None})
+    calls = []
+    original = seo.build_sitemap_inventory
+
+    async def counted():
+        calls.append(1)
+        return await original()
+    monkeypatch.setattr(seo, "build_sitemap_inventory", counted)
+    first = run(seo.sitemap_inventory())
+    run(seo.sitemap_file("sitemap-core.xml"))
+    run(seo.sitemap_index())
+    assert run(seo.sitemap_inventory()) is first and len(calls) == 1
