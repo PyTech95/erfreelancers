@@ -529,7 +529,7 @@ def test_sitemap_inventory_is_cached_between_requests(database, monkeypatch):
 def test_seeded_blog_posts_publish_once_and_render_as_html(database, monkeypatch):
     import blog
     monkeypatch.setattr(blog, "db", database)
-    assert run(blog.seed_blog_posts()) == 2
+    assert run(blog.seed_blog_posts()) == 6
     assert run(blog.seed_blog_posts()) == 0
     slug = "website-development-cost-delhi"
     run(database.blog_posts.delete_one({"slug": slug}))
