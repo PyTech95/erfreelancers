@@ -524,3 +524,29 @@ def test_sitemap_inventory_is_cached_between_requests(database, monkeypatch):
     run(seo.sitemap_file("sitemap-core.xml"))
     run(seo.sitemap_index())
     assert run(seo.sitemap_inventory()) is first and len(calls) == 1
+
+
+def test_seeded_blog_posts_publish_once_and_render_as_html(database, monkeypatch):
+    import blog
+    monkeypatch.setattr(blog, "db", database)
+    assert run(blog.seed_blog_posts()) == 6
+    assert run(blog.seed_blog_posts()) == 0
+    slug = "website-development-cost-delhi"
+    run(database.blog_posts.delete_one({"slug": slug}))
+    assert run(blog.seed_blog_posts()) == 0  # an admin deletion is respected
+    app = FastAPI()
+    app.include_router(public_site.router)
+    client = TestClient(app)
+    assert client.get(f"/blog/{slug}/").status_code == 404
+    response = client.get("/blog/dubai-business-website-checklist/")
+    assert response.status_code == 200
+    html = response.text
+    assert "<h2>1. Arabic and English, done properly</h2>" in html
+    assert '<a href="/united-arab-emirates/dubai/freelance-web-developer/">' in html
+    assert '<a href="https://uaelegislation.gov.ae/en/legislations/1972" rel="noopener">' in html
+    assert "## " not in html.split('id="page-data"')[0]
+    inventory = run(seo.sitemap_inventory())
+    assert ("/blog/dubai-business-website-checklist/" in [p for p, _ in inventory["sitemap-blog.xml"]])
+    text = json.dumps(run(database.blog_posts.find({}, {"_id": 0}).to_list(None))).lower()
+    for unsupported in ["within 24 hours", "guarantee", "near me", "5.0 star", "escrow"]:
+        assert unsupported not in text

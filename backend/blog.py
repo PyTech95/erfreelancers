@@ -1,4 +1,6 @@
+import json
 import re
+from pathlib import Path
 from typing import Literal, Optional
 
 from fastapi import APIRouter, Depends, HTTPException, Query
@@ -38,10 +40,34 @@ class DeleteResponse(BaseModel):
     success: bool
 
 
+SEED_FILE = Path(__file__).parent / 'data' / 'blog_seed.json'
+
+
 async def init_blog():
     await db.blog_posts.create_index('id', unique=True)
     await db.blog_posts.create_index('slug', unique=True)
     await db.blog_posts.create_index([('status', 1), ('publishedAt', -1)])
+    await seed_blog_posts()
+
+
+async def seed_blog_posts():
+    """Publish posts shipped in data/blog_seed.json once each.
+
+    A slug is seeded only the first time it is seen (recorded in blog_seed_log), so a
+    post an admin later edits or deletes is never overwritten or brought back.
+    """
+    if not SEED_FILE.is_file():
+        return 0
+    added = 0
+    for item in json.loads(SEED_FILE.read_text()):
+        slug = item['slug']
+        if await db.blog_seed_log.find_one({'slug': slug}) or await db.blog_posts.find_one({'slug': slug}):
+            await db.blog_seed_log.update_one({'slug': slug}, {'$setOnInsert': {'slug': slug, 'at': now_iso()}}, upsert=True)
+            continue
+        await save_post(PostBody(**{**item, 'status': 'published'}))
+        await db.blog_seed_log.insert_one({'slug': slug, 'at': now_iso()})
+        added += 1
+    return added
 
 
 @router.get('/admin/blog', response_model=PostList)
