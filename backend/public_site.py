@@ -402,6 +402,37 @@ def render_body(text):
     return html + ("<ul>" + "".join(items) + "</ul>" if items else "")
 
 
+def _inline_markdown(text):
+    """Escaped text with **bold** and [label](/path or https://url) links."""
+    out = escape(text)
+    out = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", out)
+    def anchor(m):
+        label, href = m.group(1), m.group(2)
+        if not (href.startswith("/") and not href.startswith("//") or href.startswith("https://")):
+            return label
+        rel = "" if href.startswith("/") else ' rel="noopener"'
+        return f'<a href="{href}"{rel}>{label}</a>'
+    return re.sub(r"\[([^\]]+)\]\(([^)\s]+)\)", anchor, out)
+
+
+def render_markdown(text):
+    """Server HTML for blog posts (the React page renders the same Markdown with react-markdown)."""
+    html, items = "", []
+    for line in [line.strip() for line in str(text or "").split("\n") if line.strip()]:
+        if line.startswith(("- ", "* ")):
+            items.append(f"<li>{_inline_markdown(line[2:])}</li>")
+            continue
+        if items:
+            html, items = html + "<ul>" + "".join(items) + "</ul>", []
+        if line.startswith("### "):
+            html += f"<h3>{_inline_markdown(line[4:])}</h3>"
+        elif line.startswith("## "):
+            html += f"<h2>{_inline_markdown(line[3:])}</h2>"
+        else:
+            html += f"<p>{_inline_markdown(line)}</p>"
+    return html + ("<ul>" + "".join(items) + "</ul>" if items else "")
+
+
 def render_links(links):
     safe = [l for l in links if isinstance(l.get("href"), str) and (l["href"].startswith("/") and not l["href"].startswith("//") or l["href"].startswith(("mailto:", "tel:")))]
     return "<ul>" + "".join(f'<li><a href="{escape(l["href"], quote=True)}">{escape(str(l["label"]))}</a></li>' for l in safe) + "</ul>" if safe else ""
@@ -438,7 +469,7 @@ def render_html(data, template=None):
     body += f'<h1>{escape(data["heading"])}</h1><p>{escape(data["description"])}</p>'
     for item in data.get("sections", []):
         body += "<section>" + (f'<h2>{escape(item["heading"])}</h2>' if item.get("heading") else "")
-        body += render_body(item.get("body", ""))
+        body += render_markdown(item.get("body", "")) if data["kind"] == "post" else render_body(item.get("body", ""))
         body += render_links(item.get("links", [])) + "</section>"
     for profile in data.get("profiles", []):
         body += f'<article><h2><a href="/freelancers/{escape(profile["slug"], quote=True)}/">{escape(profile["displayName"])}</a></h2><p>{escape(profile.get("primaryTitle", ""))}</p><p>{escape(profile.get("bio", ""))}</p></article>'
